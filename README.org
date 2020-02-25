@@ -1,2 +1,3 @@
 * 我的 bibtex 列表
-
+test inline formula $\alpha$, and
+$$\frac{a}{b}$$
