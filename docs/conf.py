@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "ufengger's bibtex"
+project = "Reading Notes"
 copyright = '2020, Haifeng Wu'
 author = 'Haifeng Wu'
 
@@ -28,7 +28,9 @@ author = 'Haifeng Wu'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.mathjax'
+    'sphinx.ext.mathjax',
+    'sphinxcontrib.bibtex',
+    'sphinxcontrib.proof'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -47,6 +49,9 @@ language = 'zh_CN'
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 master_doc = 'index'
+
+# numfig settings
+numfig = True
 
 
 # -- Options for HTML output -------------------------------------------------
