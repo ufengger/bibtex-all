@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = "Reading Notes"
-copyright = '2020, Haifeng Wu'
-author = 'Haifeng Wu'
+copyright = '2020, 侠之大者'
+author = '吴侠客'
 
 
 # -- General configuration ---------------------------------------------------
