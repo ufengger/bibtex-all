@@ -11,3 +11,4 @@ Reading Notes
    :caption: Contents:
 
    Vil_indoor_2019.rst
+   Fletcher_hybrid_1987.rst
