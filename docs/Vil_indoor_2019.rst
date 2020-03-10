@@ -31,7 +31,7 @@ Notes on: Carrera Villacres, J. L. et al. (2019): A particle filter-based reinfo
 
 - global localization problem. 初始定位。
 
-- kidnapped-robot problem. 文章里定义不清楚。
+- kidnapped-robot problem. 参见 `wiki <https://en.wikipedia.org/wiki/Kidnapped_robot_problem>`_ 。
 
 PFRL
    Particle filter-based reinforcement learning.
