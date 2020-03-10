@@ -67,3 +67,16 @@ RL:
 - 室内区域预测在定位终端上做（计算量小）；
 
 - PFRL 在服务端做（需要大量计算）。
+
+相关工作
+--------
+
+- IMUs-based PDR
+
+- Ranging vs Fingerprinting
+
+- HMM
+
+- RL
+
+- PF
