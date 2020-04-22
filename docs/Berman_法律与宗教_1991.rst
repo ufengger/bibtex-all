@@ -47,7 +47,7 @@ Notes on: Berman, H. J. (1991): 法律与宗教
 戏剧化了。如英谚所云，正义不但要被伸张，而且必须眼见着被伸张 (As the English
 say, justice must not only be done, it must also be *seen* to be done)。这并不是
 说，眼不见则不能接受；而是说，没有公开则无所谓正义。借用马歇尔·麦克鲁汉
-（Marshall McLuhan）的名言：“媒介即晓喻”。
+（Marshall McLuhan）的名言：“媒介即晓喻 (the medium is the message)”。
 
 法律的各项仪式（包括立法、执法、协商以及裁判的各种仪式），也像宗教的各种仪式一样，
 乃是被深刻体验到的价值之庄严的戏剧化。在法律和宗教里面需要有这种戏剧化，不仅是为
