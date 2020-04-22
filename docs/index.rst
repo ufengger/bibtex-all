@@ -10,6 +10,7 @@ Reading Notes
    :maxdepth: 2
    :caption: Contents:
 
+   Berman_法律与宗教_1991.rst
    Vil_indoor_2019.rst
    Fletcher_hybrid_1987.rst
    zzref.rst
