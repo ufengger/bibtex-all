@@ -3,12 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Reading Notes
-=============
+读书笔记
+========
+
+   天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。
+
+   赵钱孙李，周吴郑王。冯秦褚卫，姜沈韩杨。
+
+   太上老君急急如律令！敕！敕！敕！
+
+      ——鲁迅《故事新编》
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :hidden:
+   :caption: 目录
 
    Berman_法律与宗教_1991.rst
    Vil_indoor_2019.rst
