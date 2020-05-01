@@ -24,4 +24,5 @@
    Fletcher_hybrid_1987.rst
    爱因斯坦文集第一卷.rst
    何兆武_上学记_2006.rst
+   陈冠中_我这一代香港人_2005.rst
    zzref.rst
