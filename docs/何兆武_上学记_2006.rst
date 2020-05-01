@@ -9,7 +9,6 @@ Notes on: 何兆武,  (2006): 上学记
      title     = {上学记},
      url       = {https://book.douban.com/subject/1859140/},
      year      = {2006},
-     tags      = {DONE},
    }
 
 

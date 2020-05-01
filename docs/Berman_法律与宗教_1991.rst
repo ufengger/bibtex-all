@@ -10,7 +10,6 @@ Notes on: Berman, H. J. (1991): 法律与宗教
      publisher = {生活・读书・新知三联书店},
      url       = {https://book.douban.com/subject/3264949/},
      note      = {梁治平},
-     tags      = {READING},
    }
 
 法律中的宗教
