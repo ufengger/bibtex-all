@@ -36,4 +36,5 @@
    Russell_为什么我不是基督教徒_2010.rst
    托克维尔_旧制度与大革命_1992.rst
    Satrapi_我在伊朗长大_2006.rst
+   Snow_西行漫记_1979.rst
    zzref.rst
