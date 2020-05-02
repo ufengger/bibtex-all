@@ -35,4 +35,5 @@
    Wittgenstein_逻辑哲学论_贺绍甲译_1996.rst
    Russell_为什么我不是基督教徒_2010.rst
    托克维尔_旧制度与大革命_1992.rst
+   Satrapi_我在伊朗长大_2006.rst
    zzref.rst
