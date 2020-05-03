@@ -44,4 +44,5 @@
    Snow_西行漫记_1979.rst
    恩格斯_德国古典哲学的终结_97.rst
    钱理群_毛泽东时代和后毛泽东时代.rst
+   Russell_西方哲学史_上.rst
    zzref.rst
