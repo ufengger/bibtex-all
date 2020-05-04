@@ -16,9 +16,32 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
 ----
 
 第 11 页
-	我们所说的“哲学的”人生观与世界观乃是两种因素的产物：一种是传统的宗教与伦理观念，另一种是可以称之为“科学的”那种研究……但是唯有这两者在某种程度上同时存在，才能构成哲学的特征。
+   The conceptions of life and the world which we call 'philosophical' are a
+   product of two factors: one, inherited religious and ethical conceptions; the
+   other, the sort of investigation which may be called 'scientific', using this
+   word in its broadest sense. Individual philosophers have differed widely in
+   regard to the proportions in which these two factors entered into their
+   systems, but it is the presence of both, in some degree, that characterizes
+   philosophy.
 
-	哲学……乃是某种介乎神学与科学之间的东西。它和神学一样，包含着人类对于那些迄今仍为确切的知识所不能肯定的事物的思考；但是它又像科学一样是诉之于人类的理性而不是诉之于权威的，不管是传统的权威还是启示的权威。一切确切的知识――我是这样主张――都属于科学，一切涉及超乎确切知识之外的教条都属于神学。但是介乎神学和科学之间还有一片受到双方攻击的无人之域；这片无人之域就是哲学。
+   我们所说的“哲学的”人生观与世界观乃是两种因素的产物：一种是传统的宗教与伦理观
+   念，另一种是可以称之为“科学的”那种研究……但是唯有这两者在某种程度上同时存在，
+   才能构成哲学的特征。
+
+   Philosophy, as I shall understand the word, is something intermediate between
+   theology and science. Like theology, it consists of speculations on matters
+   as to which definite knowledge has, so far, been unascertainable; but like
+   science, it appeals to human reason rather than to authority, whether that of
+   tradition or that of revelation. All definite knowledge—so I should
+   contend—belongs to science; all dogma as to what surpasses definite knowledge
+   belongs to theology. But between theology and science there is a No Man's
+   Land, exposed to attack from both sides; this No Man's Land is philosophy.
+
+   哲学……乃是某种介乎神学与科学之间的东西。它和神学一样，包含着人类对于那些迄今
+   仍为确切的知识所不能肯定的事物的思考；但是它又像科学一样是诉之于人类的理性而
+   不是诉之于权威的，不管是传统的权威还是启示的权威。一切确切的知识――我是这样主
+   张――都属于科学，一切涉及超乎确切知识之外的教条都属于神学。但是介乎神学和科学
+   之间还有一片受到双方攻击的无人之域；这片无人之域就是哲学。
 
 第 12 页
 	究竟有没有智慧这样一种东西，还是看来彷佛是智慧的东西，仅仅是极精炼的愚蠢呢？
