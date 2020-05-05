@@ -44,11 +44,24 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    之间还有一片受到双方攻击的无人之域；这片无人之域就是哲学。
 
 第 12 页
+   Is there such a thing as wisdom, or is what seems such merely the ultimate
+   refinement of folly?
+
    究竟有没有智慧这样一种东西，还是看来彷佛是智慧的东西，仅仅是极精炼的愚蠢呢？
 
-   要了解一个时代或一个民族，我们必须了解它的哲学；要了解它的哲学，我们必须在某种程度上自己就是哲学家。
+   To understand an age or a nation, we must understand its philosophy, and to
+   understand its philosophy we must ourselves be in some degree philosophers.
 
-   人们生活的环境在决定他们的哲学上起着很大的作用，然而反过来他们的哲学又在决定他们的环境上起着很大的作用。这种贯穿着许多世纪的交互作用就是本书的主题。
+   要了解一个时代或一个民族，我们必须了解它的哲学；要了解它的哲学，我们必须在某
+   种程度上自己就是哲学家。
+
+   the circumstances of men's lives do much to determine their philosophy, but,
+   conversely, their philosophy does much to determine their circumstances. This
+   interaction throughout the centuries will be the topic of the following
+   pages.
+
+   人们生活的环境在决定他们的哲学上起着很大的作用，然而反过来他们的哲学又在决定
+   他们的环境上起着很大的作用。这种贯穿着许多世纪的交互作用就是本书的主题。
 
 第 13 页
    在鲜明的希望与恐惧之前而不能确定，是会使人痛苦的；可是如果在没有令人慰藉的神话故事的支持下，我们仍希望活下去的话，那么我们就必须忍受这种不确定。
