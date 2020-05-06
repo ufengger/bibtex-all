@@ -120,7 +120,16 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    责任两者之间的冲突，采取了教会与国王之间的冲突的形式。
 
 第 18 页
-   一切权力总归是出自上帝；上帝把神圣事物的权力交给了教皇，把俗世事情的权力交给了皇帝。但在十五世纪，教皇和皇帝同样地都丧失了自己的重要性。教皇变成了仅仅是意大利诸侯的一员，他在意大利的强权政治里面从事于种种令人难以置信的复杂而又无耻的勾当。
+   All power is ultimately from God; He has delegated power to the Pope
+   in sacred things and to the Emperor in secular matters. But Pope and Emperor
+   alike lost their importance during the fifteenth century. The Pope became
+   merely one of the Italian princes, engaged in the incredibly complicated and
+   unscrupulous game of Italian power politics.
+
+   一切权力总归是出自上帝；上帝把神圣事物的权力交给了教皇，把俗世事情的权力交给
+   了皇帝。但在十五世纪，教皇和皇帝同样地都丧失了自己的重要性。教皇变成了仅仅是
+   意大利诸侯的一员，他在意大利的强权政治里面从事于种种令人难以置信的复杂而又无
+   耻的勾当。
 
 第 19 页
    从十六世纪以后，欧洲思想史便以宗教改革占主导地位。
