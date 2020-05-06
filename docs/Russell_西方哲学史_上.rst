@@ -93,14 +93,31 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    或不安的妥协状态。
 
 第 14 页
+   Nothing was attributable to Roman philosophy, since there was none.
+
    没有什么是可以归功于罗马哲学的，因为根本就没有什么罗马哲学。
 
 第 15 页
-   （基督教把一个）重要见解给普及化了。我指的就是认为一个人对上帝的责任要比他对国家的责任更为必要的那种见解。
+   Christianity popularized an important opinion, already implicit in the
+   teaching of the Stoics, but foreign to the general spirit of antiquity—I
+   mean, the opinion that a man's duty to God is more imperative than his duty
+   to the State.
+
+   （基督教把一个）重要见解给普及化了。我指的就是认为一个人对上帝的责任要比他对
+   国家的责任更为必要的那种见解。
+
+   'We ought to obey God rather than Man', as Socrates and the Apostles said.
 
    苏格拉底和使徒们：“我们应该服从神更甚于服从人”。
 
-   在黑暗时代，自五世纪末叶至十一世纪中叶……基督教所带来的对上帝的责任与对国家的责任两者之间的冲突，采取了教会与国王之间的冲突的形式。
+   During the period of darkness, from the end of the fifth century to the
+   middle of the eleventh, the western Roman world underwent some very
+   interesting changes. The conflict between duty to God and duty to the State,
+   which Christianity had introduced, took the form of a conflict between Church
+   and king.
+
+   在黑暗时代，自五世纪末叶至十一世纪中叶……基督教所带来的对上帝的责任与对国家的
+   责任两者之间的冲突，采取了教会与国王之间的冲突的形式。
 
 第 18 页
    一切权力总归是出自上帝；上帝把神圣事物的权力交给了教皇，把俗世事情的权力交给了皇帝。但在十五世纪，教皇和皇帝同样地都丧失了自己的重要性。教皇变成了仅仅是意大利诸侯的一员，他在意大利的强权政治里面从事于种种令人难以置信的复杂而又无耻的勾当。
