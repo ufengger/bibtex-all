@@ -64,13 +64,33 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    他们的环境上起着很大的作用。这种贯穿着许多世纪的交互作用就是本书的主题。
 
 第 13 页
-   在鲜明的希望与恐惧之前而不能确定，是会使人痛苦的；可是如果在没有令人慰藉的神话故事的支持下，我们仍希望活下去的话，那么我们就必须忍受这种不确定。
+   Uncertainty, in the presence of vivid hopes and fears, is painful, but must
+   be endured if we wish to live without the support of comforting fairy tales.
 
-   教导人们在不能确定时怎样生活下去而又不致为犹疑所困扰，也许这就是哲学在我们的时代仍然能为学哲学的人所做出的主要事情了。
+   在鲜明的希望与恐惧之前而不能确定，是会使人痛苦的；可是如果在没有令人慰藉的神
+   话故事的支持下，我们仍希望活下去的话，那么我们就必须忍受这种不确定。
 
-   自十七世纪至今天，比起前两个时期的任何一个来，（哲学）更受着科学的支配；传统的宗教信仰仍占重要地位，但却感到有给自己作辩护的必要了；而每当科学似乎是使改造成为必要的时候，宗教信仰总是会被改造的。
+   To teach how to live without certainty, and yet without being paralysed by
+   hesitation, is perhaps the chief thing that philosophy, in our age, can still
+   do for those who study it.
 
-   社会团结与个人自由，也像科学与宗教一样，在一切的时期里始终是处于一种冲突状态或不安的妥协状态。
+   教导人们在不能确定时怎样生活下去而又不致为犹疑所困扰，也许这就是哲学在我们的
+   时代仍然能为学哲学的人所做出的主要事情了。
+
+   The third period, from the seventeenth century to the present day, is
+   dominated, more than either of its predecessors, by science; traditional
+   religious beliefs remain important, but are felt to need justification, and
+   are modified wherever science seems to make this imperative.
+
+   自十七世纪至今天，比起前两个时期的任何一个来，（哲学）更受着科学的支配；传统
+   的宗教信仰仍占重要地位，但却感到有给自己作辩护的必要了；而每当科学似乎是使改
+   造成为必要的时候，宗教信仰总是会被改造的。
+
+   Social cohesion and individual liberty, like religion and science, are in a
+   state of conflict or uneasy compromise throughout the whole period.
+
+   社会团结与个人自由，也像科学与宗教一样，在一切的时期里始终是处于一种冲突状态
+   或不安的妥协状态。
 
 第 14 页
    没有什么是可以归功于罗马哲学的，因为根本就没有什么罗马哲学。
