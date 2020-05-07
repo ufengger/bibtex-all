@@ -132,7 +132,15 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    耻的勾当。
 
 第 19 页
+   From the sixteenth century onward, the history of European thought is
+   dominated by the Reformation.
+
    从十六世纪以后，欧洲思想史便以宗教改革占主导地位。
+
+   The Catholic Church was derived from three sources. Its sacred history was
+   Jewish, its theology was Greek, its government and canon law were, at least
+   indirectly, Roman. The Reformation rejected the Roman elements, softened the
+   Greek elements, and greatly strengthened the Judaic elements.
 
    天主教教会有三个来源：它的圣教历史是犹太的，它的神学是希腊的，它的政府和教会
    法，至少间接地是罗马的。宗教改革摒除了罗马的成份，冲淡了希腊的成份，但是大大
