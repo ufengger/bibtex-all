@@ -147,11 +147,34 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    地加强了犹太的成份。
 
 第 20 页
+   In Catholic doctrine, divine revelation did not end with the scriptures, but
+   continued from age to age through the medium of the Church, to which,
+   therefore, it was the duty of the individual to submit his private opinions.
+   Protestants, on the contrary, rejected the Church as a vehicle of revelation;
+   truth was to be sought only in the Bible, which each man could interpret for
+   himself. If men differed in their interpretation, there was no divinely
+   appointed authority to decide the dispute. In practice, the State claimed the
+   right that had formerly belonged to the Church, but this was a usurpation. In
+   Protestant theory, there should be no earthly intermediary between the soul
+   and God.
+
    在天主教的学说里，神圣的启示并不因为有圣书而结束，而是一代一代地通过教会的媒
    介继续传下来的；因此，个人的意见之服从于教会，就成为每个人的责任。反之，新教
    徒则否认教会是传达启示的媒介；真理只能求之于圣经，每一个人都可以自己解释圣经。
    如果人们的解释有了分歧，那么也并没有任何一个由神明所指定的权威可以解决这种分
    歧……在新教的理论里，灵魂与上帝之间是不该有任何尘世的居间人的。
+
+   The effects of this change were momentous. Truth was no longer to be
+   ascertained by consulting authority, but by inward meditation. There was a
+   tendency, quickly developed, towards anarchism in politics, and, in religion,
+   towards mysticism, which had always fitted with difficulty into the framework
+   of Catholic orthodoxy. There came to be not one Protestantism, but a
+   multitude of sects; not one philosophy opposed to scholasticism, but as many
+   as there were philosophers; not, as in the thirteenth century, one Emperor
+   opposed to the Pope, but a large number of heretical kings. The result, in
+   thought as in literature, was a continually deepening subjectivism, operating
+   at first as a wholesome liberation from spiritual slavery, but advancing
+   steadily towards a personal isolation inimical to social sanity.
 
    这一变化所起的作用是极其重大的。真理不再需要请权威来肯定了，真理只需要内心的
    思想来肯定。于是很快地就发展起来了一种趋势，在政治方面趋向于无政府主义，而在
@@ -163,6 +186,10 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    的个人孤立倾向而稳步前进了。
 
 第 21 页
+   Tigers are more beautiful than sheep, but we prefer them behind bars. The
+   typical romantic removes the bars and enjoys the magnificent leaps with which
+   the tiger annihilates the sheep.
+
    猛虎比绵羊更美丽，但是我们宁愿把它关在笼子里。典型的浪漫派却要把笼子打开来，
    欣赏猛虎消灭绵羊时那幕壮丽的纵身一跃。
 
