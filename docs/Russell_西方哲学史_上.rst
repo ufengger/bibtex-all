@@ -194,12 +194,27 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    欣赏猛虎消灭绵羊时那幕壮丽的纵身一跃。
 
 第 22 页
+   A half-way compromise philosophy, the doctrine of liberalism, which attempted
+   to assign the respective spheres of government and the individual.
+
    一种折衷妥协的哲学，即自由主义的学说，它企图给政府和个人指定其各自的领域。
+
+   Communism, in theory, is far removed from such philosophies, but is driven,
+   in practice, to a type of community very similar to that which results from
+   State worship.
 
    共产主义在理论上是和这些哲学（指国家崇拜的理论）距离得非常遥远的，但是在实践
    上也趋向于一种与国家崇拜的结果极其相似的社会形态。
 
+   Throughout this long development, from 600 B.C. to the present day,
+   philosophers have been divided into those who wished to tighten social bonds
+   and those who wished to relax them.
+
    哲学家们可以分成希望加强社会约束的人与希望放松社会约束的人。
+
+   The libertarians, on the other hand, with the exception of the extreme
+   anarchists, have tended to be scientific, utilitarian, rationalistic, hostile
+   to violent passion, and enemies of all the more profound forms of religion.
 
    另外一方面，则自由主义分子，除了极端的无政府主义者而外，都倾向于科学、功利与
    理性而反对激情，并且是一切较深刻形式的宗教的敌人。
