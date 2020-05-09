@@ -220,6 +220,24 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    理性而反对激情，并且是一切较深刻形式的宗教的敌人。
 
 第 23 页
+   Social cohesion is a necessity, and mankind has never yet succeeded in
+   enforcing cohesion by merely rational arguments. Every community is exposed
+   to two opposite dangers, ossification through too much discipline and
+   reverence for tradition, on the one hand; on the other hand, dissolution, or
+   subjection to foreign conquest, through the growth of an individualism and
+   personal independence that makes co-operation impossible. In general,
+   important civilizations start with a rigid and superstitious system,
+   gradually relaxed, and leading, at a certain stage, to a period of brilliant
+   genius, while the good of the old tradition remains and the evil inherent in
+   its dissolution has not yet developed. But as the evil unfolds, it leads to
+   anarchy, thence, inevitably, to a new tyranny, producing a new synthesis
+   secured by a new system of dogma. The doctrine of liberalism is an attempt to
+   escape from this endless oscillation. The essence of liberalism is an attempt
+   to secure a social order not based on irrational dogma, and insuring
+   stability without involving more restraints than are necessary for the
+   preservation of the community. Whether this attempt can succeed only the
+   future can determine.
+
    社会团结是必要的，但人类迄今还不曾有过单凭说理的论辩就能加强团结的事。每一个
    社会都受着两种相对立的危险的威胁：一方面是由于过分讲纪律与尊敬传统而产生的僵
    化，另一方面是由于个人主义与个人独立性的增长而使得合作成为不可能，因而造成解
@@ -253,7 +271,8 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    巴比伦的宗教与埃及的宗教不同，它更关心的是现世的繁荣而不是来世的幸福。
 
 第 30 页
-   希腊大陆……任何区域社会的人口只要是增长太大而国内资源不敷时，在陆地上无法谋生的人就会去从事航海。
+   希腊大陆……任何区域社会的人口只要是增长太大而国内资源不敷时，在陆地上无法谋生
+   的人就会去从事航海。
 
 第 31 页
    一般的发展情况是最初由君主制过渡到贵族制，然后又过渡到僭主制与民主制的交替出现。国王们并不象埃及的和巴比伦的国王那样具有绝对的权力，他们须听从元老会议的劝告，他们违背了习俗便不会不受惩罚。“僭主制”并不必然地意味着坏政府，而仅仅指一个不是由世袭而掌权的人的统治。“民主制”即指全体公民的政府，但其中不包括奴隶与女人。
