@@ -257,6 +257,9 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
 ^^^^^^^^^^^^^^^^^^^^
 
 第 24 页
+   In all history, nothing is so surprising or so difficult to account for as
+   the sudden rise of civilization in Greece.
+
    在全部的历史里，最使人感到惊异或难于解说的莫过于希腊文明的突然兴起了。
 
 第 25 页
