@@ -263,14 +263,28 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    在全部的历史里，最使人感到惊异或难于解说的莫过于希腊文明的突然兴起了。
 
 第 25 页
+   There was a considerable difference between Egyptian and Babylonian theology.
+   The Egyptians were preoccupied with death, and believed that the souls of the
+   dead descend into the underworld, where they are judged by Osiris according
+   to the manner of their life on earth.
+
    埃及的神学和巴比伦的神学颇为不同。埃及人主要的关怀是死亡。
 
 第 26 页
+   The religions of Egypt and Babylonia, like other ancient religions, were
+   originally fertility cults.
+
    埃及与巴比伦的宗教正像其他古代的宗教一样，本来都是一种生殖性能崇拜。
+
+   Where a religion was bound up with the government of an empire, political
+   motives did much to tansform its primitive features.
 
    只要一种宗教和一个帝国政府结合在一起，政治的动机就会大大改变宗教的原始面貌。
 
 第 27 页
+   Babylonian religion, unlike that of Egypt, was more concerned with prosperity
+   in this world than with happiness in the next.
+
    巴比伦的宗教与埃及的宗教不同，它更关心的是现世的繁荣而不是来世的幸福。
 
 第 30 页
