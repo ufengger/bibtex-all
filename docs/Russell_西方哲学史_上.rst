@@ -288,10 +288,27 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    巴比伦的宗教与埃及的宗教不同，它更关心的是现世的繁荣而不是来世的幸福。
 
 第 30 页
+   The mainland of Greece is mountainous and largely infertile. There are,
+   however, many fertile valleys, with easy access to the sea, but cut off by
+   the mountains from easy land communication with each other. In these valleys
+   little separate communities grew up, living by agriculture, and centring
+   round a town, generally close to the sea. In such circumstances it was
+   natural that, as soon as the population of any community grew too great for
+   its internal resources, those who could not live on the land should take to
+   seafaring.
+
    希腊大陆……任何区域社会的人口只要是增长太大而国内资源不敷时，在陆地上无法谋生
    的人就会去从事航海。
 
 第 31 页
+   There was a very general development, first from monarchy to aristocracy,
+   then to an alternation of tyranny and democracy. The kings were not absolute,
+   like those of Egypt and Babylonia; they were advised by a Council of Elders,
+   and could not transgress custom with impunity. 'Tyranny' did not mean
+   necessarily bad government, but only the rule of a man whose claim to power
+   was not hereditary. 'Democracy' meant government by all the citizens, among
+   whom slaves and women were not included.
+
    一般的发展情况是最初由君主制过渡到贵族制，然后又过渡到僭主制与民主制的交替出
    现。国王们并不象埃及的和巴比伦的国王那样具有绝对的权力，他们须听从元老会议的
    劝告，他们违背了习俗便不会不受惩罚。“僭主制”并不必然地意味着坏政府，而仅仅指
@@ -299,18 +316,44 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    与女人。
 
 第 32 页
+   The first notable product of the Hellenic civilization was Homer. Everything
+   about Homer is conjectural, but there is a widely held opinion that he was a
+   series of poets rather than an individual.
+
    希腊文明第一个有名的产儿就是荷马。关于荷马的一切全都是推测，但是最好的意见似
    乎是认为，他是一系列的诗人而并不是一个诗人。
+
+   Guided by anthropology, many modern writers have come to the conclusion that
+   Homer, so far from being primitive, was an expurgator, a kind of eighteenth
+   century rationalizer of ancient myths, holding up an upper-class ideal of
+   urbane enlightenment.
 
    近代作家根据人类学而得到的结论是：荷马决不是原著者，而是一个删定者，他是一个
    十八世纪式的古代神话的诠释家，怀抱着一种上层阶级文质彬彬的启蒙理想。
 
 第 33 页
+   Primitive religion, everywhere, was tribal rather than personal.
+
    任何地方的原始宗教都是部族的，而非个人的。
+
+   These were often such as to generate a great collective excitement, in which
+   individuals lost their sense of separateness and felt themselves at one with
+   the whole tribe. All over the world, at a certain stage of religious
+   evolution, sacred animals and human beings were ceremonially killed and
+   eaten.
 
    这些祭礼往往能鼓动伟大的集体的热情，个人在其中消失了自己的孤立感而觉得自己与
    全部族合为一体。在全世界，当宗教演进到一定阶段时，做牺牲的动物和人都要按照祭
    礼被宰杀吃掉的。
+
+   It must be admitted that religion, in Homer, is not very religious. The gods
+   are completely human, differing from men only in being immortal and possessed
+   of superhuman powers. Morally, there is nothing to be said for them, and it
+   is difficult to see how they can have inspired much awe. In some passages,
+   supposed to be late, they are treated with Voltairean irreverence. Such
+   genuine religious feeling as is to be found in Homer is less concerned with
+   the gods of Olympus than with more shadowy beings such as Fate or Necessity
+   or Destiny, to whom even Zeus is subject.
 
    荷马诗歌中的宗教并不很具有宗教气味。神祇们完全是人性的，与人不同的只在于他们
    不死，并具有超人的威力。在道德上，他们没有什么值得称述的，而且也很难看出他们
