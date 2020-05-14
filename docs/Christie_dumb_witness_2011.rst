@@ -1,7 +1,7 @@
 Notes on: Christie, A. (2011): Dumb Witness
 ===========================================
 
-.. code-block::
+.. code-block:: bibtex
 
    @book{Christie_dumb_witness_2011,
      author    = {Christie, Agatha},
