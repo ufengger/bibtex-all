@@ -361,12 +361,37 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    奥林匹克的神祇们，而是连宙斯也要服从的“运命”、“必然”与“定数”这些冥冥的存在。
 
 第 34 页
+   As Gilbert Murray says: 'The gods of most nations claim to have created the
+   world. The Olympians make no such claim. The most they ever did was to
+   conquer it…. And when they have conquered their kingdoms, what do they do? Do
+   they attend to the government? Do they promote agriculture? Do they practise
+   trades and industries? Not a bit of it. Why should they do any honest work?
+   They find it easier to live on the revenues and blast with thunderbolts the
+   people who do not pay. They are conquering chieftains, royal buccaneers. They
+   fight, and feast, and play, and make music; they drink deep, and roar with
+   laughter at the lame smith who waits on them. They are never afraid, except
+   of their own king. They never tell lies, except in love and war.'
+
    吉尔伯特·穆莱《希腊宗教的五个阶段》：“大多数民族的神都自命曾经创造过世界，奥
    林匹克的神并不自命如此。他们所做的，主要是征服世界。……当他们已经征服了王国之
    后，它们又干什么呢？他们关心政治吗？他们促进农业吗？他们从事商业和工业吗？一
    点都不……依靠租税并对不纳税的人大发雷霆，在他们看来倒是更为舒适的生活。”
 
 第 38 页
+   The civilized man is distinguished from the savage mainly by prudence, or, to
+   use a slightly wider term, forethought. He is willing to endure present pains
+   for the sake of future pleasures, even if the future pleasures are rather
+   distant. This habit began to be important with the rise of agriculture; no
+   animal and no savage would work in the spring in order to have food next
+   winter, except for a few purely instinctive forms of action, such as bees
+   making honey or squirrels burying nuts. In these cases, there is no
+   forethought; there is a direct impulse to an act which, to the human
+   spectator, is obviously going to prove useful later on. True forethought only
+   arises when a man does something towards which no impulse urges him, because
+   his reason tells him that he will profit by it at some future date. Hunting
+   requires no forethought, because it is pleasurable; but tilling the soil is
+   labour, and cannot be done from spontaneous impulse.
+
    文明人之所以与野蛮人不同，主要的是在于审慎，或者用一个稍微更广义的名词，即深
    谋远虑。他为了将来的快乐，哪怕这种将来的快乐是相当遥远的，而愿意忍受目前的痛
    苦。这种习惯是随着农业的兴起而开始变得重要起来的；没有一种动物，也没有一种野
@@ -377,20 +402,45 @@ Notes on: Russell, B. (1963): 西方哲学史（上卷）
    出于自发的冲动就可以做得到的事。
 
 第 39 页
+   Much of what is greatest in human achievement involves some element of
+   intoxication,15 some sweeping away of prudence by passion. Without the
+   Bacchic element, life would be uninteresting; with it, it is dangerous.
+   Prudence versus passion is a conflict that runs through history. It is not a
+   conflict in which we ought to side wholly with either party.
+
    巴库斯的崇拜者就是对于审慎的反动……人类成就中最伟大的东西大部分都包含有某种沉
    醉的成份，某种程度上的以热情来扫除审慎。没有这种巴库斯的成份，生活便会没有趣
    味；有了巴库斯的成份，生活便是危险的。审慎对热情的冲突是一场贯穿着全部历史的
    冲突。在这场冲突中，我们不应完全偏袒任何一方。
 
 第 40 页
+   In the sphere of thought, sober civilization is roughly synonymous with
+   science. But science, unadulterated, is not satisfying; men need also passion
+   and art and religion. Science may set limits to knowledge, but should not set
+   limits to imagination.
+
    毫不搀杂其他事物的科学，是不能使人满足的；人也需要有热情、艺术与宗教。科学可
    以给知识确定一个界限，但是不能给想象确定一个界限。
 
 第 46 页
+
+   To the Orphic, life in this world is pain and weariness. We are bound to a
+   wheel which turns through endless cycles of birth and death; our true life is
+   the stars, but we are tied to earth. Only by purification and renunciation
+   and an ascetic life can we escape from the wheel and attain at last to the
+   ecstasy of union with God. This is not the view of men to whom life is easy
+   and pleasant.
+
    对于奥尔弗斯的信徒来说，现世的生活就是痛苦与无聊。我们被束缚在一个轮子上，它
    在永无休止的生死循环里转动着；我们的真正生活是属于天上的，但我们却又被束缚在
    地上。唯有靠生命的净化与否定以及一种苦行的生活，我们才能逃避这个轮子，而最后
    达到与神合一的天人感通。这绝不是那些能感到生命是轻松愉快的人的观点。
+
+   It was the combination of passion and intellect that made them great, while
+   they were great. Neither alone would have transformed the world for all
+   future time as they transformed it. Their prototype in mythology is not
+   Olympian Zeus, but Prometheus, who brought fire from heaven and was rewarded
+   with eternal torment.
 
    单只是热情或单只是理智，在任何未来的时代都不会使世界改变面貌……他们在神话上的
    原始典型并不是奥林匹克的宙斯而是普罗米修斯，普罗米修斯从天上带来了火，却因此
