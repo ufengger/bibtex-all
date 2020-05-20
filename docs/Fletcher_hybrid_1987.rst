@@ -1,6 +1,8 @@
 Notes on: Fletcher, R. & Xu, C. (1987): Hybrid methods for nonlinear least squares
 ==================================================================================
 
+`View on DOI <http://dx.doi.org/10.1093/imanum/7.3.371>`_
+
 .. code-block:: bibtex
 
    @article{Fletcher_hybrid_1987,

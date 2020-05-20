@@ -1,6 +1,8 @@
 Notes on: Christie, A. (2011): Dumb Witness
 ===========================================
 
+`View on DouBan <https://book.douban.com/subject/3007117/>`_
+
 .. code-block:: bibtex
 
    @book{Christie_dumb_witness_2011,

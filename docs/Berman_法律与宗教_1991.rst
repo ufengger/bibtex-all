@@ -1,6 +1,8 @@
 Notes on: Berman, H. J. (1991): 法律与宗教
 ==========================================
 
+`View on DouBan <https://book.douban.com/subject/3264949/>`_
+
 .. code-block:: bibtex
 
    @book{Berman_法律与宗教_1991,

@@ -1,6 +1,8 @@
 Notes on: Carrera Villacres, J. L. et al. (2019): A particle filter-based reinforcement learning approach for reliable wireless indoor positioning
 ==================================================================================================================================================
 
+`View on DOI <http://dx.doi.org/10.1109/JSAC.2019.2933886>`_
+
 .. code-block:: bibtex
 
    @article{Vil_indoor_2019,
