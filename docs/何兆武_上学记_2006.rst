@@ -1,6 +1,8 @@
 Notes on: 何兆武,  (2006): 上学记
 =================================
 
+`View on DouBan <https://book.douban.com/subject/1859140/>`_
+
 .. code-block:: bibtex
 
    @book{何兆武_上学记_2006,

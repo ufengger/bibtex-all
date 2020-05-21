@@ -1,6 +1,8 @@
 Notes on: 邓小平,  (1994): 邓小平文选第二卷
 ===========================================
 
+`View on DouBan <https://book.douban.com/subject/1088061/>`_
+
 .. code-block:: bibtex
 
    @book{邓小平文选第二卷_1994,

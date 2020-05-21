@@ -1,6 +1,8 @@
 Notes on: 陈冠中,  (2005): 我这一代香港人
 =========================================
 
+`View on DouBan <https://book.douban.com/subject/1316573/>`_
+
 .. code-block:: bibtex
 
    @book{陈冠中_我这一代香港人_2005,

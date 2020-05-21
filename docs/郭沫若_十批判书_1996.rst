@@ -1,6 +1,8 @@
 Notes on: 郭沫若,  (1996): 十批判书
 ===================================
 
+`View on DouBan <https://book.douban.com/subject/1589721/>`_
+
 .. code-block:: bibtex
 
    @book{郭沫若_十批判书_1996,
