@@ -1,6 +1,8 @@
 Notes on: 李泽厚,  (2008): 论语今读
 ===================================
 
+`View on DouBan <https://book.douban.com/subject/3101812/>`_
+
 .. code-block:: bibtex
 
    @book{李泽厚_论语今读_2008,

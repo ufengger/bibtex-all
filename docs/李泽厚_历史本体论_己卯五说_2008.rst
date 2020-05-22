@@ -1,6 +1,8 @@
 Notes on: 李泽厚,  (2008): 历史本体论・己卯五说
 ===============================================
 
+`View on DouBan <https://book.douban.com/subject/3127125/>`_
+
 .. code-block:: bibtex
 
    @book{李泽厚_历史本体论_己卯五说_2008,

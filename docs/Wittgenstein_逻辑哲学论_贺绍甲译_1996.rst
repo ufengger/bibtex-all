@@ -1,6 +1,8 @@
 Notes on: Wittgenstein, L. (1996): 逻辑哲学论
 =============================================
 
+`View on DouBan <https://book.douban.com/subject/1005354/>`_
+
 .. code-block:: bibtex
 
    @book{Wittgenstein_逻辑哲学论_贺绍甲译_1996,

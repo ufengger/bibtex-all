@@ -1,6 +1,8 @@
 Notes on: Russell, B. (1963): 西方哲学史（上卷）
 ================================================
 
+`View on DouBan <https://book.douban.com/subject/1008189/>`_
+
 .. code-block:: bibtex
 
    @book{Russell_西方哲学史_上,

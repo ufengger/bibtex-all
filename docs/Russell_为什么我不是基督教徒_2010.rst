@@ -1,6 +1,8 @@
 Notes on: Russell, B. (2010): 为什么我不是基督教徒
 ==================================================
 
+`View on DouBan <https://book.douban.com/subject/5937121/>`_
+
 .. code-block:: bibtex
 
    @book{Russell_为什么我不是基督教徒_2010,

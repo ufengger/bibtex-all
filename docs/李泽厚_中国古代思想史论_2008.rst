@@ -1,6 +1,8 @@
 Notes on: 李泽厚,  (2008): 中国古代思想史论
 ===========================================
 
+`View on DouBan <https://book.douban.com/subject/3117247/>`_
+
 .. code-block:: bibtex
 
    @book{李泽厚_中国古代思想史论_2008,

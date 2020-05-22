@@ -1,6 +1,8 @@
 Notes on: 李泽厚,  (2009): 美的历程
 ===================================
 
+`View on DouBan <https://book.douban.com/subject/3410718/>`_
+
 .. code-block:: bibtex
 
    @book{李泽厚_美的历程_2009,

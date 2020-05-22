@@ -1,6 +1,8 @@
 Notes on: Satrapi, M. (2006): 我在伊朗长大
 ==========================================
 
+`View on DouBan <https://book.douban.com/subject/4071859/>`_
+
 .. code-block:: bibtex
 
    @book{Satrapi_我在伊朗长大_2006,

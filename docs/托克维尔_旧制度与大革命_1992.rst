@@ -1,6 +1,8 @@
 Notes on: 托克维尔,  (1992): 旧制度与大革命
 ===========================================
 
+`View on DouBan <https://book.douban.com/subject/1032063/>`_
+
 .. code-block:: bibtex
 
    @book{托克维尔_旧制度与大革命_1992,
