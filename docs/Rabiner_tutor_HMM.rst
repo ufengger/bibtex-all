@@ -146,16 +146,17 @@ DISCRETE MARKOV PROCESSES [#hmm2]_
    A Markov chain with 5 states (labeled :math:`S_1` to :math:`S_5`) with selected state transitions.
 
 Consider a system which may be described at any time as being in one of a set of
-:math:`N` distinct states, :math:`S_1, S_2, \ldots, S_N`, as illustrated in Fig.
-1 (where :math:`N = 5` for simplicity). At regularly spaced discrete times, the
-system undergoes a change of state (possibly back to the same state) according
-to a set of probabilities associated with the state. We denote the time instants
-associated with state changes as :math:`t = 1, 2, \ldots` , and we denote the
-actual state at time :math:`t` as :math:`q_t`. A full probabilistic description
-of the above system would, in general, require specification of the current
-state (at time :math:`t`), as well as all the predecessor states. For the
-special case of a discrete, first order, Markov chain, this probabilistic
-description is truncated to just the current and the predecessor state, i.e.,
+:math:`N` distinct states, :math:`S_1, S_2, \ldots, S_N`, as illustrated in
+:numref:`hmmfig1` (where :math:`N = 5` for simplicity). At regularly spaced
+discrete times, the system undergoes a change of state (possibly back to the
+same state) according to a set of probabilities associated with the state. We
+denote the time instants associated with state changes as :math:`t = 1, 2,
+\ldots` , and we denote the actual state at time :math:`t` as :math:`q_t`. A
+full probabilistic description of the above system would, in general, require
+specification of the current state (at time :math:`t`), as well as all the
+predecessor states. For the special case of a discrete, first order, Markov
+chain, this probabilistic description is truncated to just the current and the
+predecessor state, i.e.,
 
 .. math::
    P[q_t = S_j \mid q_{t-1} = S_i, q_{t-2} = S_k, \ldots] = P[q_t = S_j \mid q_{t-1} = S_i].
@@ -259,13 +260,92 @@ model, is :math:`1/0.2 = 5` ; for cloudy it is :math:`2.5` ; for rain it is
 Extension to Hidden Markov Models
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+So far we have considered Markov models in which each state corresponded to an
+observable (physical) event. This model is too restrictive to be applicable to
+many problems of interest. In this section we extend the concept of Markov
+models to include the case where the observation is a probabilistic function
+of the state-i.e., the resulting model (which is called a hidden Markov model)
+is a doubly embedded stochastic process with an underlying stochastic process
+that is not observable (it is hidden**, but can only be observed through another
+set of stochastic processes that produce the sequence of observations. To fix
+ideas, consider the following model of some simple coin tossing experiments.
+
+**Coin Toss Models**: Assume the following scenario. You are in a room with a
+barrier (e.g., a curtain) through which you cannot see what is happening. On the
+other side of the barrier is another person who is performing a coin (or
+multiple coin) tossing experiment. The other person will not tell you anything
+about what he is doing exactly; he will only tell you the result of each coin
+flip. Thus a sequence of hidden coin tossing experiments is performed, with the
+observation sequence consisting of a series of heads and tails; e.g., a typical
+observation sequence would be
+
+.. math::
+   \mathcal{O} & = O_1 O_2 O_3 \cdots O_T \\
+   & = \mathscr{H} \mathscr{H} \mathscr{T} \cdots \mathscr{H}
+
+where :math:`\mathscr{H}` stands for heads and :math:`\mathscr{T}` stands for
+tails.
+
+Given the above scenario, the problem of interest is how do we build an HMM to
+explain (model) the observed sequence of heads and tails. The first problem one
+faces is deciding what the states in the model correspond to, and then deciding
+how many states should be in the model. One possible choice would be to assume
+that only a single biased coin was being tossed. In this case we could model the
+situation with a 2-state model where each state corresponds to a side of the
+coin (i.e., heads or tails). This model is depicted in :numref:`hmmfig2` (a)
+[#hmm3]_. In this case the Markov model is observable, and the only issue for
+complete specification of the model would be to decide on the best value for the
+bias (i.e., the probability of, say, heads). Interestingly, an equivalent HMM to
+that of Fig. 2(a) would be a degenerate 1-state model, where the state
+corresponds to the single biased coin, and the unknown parameter is the bias of
+the coin.
+
+A second form of HMM for explaining the observed sequence of coin toss outcome
+is given in :numref:`hmmfig2` (b). In this case there are 2 states in the model
+and each state corresponds to a different, biased, coin being tossed. Each state
+is characterized by a probability distribution of heads and tails, and
+transitions between states are characterized by a state transition matrix. The
+physical mechanism which accounts for how state transitions are selected could
+itself be a set of independent coin tosses, or some other probabilistic event.
+
+A third form of HMM for explaining the observed sequence of coin toss outcomes
+is given in :numref:`hmmfig2` (c). This model corresponds to using 3 biased
+coins, and choosing from among the three, based on some probabilistic event.
+
+.. _hmmfig2:
+
+.. figure:: images/hmmfig2.png
+   :align: center
+
+   Three possible Markov models which can account for the results of hidden coin tossing experiments. (a) 1-coin model. (b) 2-coins model. (c) 3-coins model.
+
+Given the choice among the three models shown in :numref:`hmmfig2` for
+explaining the observed sequence of heads and tails, a natural question would be
+which model best matches the actual observations. It should be clear that the
+simple 1-coin model of :numref:`hmmfig2` (a) has only 1 unknown parameter; the
+2-coin model of :numref:`hmmfig2` (b) has 4 unknown parameters; and the 3-coin
+model of :numref:`hmmfig2` (c) has 9 unknown parameters. Thus, with the greater
+degrees of freedom, the larger HMMs would seem to inherently be more capable of
+modeling a series of coin tossing experiments than would equivalently smaller
+models. Although this is theoretically true, we will see later in this paper
+that practical considerations impose some strong limitations on the size of
+models that we can consider. Furthermore, it might just be the case that only a
+single coin is being tossed. Then using the 3-coin model of
+:numref:`hmmfig2` (c) would be inappropriate, since the actual physical event
+would not correspond to the model being used-i.e., we would be using an
+underspecified system.
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
            modeling in terms of solving three fundamental problems is due to
            Jack Ferguson of IDA (Institute for Defense Analysis) who introduced
            it in lectures and writing.
+
 .. [#hmm2] A good overview of discrete Markov processes is in [Ref20]_ ch. 5.
+
+.. [#hmm3] The model of :numref:`hmmfig2` (a) is a memoryless process and thus
+           is a degenerate case of a Markov model.
 
 .. rubric:: References
 
