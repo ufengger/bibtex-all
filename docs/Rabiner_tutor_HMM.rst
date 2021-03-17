@@ -269,134 +269,260 @@ Extension to Hidden Markov Models
 
 .. rubric:: References
 
-.. [Ref1] L. E. Baum and T. Petrie, "Statistical inference for probabilistic functions of finite state Markov chains", Ann. Math. Stat., vol. 37, pp. 1554-1563, 1966.
+.. [Ref1] L. E. Baum and T. Petrie, "Statistical inference for probabilistic
+          functions of finite state Markov chains", Ann. Math. Stat., vol. 37,
+          pp. 1554-1563, 1966.
 
-.. [Ref2] L. E. Baum and J. A. Egon, "An inequality with applications to statistical estimation for probabilistic functions of a Markov process and to a model for ecology", Bull. Amer. Meteorol. Soc., vol. 73, pp. 360-363, 1967.
+.. [Ref2] L. E. Baum and J. A. Egon, "An inequality with applications to
+          statistical estimation for probabilistic functions of a Markov process
+          and to a model for ecology", Bull. Amer. Meteorol. Soc., vol. 73, pp.
+          360-363, 1967.
 
-.. [Ref3] L. E. Baum and G. R. Sell, "Growth functions for transformations on manifolds", Pac. J. Math., vol. 27, no. 2, pp. 211-227, 1968.
+.. [Ref3] L. E. Baum and G. R. Sell, "Growth functions for transformations on
+          manifolds", Pac. J. Math., vol. 27, no. 2, pp. 211-227, 1968.
 
-.. [Ref4] L. E. Baum, T. Petrie, G. Soules and N. Weiss, "A maximization technique occurring in the statistical analysis of probabilistic functions of Markov chains", Ann. Math. Stat., vol. 41, no. 1, pp. 164-171, 1970.
+.. [Ref4] L. E. Baum, T. Petrie, G. Soules and N. Weiss, "A maximization
+          technique occurring in the statistical analysis of probabilistic
+          functions of Markov chains", Ann. Math. Stat., vol. 41, no. 1, pp.
+          164-171, 1970.
 
-.. [Ref5] L. E. Baum, "An inequality and associated maximization technique in statistical estimation for probabilistic functions of Markov processes", Inequalities, vol. 3, pp. 1-8, 1972.
+.. [Ref5] L. E. Baum, "An inequality and associated maximization technique in
+          statistical estimation for probabilistic functions of Markov
+          processes", Inequalities, vol. 3, pp. 1-8, 1972.
 
-.. [Ref6] J. K. Baker, "The dragon system—An overview", IEEE Trans. Acoust. Speech Signal Processing, vol. ASSP-23, no. 1, pp. 24-29, Feb. 1975.
+.. [Ref6] J. K. Baker, "The dragon system—An overview", IEEE Trans. Acoust.
+          Speech Signal Processing, vol. ASSP-23, no. 1, pp. 24-29, Feb. 1975.
 
-.. [Ref7] F. Jelinek, "A fast sequential decoding algorithm using a stack", IBM J. Res. Develop., vol. 13, pp. 675-685, 1969.
+.. [Ref7] F. Jelinek, "A fast sequential decoding algorithm using a stack",
+          IBM J. Res. Develop., vol. 13, pp. 675-685, 1969.
 
-.. [Ref8] L. R. Bahl and F. Jelinek, "Decoding for channels with insertions deletions and substitutions with applications to speech recognition", IEEE Trans. In format. Theory, vol. IT-21, pp. 404-411, 1975.
+.. [Ref8] L. R. Bahl and F. Jelinek, "Decoding for channels with insertions
+          deletions and substitutions with applications to speech recognition",
+          IEEE Trans. In format. Theory, vol. IT-21, pp. 404-411, 1975.
 
-.. [Ref9] F. Jelinek, L. R. Bahl and R. L. Mercer, "Design of a linguistic statistical decoder for the recognition of continuous speech", IEEE Trans. Informat. Theory, vol. IT-21, pp. 250-256, 1975.
+.. [Ref9] F. Jelinek, L. R. Bahl and R. L. Mercer, "Design of a linguistic
+          statistical decoder for the recognition of continuous speech", IEEE
+          Trans. Informat. Theory, vol. IT-21, pp. 250-256, 1975.
 
-.. [Ref10] F. Jelinek, "Continuous speech recognition by statistical methods", Proc. IEEE, vol. 64, pp. 532-536, Apr. 1976.
+.. [Ref10] F. Jelinek, "Continuous speech recognition by statistical methods",
+           Proc. IEEE, vol. 64, pp. 532-536, Apr. 1976.
 
-.. [Ref11] R. Bakis, "Continuous speech word recognition via centisecond acoustic states", Proc. ASA Meeting, 1976-Apr.
+.. [Ref11] R. Bakis, "Continuous speech word recognition via centisecond
+           acoustic states", Proc. ASA Meeting, 1976-Apr.
 
-.. [Ref12] F. Jelinek, L. R. Bahl and R. L. Mercer, "Continuous speech recognition: Statistical methods" in Handbook of Statistics II, The Netherlands, Amsterdam:North-Holland, 1982.
+.. [Ref12] F. Jelinek, L. R. Bahl and R. L. Mercer, "Continuous speech
+           recognition: Statistical methods" in Handbook of Statistics II, The
+           Netherlands, Amsterdam:North-Holland, 1982.
 
-.. [Ref13] L. R. Bahl, F. Jelinek and R. L. Mercer, "A maximum likelihood approach to continuous speech recognition", IEEE Trans. Pattern Anal. Machine Intell., vol. PAMI-5, pp. 179-190, 1983.
+.. [Ref13] L. R. Bahl, F. Jelinek and R. L. Mercer, "A maximum likelihood
+           approach to continuous speech recognition", IEEE Trans. Pattern Anal.
+           Machine Intell., vol. PAMI-5, pp. 179-190, 1983.
 
-.. [Ref14] S. E. Levinson, L. R. Rabiner and M. M. Sondhi, "An introduction to the application of the theory of probabilistic functions of a Markov process to automatic speech recognition", Bell Syst. Tech. J., vol. 62, no. 4, pp. 1035-1074, Apr. 1983.
+.. [Ref14] S. E. Levinson, L. R. Rabiner and M. M. Sondhi, "An introduction to
+           the application of the theory of probabilistic functions of a Markov
+           process to automatic speech recognition", Bell Syst. Tech. J., vol.
+           62, no. 4, pp. 1035-1074, Apr. 1983.
 
-.. [Ref15] B. H. Juang, "On the hidden Markov model and dynamic time warping for speech recognition—A unified view", AT&T Tech., vol. 63, no. 7, pp. 1213-1243, Sept. 1984.
+.. [Ref15] B. H. Juang, "On the hidden Markov model and dynamic time warping for
+           speech recognition—A unified view", AT&T Tech., vol. 63, no. 7, pp.
+           1213-1243, Sept. 1984.
 
-.. [Ref16] L. R. Rabiner and B. H. Juang, "An introduction to hidden Markov models", IEEE ASSP Mag., vol. 3, no. 1, pp. 4-16, 1986.
+.. [Ref16] L. R. Rabiner and B. H. Juang, "An introduction to hidden Markov
+           models", IEEE ASSP Mag., vol. 3, no. 1, pp. 4-16, 1986.
 
-.. [Ref17] J. S. Bridle, "Stochastic models and template matching: Some important relationships between two apparently different techniques for automatic speech recognition", Proc. Inst. of Acoustics Autum Conf., pp. 1-8, 1984-Nov.
+.. [Ref17] J. S. Bridle, "Stochastic models and template matching: Some
+           important relationships between two apparently different techniques
+           for automatic speech recognition", Proc. Inst. of Acoustics Autum
+           Conf., pp. 1-8, 1984-Nov.
 
-.. [Ref18] J. Makhoul, S. Roucos and H. Gish, "Vector quantization in speech coding", Proc. IEEE, vol. 73, no. 11, pp. 1551-1588, Nov. 1985.
+.. [Ref18] J. Makhoul, S. Roucos and H. Gish, "Vector quantization in speech
+           coding", Proc. IEEE, vol. 73, no. 11, pp. 1551-1588, Nov. 1985.
 
-.. [Ref19] S. E. Levinson, "Structural methods in automatic speech recognition", Proc. IEEE, vol. 73, no. 11, pp. 1625-1650, Nov. 1985.
+.. [Ref19] S. E. Levinson, "Structural methods in automatic speech recognition",
+           Proc. IEEE, vol. 73, no. 11, pp. 1625-1650, Nov. 1985.
 
-.. [Ref20] A. W. Drake, "Discrete—state Markov processes" in Fundamentals of Applied Probability Theory, NY, New York:McGraw-Hill, 1967.
+.. [Ref20] A. W. Drake, "Discrete—state Markov processes" in Fundamentals of
+           Applied Probability Theory, NY, New York:McGraw-Hill, 1967.
 
-.. [Ref21] A. J. Viterbi, "Error bounds for convolutional codes and an asymptotically optimal decoding algorithm", IEEE Trans. Informat. Theory, vol. IT-13, pp. 260-269, Apr. 1967.
+.. [Ref21] A. J. Viterbi, "Error bounds for convolutional codes and an
+           asymptotically optimal decoding algorithm", IEEE Trans. Informat.
+           Theory, vol. IT-13, pp. 260-269, Apr. 1967.
 
-.. [Ref22] G. D. Forney, "The Viterbi algorithm", Proc. IEEE, vol. 61, pp. 268-278, Mar. 1973.
+.. [Ref22] G. D. Forney, "The Viterbi algorithm", Proc. IEEE, vol. 61, pp.
+           268-278, Mar. 1973.
 
-.. [Ref23] A. P. Dempster, N. M. Laird and D. B. Rubin, "Maximum likelihood from incomplete data via the EM algorithm", J. Roy. Stat. Soc., vol. 39, no. 1, pp. 1-38, 1977.
+.. [Ref23] A. P. Dempster, N. M. Laird and D. B. Rubin, "Maximum likelihood from
+           incomplete data via the EM algorithm", J. Roy. Stat. Soc., vol. 39,
+           no. 1, pp. 1-38, 1977.
 
-.. [Ref24] L. A. Liporace, "Maximum likelihood estimation for multivariate observations of Markov sources", IEEE Trans. Informat. Theory, vol. IT-28, no. 5, pp. 729-734, 1982.
+.. [Ref24] L. A. Liporace, "Maximum likelihood estimation for multivariate
+           observations of Markov sources", IEEE Trans. Informat. Theory, vol.
+           IT-28, no. 5, pp. 729-734, 1982.
 
-.. [Ref25] B. H. Juang, "Maximum likelihood estimation for mixture multivariate stochastic observations of Markov chains", AT&T Tech. J., vol. 64, no. 6, pp. 1235-1249, July-Aug. 1985.
+.. [Ref25] B. H. Juang, "Maximum likelihood estimation for mixture multivariate
+           stochastic observations of Markov chains", AT&T Tech. J., vol. 64,
+           no. 6, pp. 1235-1249, July-Aug. 1985.
 
-.. [Ref26] B. H. Juang, S. E. Levinson and M. M. Sondhi, "Maximum likelihood estimation for multivariate mixture observations of Markov chains", IEEE Trans. Informat. Theory, vol. IT-32, no. 2, pp. 307-309, Mar. 1986.
+.. [Ref26] B. H. Juang, S. E. Levinson and M. M. Sondhi, "Maximum likelihood
+           estimation for multivariate mixture observations of Markov chains",
+           IEEE Trans. Informat. Theory, vol. IT-32, no. 2, pp. 307-309,
+           Mar. 1986.
 
-.. [Ref27] A. B. Poritz, "Linear predictive hidden Markov models and the speech signal", Proc. ICASSP '82, pp. 1291-1294, 1982-May.
+.. [Ref27] A. B. Poritz, "Linear predictive hidden Markov models and the speech
+           signal", Proc. ICASSP '82, pp. 1291-1294, 1982-May.
+
+.. [Ref28] B. H. Juang and L. R. Rabiner, "Mixture autoregressive hidden Markov
+           models for speech signals", IEEE Trans. Acoust. Speech Signal
+           Processing, vol. ASSP-33, no. 6, pp. 1404-1413, Dec. 1985.
+
+.. [Ref29] M. J. Russell and R. K. Moore, "Explicit modeling of state occupancy
+           in hidden Markov models for automatic speech recognition", Proc.
+           ICASSP'85, pp. 5-8, 1985-Mar.
+
+.. [Ref30] S. E. Levinson, "Continuously variable duration hidden Markov models
+           for automatic speech recognition", Computer Speech and Language, vol.
+           1, no. 1, pp. 29-45, Mar. 1986.
+
+.. [Ref31] B. Lowerre and R. Reddy, "The HARPY speech understanding system" in
+           Trends in Speech Recognition, NJ, Englewood Cliffs:Prentice-Hall, pp.
+           340-346, 1980.
+
+.. [Ref32] L. R. Bahl, P. F. Brown, P. V. de Souza and R. L. Mercer, "Maximum
+           mutual information estimation of hidden Markov model parameters for
+           speech recognition", Proc. ICASSP '86, pp. 49-52, 1986-Apr.
+
+.. [Ref33] Y. Ephraim, A. Dembo and L. R. Rabiner, "A minimum discrimination
+           information approach for hidden Markov modeling", Proc. ICASSP '87,
+           1987-Apr.
+
+.. [Ref34] B. H. Juang and L. R. Rabiner, "A probabilistic distance measure for
+           hidden Markov models", AT&T Tech. J., vol. 64, no. 2, pp. 391-408,
+           Feb. 1985.
+
+.. [Ref35] L. R. Rabiner, B. H. Juang, S. E. Levinson and M. M. Sondhi, "Some
+           properties of continuous hidden Markov model representations", AT&T
+           Tech. J., vol. 64, no. 6, pp. 1251-1270, July-Aug. 1985.
+
+.. [Ref36] F. Jelinek and R. L. Mercer, "Interpolated estimation of Markov
+           source parameters from sparse data" in Pattern Recognition in
+           Practice, The Netherlands, Amsterdam:North-Holland, pp.
+           381-397, 1980.
+
+.. [Ref37] R. Schwartz, "Context-dependent modeling for acoustic-phonetic
+           recognition of continuous speech", Conf. Proc. IEEE Int. Conf. on
+           Acoustics Speech and Signal Processing, pp. 1205-1208, 1985-Apr.
+
+.. [Ref38] K. F. Lee and H. W. Hon, "Large-vocabulary speaker-independent
+           continuous speech recognition", Conf. Proc. IEEE Int. Conf. on
+           Acoustics Speech and Signal Processing, pp. 123-126, 1988-Apr.
+
+.. [Ref39] L. R. Rabiner, S. E. Levinson and M. M. Sondhi, "On the application
+           of vector quantization and hidden Markov models to
+           speaker-independent isolated word recognition", Bell Syst. Tech. J.,
+           vol. 62, no. 4, pp. 1075-1105, Apr. 1983.
+
+.. [Ref40] L. R. Rabiner, S. E. Levinson and M. M. Sondhi, "On the use of hidden
+           Markov models for speaker-independent recognition of isolated words
+           from a medium-size vocabulary", AT&T Tech. J., vol. 63, no. 4, pp.
+           627-642, Apr. 1984.
 
-.. [Ref28] B. H. Juang and L. R. Rabiner, "Mixture autoregressive hidden Markov models for speech signals", IEEE Trans. Acoust. Speech Signal Processing, vol. ASSP-33, no. 6, pp. 1404-1413, Dec. 1985.
-
-.. [Ref29] M. J. Russell and R. K. Moore, "Explicit modeling of state occupancy in hidden Markov models for automatic speech recognition", Proc. ICASSP'85, pp. 5-8, 1985-Mar.
-
-.. [Ref30] S. E. Levinson, "Continuously variable duration hidden Markov models for automatic speech recognition", Computer Speech and Language, vol. 1, no. 1, pp. 29-45, Mar. 1986.
-
-.. [Ref31] B. Lowerre and R. Reddy, "The HARPY speech understanding system" in Trends in Speech Recognition, NJ, Englewood Cliffs:Prentice-Hall, pp. 340-346, 1980.
-
-.. [Ref32] L. R. Bahl, P. F. Brown, P. V. de Souza and R. L. Mercer, "Maximum mutual information estimation of hidden Markov model parameters for speech recognition", Proc. ICASSP '86, pp. 49-52, 1986-Apr.
-
-.. [Ref33] Y. Ephraim, A. Dembo and L. R. Rabiner, "A minimum discrimination information approach for hidden Markov modeling", Proc. ICASSP '87, 1987-Apr.
-
-.. [Ref34] B. H. Juang and L. R. Rabiner, "A probabilistic distance measure for hidden Markov models", AT&T Tech. J., vol. 64, no. 2, pp. 391-408, Feb. 1985.
-
-.. [Ref35] L. R. Rabiner, B. H. Juang, S. E. Levinson and M. M. Sondhi, "Some properties of continuous hidden Markov model representations", AT&T Tech. J., vol. 64, no. 6, pp. 1251-1270, July-Aug. 1985.
-
-.. [Ref36] F. Jelinek and R. L. Mercer, "Interpolated estimation of Markov source parameters from sparse data" in Pattern Recognition in Practice, The Netherlands, Amsterdam:North-Holland, pp. 381-397, 1980.
-
-.. [Ref37] R. Schwartz, "Context-dependent modeling for acoustic-phonetic recognition of continuous speech", Conf. Proc. IEEE Int. Conf. on Acoustics Speech and Signal Processing, pp. 1205-1208, 1985-Apr.
-
-.. [Ref38] K. F. Lee and H. W. Hon, "Large-vocabulary speaker-independent continuous speech recognition", Conf. Proc. IEEE Int. Conf. on Acoustics Speech and Signal Processing, pp. 123-126, 1988-Apr.
-
-.. [Ref39] L. R. Rabiner, S. E. Levinson and M. M. Sondhi, "On the application of vector quantization and hidden Markov models to speaker-independent isolated word recognition", Bell Syst. Tech. J., vol. 62, no. 4, pp. 1075-1105, Apr. 1983.
-
-.. [Ref40] L. R. Rabiner, S. E. Levinson and M. M. Sondhi, "On the use of hidden Markov models for speaker-independent recognition of isolated words from a medium-size vocabulary", AT&T Tech. J., vol. 63, no. 4, pp. 627-642, Apr. 1984.
-
-.. [Ref41] R. Billi, "Vector quantization and Markov source models applied to speech recognition", Proc. ICASSP '82, pp. 574-577, 1982-May.
-
-.. [Ref42] L. R. Rabiner, B. H. Juang, S. E. Levinson and M. M. Sondhi, "Recognition of isolated digits using hidden Markov models with continuous mixture densities", AT&T Tech. J., vol. 64, no. 6, pp. 1211-1222, July-Aug. 1986.
-
-.. [Ref43] A. B. Poritz and A. G. Richter, "Isolated word recognition", Proc. ICASSP '86, pp. 705-708, 1986-Apr.
-
-.. [Ref44] R. P. Lippmann, E. A. Martin and D. B. Paul, "Multistyle training for robust isolated word speech recognition", Proc. ICASSP '87, pp. 705-708, 1987-Apr.
-
-.. [Ref45] D. B. Paul, "A speaker stress resistant HMM isolated word recognizer", Proc. ICASSP'87, pp. 713-716, 1987-Apr.
-
-.. [Ref46] V. N. Gupta, M. Lennig and P. Mermelstein, "Integration of acoustic information in a large vocabulary word recognizer", Conf. Proc. IEEE Int. Conf. on Acoustics Speech and Signal Processing, pp. 697-700, 1987-Apr.
-
-.. [Ref47] S. E. Levinson, "Continuous speech recognition by means of acoustic-phonetic classification obtained from a hidden Markov model", Proc. ICASSP '87, 1987-Apr.
-
-.. [Ref48] J. C. Wilpon, L. R. Rabiner and T. Martin, "An improved word detection algorithm for telephone quality speech incorporating both syntactic and semantic constraints", AT&T Bell Labs Tech. J., vol. 63, no. 3, pp. 479-498, Mar. 1984.
-
-.. [Ref49] J. G. Wilpon and L. R. Rabiner, "Application of hidden Markov models to automatic speech endpoint detection", Computer Speech and Language, vol. 2, no. 3/4, pp. 321-341, Sept./Dec. 1987.
-
-.. [Ref50] A. Averbuch, "Experiments with the TANGORA 20000 word speech recognizer", Conf. Proc. IEEE Int. Conf. on Acoustics Speech and Signal Processing, pp. 701-704, 1987-Apr.
-
-.. [Ref51] B. S. Atal and S. L. Hanauer, "Speech analysis and synthesis by linear prediction of the speech wave", J. Acoust. Soc. Am., vol. 50, pp. 637-655, 1971.
-
-.. [Ref52] F. I. Itakura and S. Saito, "Analysis-synthesis telephony based upon the maximum likelihood method", Proc. 6th Int. Congress on Acoustics, pp. C17-20, 1968.
-
-.. [Ref53] J. Makhoul, "Linear prediction: A tutorial review", Proc. IEEE, vol. 63, pp. 561-580, 1975.
-
-.. [Ref54] J. D. Markel and A. H. Gray, Linear Prediction of Speech, NY, New York:Springer-Verlag, 1976.
-
-.. [Ref55] Y. Tokhura, "A weighted cepstral distance measure for speech recognition", IEEE Trans. Acoust. Speech Signal Processing, vol. ASSP-35, no. 10, pp. 1414-1422, Oct. 1987.
-
-.. [Ref56] B. H. Juang, L. R. Rabiner and J. G. Wilpon, "On the use of bandpass liftering in speech recognition", IEEE Trans. Acoust. Speech Signal Processing, vol. ASSP-35, no. 7, pp. 947-954, July 1987.
-
-.. [Ref57] S. Furui, "Speaker independent isolated word recognition based on dynamics emphasized cepstrum", Trans. IECE of Japan, vol. 69, no. 12, pp. 1310-1317, Dec. 1986.
-
-.. [Ref58] F. K. Soong and A. E. Rosenberg, "On the use of instantaneous and transitional spectral information in speaker recognition", Proc. ICASSP '86, pp. 877-880, 1986-Apr.
-
-.. [Ref59] L. R. Rabiner, J. G. Wilpon and B. H. Juang, "A segmental k-means training procedure for connected word recognition", AT&T Tech. J., vol. 65, no. 3, pp. 21-31, May-June 1986.
-
-.. [Ref60] L. R. Rabiner and S. E. Levinson, "A speaker-independent syntax-directed connected word recognition system based on hidden Markov models and level building", IEEE Trans. Acoust. Speech Signal Processing, vol. ASSP-33, no. 3, pp. 561-573, June 1985.
-
-.. [Ref61] L. R. Rabiner, J. G. Wilpon and B. H. Juang, "A modei-based connected digit recognition system using either hidden Markov models or templates", Computer Speech and Language, vol. 1, no. 2, pp. 167-197, Dec. 1986.
-
-.. [Ref62] H. Bourlard, Y. Kamp, H. Ney and C. J. Wellekens, "Speaker-dependent connected speech recognition via dynamic programming and statistical methods" in Speech and Speaker Recognition, Switzerland, Basel:Karger, pp. 115-148, 1985.
-
-.. [Ref63] C. J. Wellekens, "Global connected digit recognition using Baum-Welch algorithm", Proc. ICASSP '86, pp. 1081-1084, 1986-Apr.
-
-.. [Ref64] A. M. Derouault, "Context dependent phonetic Markov models for large vocabulary speech recognition", Proc. ICASSP '87, 1987-Apr.
-
-.. [Ref65] B. Merialdo, "Speech recognition with very large size dictionary", Proc. ICASSP '87, 1987-Apr.
-
-.. [Ref66] Y. L. Chow, "BYBLOS: The BBN continuous speech recognition system", Proc. ICASSP'87, 1987-Apr.
+.. [Ref41] R. Billi, "Vector quantization and Markov source models applied to
+           speech recognition", Proc. ICASSP '82, pp. 574-577, 1982-May.
+
+.. [Ref42] L. R. Rabiner, B. H. Juang, S. E. Levinson and M. M. Sondhi,
+           "Recognition of isolated digits using hidden Markov models with
+           continuous mixture densities", AT&T Tech. J., vol. 64, no. 6, pp.
+           1211-1222, July-Aug. 1986.
+
+.. [Ref43] A. B. Poritz and A. G. Richter, "Isolated word recognition", Proc.
+           ICASSP '86, pp. 705-708, 1986-Apr.
+
+.. [Ref44] R. P. Lippmann, E. A. Martin and D. B. Paul, "Multistyle training for
+           robust isolated word speech recognition", Proc. ICASSP '87, pp.
+           705-708, 1987-Apr.
+
+.. [Ref45] D. B. Paul, "A speaker stress resistant HMM isolated word
+           recognizer", Proc. ICASSP'87, pp. 713-716, 1987-Apr.
+
+.. [Ref46] V. N. Gupta, M. Lennig and P. Mermelstein, "Integration of acoustic
+           information in a large vocabulary word recognizer", Conf. Proc. IEEE
+           Int. Conf. on Acoustics Speech and Signal Processing, pp. 697-700,
+           1987-Apr.
+
+.. [Ref47] S. E. Levinson, "Continuous speech recognition by means of
+           acoustic-phonetic classification obtained from a hidden Markov
+           model", Proc. ICASSP '87, 1987-Apr.
+
+.. [Ref48] J. C. Wilpon, L. R. Rabiner and T. Martin, "An improved word
+           detection algorithm for telephone quality speech incorporating both
+           syntactic and semantic constraints", AT&T Bell Labs Tech. J., vol.
+           63, no. 3, pp. 479-498, Mar. 1984.
+
+.. [Ref49] J. G. Wilpon and L. R. Rabiner, "Application of hidden Markov models
+           to automatic speech endpoint detection", Computer Speech and
+           Language, vol. 2, no. 3/4, pp. 321-341, Sept./Dec. 1987.
+
+.. [Ref50] A. Averbuch, "Experiments with the TANGORA 20000 word speech
+           recognizer", Conf. Proc. IEEE Int. Conf. on Acoustics Speech and
+           Signal Processing, pp. 701-704, 1987-Apr.
+
+.. [Ref51] B. S. Atal and S. L. Hanauer, "Speech analysis and synthesis by
+           linear prediction of the speech wave", J. Acoust. Soc. Am., vol. 50,
+           pp. 637-655, 1971.
+
+.. [Ref52] F. I. Itakura and S. Saito, "Analysis-synthesis telephony based upon
+           the maximum likelihood method", Proc. 6th Int. Congress on Acoustics,
+           pp. C17-20, 1968.
+
+.. [Ref53] J. Makhoul, "Linear prediction: A tutorial review", Proc. IEEE, vol.
+           63, pp. 561-580, 1975.
+
+.. [Ref54] J. D. Markel and A. H. Gray, Linear Prediction of Speech, NY, New
+           York:Springer-Verlag, 1976.
+
+.. [Ref55] Y. Tokhura, "A weighted cepstral distance measure for speech
+           recognition", IEEE Trans. Acoust. Speech Signal Processing, vol.
+           ASSP-35, no. 10, pp. 1414-1422, Oct. 1987.
+
+.. [Ref56] B. H. Juang, L. R. Rabiner and J. G. Wilpon, "On the use of bandpass
+           liftering in speech recognition", IEEE Trans. Acoust. Speech Signal
+           Processing, vol. ASSP-35, no. 7, pp. 947-954, July 1987.
+
+.. [Ref57] S. Furui, "Speaker independent isolated word recognition based on
+           dynamics emphasized cepstrum", Trans. IECE of Japan, vol. 69, no. 12,
+           pp. 1310-1317, Dec. 1986.
+
+.. [Ref58] F. K. Soong and A. E. Rosenberg, "On the use of instantaneous and
+           transitional spectral information in speaker recognition", Proc.
+           ICASSP '86, pp. 877-880, 1986-Apr.
+
+.. [Ref59] L. R. Rabiner, J. G. Wilpon and B. H. Juang, "A segmental k-means
+           training procedure for connected word recognition", AT&T Tech. J.,
+           vol. 65, no. 3, pp. 21-31, May-June 1986.
+
+.. [Ref60] L. R. Rabiner and S. E. Levinson, "A speaker-independent
+           syntax-directed connected word recognition system based on hidden
+           Markov models and level building", IEEE Trans. Acoust. Speech Signal
+           Processing, vol. ASSP-33, no. 3, pp. 561-573, June 1985.
+
+.. [Ref61] L. R. Rabiner, J. G. Wilpon and B. H. Juang, "A modei-based connected
+           digit recognition system using either hidden Markov models or
+           templates", Computer Speech and Language, vol. 1, no. 2, pp. 167-197,
+           Dec. 1986.
+
+.. [Ref62] H. Bourlard, Y. Kamp, H. Ney and C. J. Wellekens, "Speaker-dependent
+           connected speech recognition via dynamic programming and statistical
+           methods" in Speech and Speaker Recognition, Switzerland,
+           Basel:Karger, pp. 115-148, 1985.
+
+.. [Ref63] C. J. Wellekens, "Global connected digit recognition using Baum-Welch
+           algorithm", Proc. ICASSP '86, pp. 1081-1084, 1986-Apr.
+
+.. [Ref64] A. M. Derouault, "Context dependent phonetic Markov models for large
+           vocabulary speech recognition", Proc. ICASSP '87, 1987-Apr.
+
+.. [Ref65] B. Merialdo, "Speech recognition with very large size dictionary",
+           Proc. ICASSP '87, 1987-Apr.
+
+.. [Ref66] Y. L. Chow, "BYBLOS: The BBN continuous speech recognition system",
+           Proc. ICASSP'87, 1987-Apr.
