@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Rabiner_tutor_HMM.rst
    张书岩_简化字溯源_1997.rst
    袁珂_中国神话史_2015.rst
    Christie_hollow_2002.rst
