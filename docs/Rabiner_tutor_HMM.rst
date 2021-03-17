@@ -133,9 +133,134 @@ outline how the ideas of HMM have been applied to a large vocabulary speech
 recognizer, and in Section IX we summarize the ideas discussed throughout the
 paper.
 
-.. rubic:: Footnotes
+DISCRETE MARKOV PROCESSES [#hmm2]_
+----------------------------------
+
+.. _hmmfig1:
+
+.. figure:: images/hmmfig1.png
+   :align: center
+
+   A Markov chain with 5 states (labeled :math:`S_1` to :math:`S_5`) with selected state transitions.
+
+Consider a system which may be described at any time as being in one of a set of
+:math:`N` distinct states, :math:`S_1, S_2, \ldots, S_N`, as illustrated in Fig.
+1 (where :math:`N = 5` for simplicity). At regularly spaced discrete times, the
+system undergoes a change of state (possibly back to the same state) according
+to a set of probabilities associated with the state. We denote the time instants
+associated with state changes as :math:`t = 1, 2, \ldots` , and we denote the
+actual state at time :math:`t` as :math:`q_t`. A full probabilistic description
+of the above system would, in general, require specification of the current
+state (at time :math:`t`), as well as all the predecessor states. For the
+special case of a discrete, first order, Markov chain, this probabilistic
+description is truncated to just the current and the predecessor state, i.e.,
+
+.. math::
+   P[q_t = S_j \mid q_{t-1} = S_i, q_{t-2} = S_k, \ldots] = P[q_t = S_j \mid q_{t-1} = S_i].
+   :label: hmmeq1
+
+Further more we only consider those processes in which the right-hand side of
+:eq:`hmmeq1` is independent of time, thereby leading to the set of state
+transition probabilities :math:`a_{ij}` of the form
+
+.. math::
+   a_{ij} = P[q_t = S_j \mid q_{t-1} = S_i], \quad 1 \leq i, j \leq N
+   :label: hmmeq2
+
+with the state transition coefficients having the properties
+
+.. math::
+   a_{ij} & \geq 0 \\
+   \sum_{j = 1}^{N} a_{ij} & = 1
+   :label: hmmeq3
+
+since they obey standard stochastic constraints.
+
+The above stochastic process could be called an observable Markov model since
+the output of the process is the set of states at each instant of time, where
+each state corresponds to a physical (observable) event. To set ideas, consider
+a simple 3-state Markov model of the weather. We assume that once a day (e.g.,
+at noon), the weather is observed as being one of the following:
+
+   State 1: rain or (snow)
+
+   State 2: cloudy
+
+   State 3: sunny
+
+We postulate that the weather on day :math:`t` is characterized by a single one
+of the three states above, and that the matrix :math:`A` of state transition
+probabilities is
+
+.. math::
+   A = \{a_{ij}\} =
+   \begin{bmatrix}
+   0.4 & 0.3 & 0.3 \\
+   0.2 & 0.6 & 0.2 \\
+   0.1 & 0.1 & 0.8
+   \end{bmatrix}
+   .
+
+Given that the weather on day 1 (:math:`t = 1`) is sunny (state 3), we can ask
+the question: What is the probability (according to the model) that the weather
+for the next 7 days will be "sun-sun-rain-rain-sun-cloudy-sun"? Stated more
+formally, we define the observation sequence :math:`O` as
+:math:`O = \{S_3, S_3, S_3, S_1, S_1, S_3, S_2, S_3\}`
+corresponding to :math:`t = 1, 2, \ldots, 8,` and we
+wish to determine the probability of :math:`O` , given the model. This
+probability can be expressed (and evaluated) as
+
+.. math::
+   P(O \mid \text{Model}) & = P[S_3, S_3, S_3, S_1, S_1, S_3, S_2, S_3 \mid \text{Model}] \\
+   & = P[S_3] \cdot P[S_3 \mid S_3] \cdot P[S_3 \mid S_3] \cdot P[S_1 \mid S_3] \\
+   & \quad \cdot P[S_1 \mid S_1] \cdot P[S_3 \mid S_1] \mid P[S_2 \mid S_3] \mid P[S_3 \mid S_2] \\
+   & = \pi_3 \cdot a_{33} a_{33} a_{31} a_{11} a_{13} a_{32} a_{23} \\
+   & = 1 \times 0.8 \times 0.8 \times 0.1 \times 0.4 \times 0.3 \times 0.1 \times 0.2 \\
+   & = 1.536 \times 10^{-4}
+
+where we use the notation
+
+.. math::
+   \pi_i = P[q_1 = S_i], \quad 1 \leq i \leq N
+   :label: hmmeq4
+
+to denote the initial state probabilities.
+
+Another interesting question we can ask (and answer using the model) is: Given
+that the model is in a known state, what is the probability it stays in that
+state for exactly :math:`d` days? This probability can be evaluated as the
+probability of the observation sequence
+
+.. math::
+   O = \{S_i, S_i, S_i, \ldots, S_i, S_j \neq S_i\},
+
+given the model, which is
+
+.. math::
+   P(O \mid \text{Model}, q_1 = S_i) = (a_{ii})^{d-1} (1 - a_{ii}) = p_i(d).
+   :label: hmmeq5
+
+The quantity :math:`p_i(d)` is the (discrete) probability density function of
+duration :math:`d` in state :math:`i` . This exponential duration density is
+characteristic of the state duration in a Markov chain. Based on :math:`p_i(d)`
+, we can readily calculate the expected number of observations (duration) in a
+state, conditioned on starting in that state as
+
+.. math::
+   \bar{d}_i & = \sum_{d=1}^{\infty} d p_i(d) \\
+   & = \sum_{d=1}^{\infty} d (a_{ii})^{d-1} (1 - a_{ii}) = \dfrac{1}{1 - a_{ii}}.
+
+Thus the expected number of consecutive days of sunny weather, according to the
+model, is :math:`1/0.2 = 5` ; for cloudy it is :math:`2.5` ; for rain it is
+:math:`1.67` .
+
+Extension to Hidden Markov Models
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
            modeling in terms of solving three fundamental problems is due to
            Jack Ferguson of IDA (Institute for Defense Analysis) who introduced
            it in lectures and writing.
+.. [#hmm2] A good overview of discrete Markov processes is in [20, ch. 5].
