@@ -252,6 +252,7 @@ state, conditioned on starting in that state as
 .. math::
    \bar{d}_i & = \sum_{d=1}^{\infty} d p_i(d) \\
    & = \sum_{d=1}^{\infty} d (a_{ii})^{d-1} (1 - a_{ii}) = \dfrac{1}{1 - a_{ii}}.
+   :label: hmmeq6
 
 Thus the expected number of consecutive days of sunny weather, according to the
 model, is :math:`1/0.2 = 5` ; for cloudy it is :math:`2.5` ; for rain it is
@@ -263,12 +264,12 @@ Extension to Hidden Markov Models
 So far we have considered Markov models in which each state corresponded to an
 observable (physical) event. This model is too restrictive to be applicable to
 many problems of interest. In this section we extend the concept of Markov
-models to include the case where the observation is a probabilistic function
-of the state-i.e., the resulting model (which is called a hidden Markov model)
-is a doubly embedded stochastic process with an underlying stochastic process
-that is not observable (it is hidden**, but can only be observed through another
-set of stochastic processes that produce the sequence of observations. To fix
-ideas, consider the following model of some simple coin tossing experiments.
+models to include the case where the observation is a probabilistic function of
+the state-i.e., the resulting model (which is called a hidden Markov model) is a
+doubly embedded stochastic process with an underlying stochastic process that is
+not observable (it is hidden), but can only be observed through another set of
+stochastic processes that produce the sequence of observations. To fix ideas,
+consider the following model of some simple coin tossing experiments.
 
 **Coin Toss Models**: Assume the following scenario. You are in a room with a
 barrier (e.g., a curtain) through which you cannot see what is happening. On the
@@ -335,6 +336,200 @@ single coin is being tossed. Then using the 3-coin model of
 would not correspond to the model being used-i.e., we would be using an
 underspecified system.
 
+**The Urn and Ball Mode** [#hmm4]_: To extend the ideas of the HMM to a somewhat
+more complicated situation, consider the urn and ball system of
+:numref:`hmmfig3` . We assume that there are :math:`N` (large) glass urns in a
+room. Within each urn there are a large number of colored balls. We assume there
+are :math:`M` distinct colors of the balls. The physical process for obtaining
+observations is as follows. A genie is in the room, and according to some random
+process, he (or she) chooses an initial urn. From this urn, a ball is chosen at
+random, and its color is recorded as the observation. The ball is then replaced
+in the urn from which it was selected. A new urn is then selected according to
+the random selection process associated with the current urn, and the ball
+selection process is repeated. This entire process generates a finite
+observation sequence of colors, which we would like to model as the observable
+output of an HMM.
+
+It should be obvious that the simplest HMM that corresponds to the urn and ball
+process is one in which each state corresponds to a specific urn, and for which
+a (ball) color probability is defined for each state. The choice of urns is
+dictated by the state transition matrix of the HMM.
+
+.. _hmmfig3:
+
+.. figure:: images/hmmfig3.png
+   :align: center
+
+   An :math:`N` -state urn and ball model which illustrates the general case of a discrete symbol HMM.
+
+Elements of an HMM
+~~~~~~~~~~~~~~~~~~
+
+The above examples give us a pretty good idea of what an HMM is and how it can
+be applied to some simple scenarios. We now formally define the elements of an
+HMM, and explain how the model generates observation sequences.
+
+An HMM is characterized by the following:
+
+1) :math:`N`, the number of states in the model. Although the states are hidden,
+   for many practical applications there is often some physical significance
+   attached to the states or to sets of states of the model. Hence, in the coin
+   tossing experiments, each state corresponded to a distinct biased coin. In
+   the urn and ball model, the states corresponded to the urns. Generally the
+   states are interconnected in such a way that any state can be reached from
+   any other state (e.g., an ergodic model); however, we will see later in this
+   paper that other possible interconnections of states are often of interest.
+   We denote the individual states as :math:`S = \{S_1, S_2, \ldots, S_N\}`, and
+   the state at time :math:`t` as :math:`q_t`.
+
+2) :math:`M`, the number of distinct observation symbols per state, i.e., the
+   discrete alphabet size. The observation symbols correspond to the physical
+   output of the system being modeled. For the coin toss experiments the
+   observation symbols were simply heads or tails; for the ball and urn model
+   they were the colors of the balls selected from the urns. We denote the
+   individual symbols as :math:`V = \{v_1, v_2, \ldots, v_M\}`.
+
+3) The state transition probability distribution :math:`A = \{a_{ij}\}` where
+
+   .. math::
+      a_{ij} = P[q_{t+1} = S_j \mid q_t = S_i], \quad 1 \leq i, j \leq N.
+      :label: hmmeq7
+
+   For the special case where any state can reach any other state in a single
+   step, we have :math:`a_{ij} \geq 0` for all :math:`i, j` . For other types of
+   HMMs, we would have :math:`a_{ij} = 0` for one or more :math:`(i,j)` pairs.
+
+4) The observation symbol probability distribution in state :math:`j`,
+   :math:`B = \{b_j(k)\}`, where
+
+   .. math::
+      b_j(k) = P[v_k \text{ at } t \mid q_t = S_j], \quad 1 \leq j \leq N, \quad 1 \leq k \leq M.
+      :label: hmmeq8
+
+5) The initial state distribution :math:`\pi = \{\pi_i\}` where
+
+   .. math::
+      \pi_i = P[q_1 = S_i], \quad 1 \leq i \leq N.
+      :label: hmmeq9
+
+Given appropriate values of :math:`N, M, A, B`, and :math:`\pi`, the HMM can be
+used as a generator to give and observation sequence
+
+.. math::
+   \mathcal{O} = O_1 O_2 \cdots O_T
+   :label: hmmeq10
+
+(where each observation :math:`O_t` is one of the symbols from :math:`V`, and
+:math:`T` is the number of observations in the sequence) as follows:
+
+1. Choose an initial state :math:`q_1 = S_i` according to the initial state
+   distribution :math:`\pi`.
+
+2. Set :math:`t = 1`.
+
+3. Choose :math:`O_t = v_k` according to the symbol probability distribution in
+   state :math:`S_i`, i.e., :math:`b_i(k)`.
+
+4. Transit to a new state :math:`q_{t+1} = S_j` according to the state
+   transition probability distribution for state :math:`S_i`, i.e.,
+   :math:`a_{ij}`.
+
+5. Set :math:`t = t + 1`; return to step 3 if :math:`t < T`; otherwise terminate
+   the procedure.
+
+The above procedure can be used as both a generator of observations, and as a
+model for how a given observation sequence was generated by an appropriate HMM.
+
+It can be seen from the above discussion that a complete specification of an HMM
+requires specification of two model parameters (:math:`N` and :math:`M`),
+specification of observation symbols, and the specification of the three
+probability measures :math:`A, B`, and :math:`\pi` . For convenience, we use the
+compact notation
+
+.. math::
+   \lambda = (A, B, \pi)
+   :label: hmmeq11
+
+to indicate the complete parameter set of the model.
+
+The Three Basic Problems for HMMs [#hmm5]_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Given the form of HMM of the previous section, there are three basic problems of
+interest that must be solved for the model to be useful in real-world
+applications. These problems are the following:
+
+**Problem 1**: Given the observation sequence :math:`\mathcal{O} = O_1 O_2
+\cdots O_T`, and a model :math:`\lambda = (A, B, \pi)`, how do we efficiently
+compute :math:`P(\mathcal{O} \mid \lambda`, the probability of the observation
+sequence, given the model?
+
+**Problem 2**: Given the observation sequence :math:`\mathcal{O} = O_1 O_2
+\cdots O_T`, and the model :math:`\lambda`, how do we choose a corresponding
+state sequence :math:`Q = q_1 q_2 \cdots q_T` which is optimal in some
+meaningful sense (i.e., best "explains" the observations?
+
+**Problem 3**: How do we adjust the model parameters :math:`\lambda = (A, B,
+\pi)` to maximize :math:`P(\mathcal{O} \mid \lambda)`?
+
+Problem 1 is the evaluation problem, namely given a model and asequence of
+observations, how do we compute the probability that the observed sequence was
+produced by the model. We can also view the problem as one of scoring how well a
+given model matches a given observation sequence. The latter viewpoint is
+extremely useful. For example, if we consider the case in which we are trying to
+choose among several competing models, the solution to Problem 1 allows us to
+choose the model which best matches the observations.
+
+Problem 2 is the one in which we attempt to uncover the hidden part of the
+model, i.e., to find the “correct” state sequence. It should be clear that for
+all but the case of degenerate models, there is no “correct” state sequence to
+be found. Hence for practical situations, we usually use an optimality criterion
+to solve this problem as best as possible. Unfortunately, as we will see, there
+are several reasonable optimality criteria that can be imposed, and hence the
+choice of criterion is a strong function of the intended use for the uncovered
+state sequence. Typical uses might be to learn about the structure of the model,
+to find optimal state sequences for continuous speech recognition, or to get
+average statistics of individual states, etc.
+
+Problem 3 is the one in which we attempt to optimize the model parameters so as
+to best describe how a given observation sequence comes about. The observation
+sequence used to adjust the model parameters is called a training sequence since
+it is used to “train” the HMM. The training problem is the crucial one for most
+applications of HMMs, since it allows us to optimally adapt model parameters to
+observed training data-i.e., to create best models for real phenomena.
+
+To fix ideas, consider the following simple isolated word speech recognizer. For
+each word of a :math:`W` word vocabulary, we want to design a separate
+:math:`N` -state HMM. We represent the speech signal of a given word as a time
+sequence of coded spectral vectors. We assume that the coding is done using a
+spectral codebook with :math:`M` unique spectral vectors; hence each observation
+is the index of the spectral vector closest (in some spectral sense) to the
+original speech signal. Thus, for each vocabulary word, we have a training
+sequence consisting of a number of repetitions of sequences of codebook indices
+of the word (by one or more talkers). The first task is to build individual word
+models. This task is done by using the solution to Problem 3 to optimally
+estimate model parameters for each word model. To develop an understanding of
+the physical meaning of the model states, we use the solution to Problem 2 to
+segment each of the word training sequences into states, and then study the
+properties of the spectral vectors that lead to the observations occurring in
+each state. The goal here would be to make refinements on the model (e.g., more
+states, different codebook size, etc.) so as to improve its capability of
+modeling the spoken word sequences. Finally, once the set of :math:`W` HMMs has
+been designed and optimized and thoroughly studied, recognition of an unknown
+word is performed using the solution to Problem 1 to score each word model based
+upon the given test observation sequence, and select the word whose model score
+is highest (i.e., the highest likelihood).
+
+In the next section we present formal mathematical solutions to each of the
+three fundamental problems for HMMs. We shall see that the three problems are
+linked together tightly under our probabilistic framework.
+
+SOLUTIONS TO THE THREE BASIC PROBLEMS OF HMMs
+---------------------------------------------
+
+Solution to Problem 1
+~~~~~~~~~~~~~~~~~~~~~
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
@@ -346,6 +541,12 @@ underspecified system.
 
 .. [#hmm3] The model of :numref:`hmmfig2` (a) is a memoryless process and thus
            is a degenerate case of a Markov model.
+
+.. [#hmm4] The urn and ball model was introduced by Jack Ferguson, and his
+           colleagues, in lectures on HMM theory.
+
+.. [#hmm5] The material in this section and in Section III is based on the ideas
+           presented by Jack Ferguson of IDA in lectures at Bell Laboratories
 
 .. rubric:: References
 
