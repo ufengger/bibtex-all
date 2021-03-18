@@ -397,7 +397,7 @@ An HMM is characterized by the following:
       :label: hmmeq7
 
    For the special case where any state can reach any other state in a single
-   step, we have :math:`a_{ij} \geq 0` for all :math:`i, j` . For other types of
+   step, we have :math:`a_{ij} > 0` for all :math:`i, j` . For other types of
    HMMs, we would have :math:`a_{ij} = 0` for one or more :math:`(i,j)` pairs.
 
 4) The observation symbol probability distribution in state :math:`j`,
