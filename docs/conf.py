@@ -72,3 +72,14 @@ html_context = {
         '_static/theme_overrides.css',  # override wide tables in RTD theme
         ],
      }
+
+latex_engine = 'xelatex'
+latex_elements = {
+   'preamble': r'''
+\usepackage{mathrsfs}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+   ''',
+   'figure_align': r'H',
+   'releasename': r'GIT-Release',
+}
