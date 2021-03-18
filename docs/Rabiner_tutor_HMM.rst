@@ -350,17 +350,18 @@ selection process is repeated. This entire process generates a finite
 observation sequence of colors, which we would like to model as the observable
 output of an HMM.
 
-It should be obvious that the simplest HMM that corresponds to the urn and ball
-process is one in which each state corresponds to a specific urn, and for which
-a (ball) color probability is defined for each state. The choice of urns is
-dictated by the state transition matrix of the HMM.
-
 .. _hmmfig3:
 
 .. figure:: images/hmmfig3.png
    :align: center
 
-   An :math:`N` -state urn and ball model which illustrates the general case of a discrete symbol HMM.
+   An :math:`N\text{-state}` urn and ball model which illustrates the general
+   case of a discrete symbol HMM.
+
+It should be obvious that the simplest HMM that corresponds to the urn and ball
+process is one in which each state corresponds to a specific urn, and for which
+a (ball) color probability is defined for each state. The choice of urns is
+dictated by the state transition matrix of the HMM.
 
 Elements of an HMM
 ~~~~~~~~~~~~~~~~~~
