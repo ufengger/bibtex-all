@@ -297,9 +297,9 @@ coin (i.e., heads or tails). This model is depicted in :numref:`hmmfig2` (a)
 [#hmm3]_. In this case the Markov model is observable, and the only issue for
 complete specification of the model would be to decide on the best value for the
 bias (i.e., the probability of, say, heads). Interestingly, an equivalent HMM to
-that of Fig. 2(a) would be a degenerate 1-state model, where the state
-corresponds to the single biased coin, and the unknown parameter is the bias of
-the coin.
+that of :numref:`hmmfig2` (a) would be a degenerate 1-state model, where the
+state corresponds to the single biased coin, and the unknown parameter is the
+bias of the coin.
 
 A second form of HMM for explaining the observed sequence of coin toss outcome
 is given in :numref:`hmmfig2` (b). In this case there are 2 states in the model
