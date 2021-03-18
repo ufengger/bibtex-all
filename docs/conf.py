@@ -75,11 +75,12 @@ html_context = {
 
 latex_engine = 'xelatex'
 latex_elements = {
-   'preamble': r'''
+    'preamble': r'''
 \usepackage{mathrsfs}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
    ''',
-   'figure_align': r'H',
-   'releasename': r'GIT-Release',
+    'figure_align': r'H',
+    'releasename': r'GIT-Release',
+    'pointsize': r'12pt',
 }
