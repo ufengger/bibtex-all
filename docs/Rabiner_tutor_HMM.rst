@@ -530,6 +530,215 @@ SOLUTIONS TO THE THREE BASIC PROBLEMS OF HMMs
 Solution to Problem 1
 ~~~~~~~~~~~~~~~~~~~~~
 
+We wish to calculate the probability of the observation sequence,
+:math:`\mathcal{O} = O_1 O_2 \cdots O_T`, given the model :math:`\lambda`, i.e.,
+:math:`P(\mathcal{O} \mid \lambda)`. The most straightforward way of doing this
+is through enumerating every possible state sequence of length :math:`T` (the
+number of observations). Consider one such fixed state sequence
+
+.. math::
+   Q = q_1 q_2 \cdots q_T
+   :label: hmmeq12
+
+where :math:`q_1` is the initial state. The probability of the observation
+sequence :math:`\mathcal{O}` for the state sequence of :eq:`hmmeq12` is
+
+.. math::
+   P(\mathcal{O} \mid Q, \lambda) = \prod_{t = 1}^T P(O_t \mid q_t, \lambda)
+   :label: hmmeq13a
+
+where we have assumed statistical indepencence of observations. Thus we get
+
+.. math::
+   P(\mathcal{O} \mid Q, \lambda) = b_{q_1}(O_1) \cdot b_{q_2}(O_2) \cdots b_{q_t}(O_T).
+   :label: hmmeq13b
+
+The probability of such a state sequence :math:`Q` can be written as
+
+.. math::
+   P(Q \mid \lambda) = \pi_{q_1} a_{q_1 q_2} a_{q_2 q_3} \cdots a_{q_{T-1} q_T}.
+   :label: hmmeq14
+
+The joint probability of :math:`\mathcal{O}` and :math:`Q`, i.e., the
+probability that :math:`\mathcal{O}` and :math:`Q` occur simultaneously, is
+simply the product of the above two terms, i.e.,
+
+.. math::
+   P(\mathcal{O}, Q \mid \lambda) = P(\mathcal{O} \mid Q, \lambda) P(Q, \lambda).
+   :label: hmmeq15
+
+The probability of :math:`\mathcal{O}` (given the model) is obtained by summing
+this joint probability over all possible state sequences :math:`q` giving
+
+.. math::
+   P(\mathcal{O} \mid \lambda) & = \sum_{\text{all} Q} P(\mathcal{O} \mid Q, \lambda) P(Q \mid \lambda) \\
+   & = \sum_{q_1, q_2, \ldots, q_T} \pi_{q_1} b_{q_1}(O_1) a_{q_1 q_2} b_{q_2}(O_2) \cdots a_{q_{T-1} q_T} b_{q_T}(O_T).
+   :label: hmmeq17
+
+The interpretation of the computation in the above equation is the following.
+Initially (at time :math:`t = 1`) we are in state :math:`q_1` with probability
+:math:`\pi_{q_1}`, and generate the symbol :math:`O_1` (in this state) with
+probability :math:`b_{q_1}(O_1)`. The clock changes from time :math:`t` to
+:math:`t+1` (:math:`t = 2`) and we make a transition to state :math:`q_2` from
+state :math:`q_1` with probability :math:`a_{q_1 q_2}`, and generate symbol
+:math:`O_2` with probability :math:`b_{q_2}(O_2)`. This process continues in
+this manner until we make the list transition (at time :math:`T`) from state
+:math:`q_{T-1}` to state :math:`q_T` with probability :math:`a_{q_{T-1} q_T}`
+and generate symbol :math:`O_T` with probability :math:`b_{q_T}(O_T)`.
+
+A little thought should convince the reader that the calculation of
+:math:`P(\mathcal{O} \mid \lambda)`, according to its direct definition
+:eq:`hmmeq17` involves on the order of :math:`2 T \cdot N^T` calculations, since
+at every :math:`t = 1, 2, \ldots, T`, there are :math:`N` possible states which
+can be reached (i.e., there are :math:`N^T` possible state sequences), and for
+each such state sequence about :math:`2T` calculations are required for each
+term in the sum of :eq:`hmmeq17`. (To be precise, we need :math:`(2T-1)N^T`
+multiplications, and :math:`N^T-1` additions.) This calculation is
+computationally unfeasible, even for small values of :math:`N` and :math:`T`;
+e.g., for :math:`N = 5` (states), :math:`T = 100` (observations), there are on
+the order of :math:`2 \cdot 100 \cdot 5^{100} \sim 10^{72}` computations!
+Clearly a more efficient procedure is required to solve Problem 1. Fortunately
+such a procedure exists and is called the forward-backward procedure.
+
+**The Forward-Backward Procedure** [#hmm6]_ [Ref2]_, [Ref3]_: Consider the
+forward variable :math:`\alpha_t(j)` defined as
+
+.. math::
+   \alpha_t(i) = P(O_1 O_2 \cdots O_t, q_t = S_i \mid \lambda)
+   :label: hmmeq18
+
+i.e., the probability of the partial observation sequence, :math:`O_1 O_2 \cdots
+O_t`, (until time :math:`t`) and state :math:`S_i` at time :math:`t`, given the
+model :math:`\lambda`. We can solve for :math:`\alpha_t(i)` inductively, as
+follows:
+
+1. Initialization:
+
+   .. math::
+      \alpha_1(i) = \pi_i b_i(O_1), \quad 1 \leq i \leq N.
+      :label: hmmeq19
+
+2. Induction:
+
+   .. math::
+      \alpha_{t+1}(j) = \left[ \sum_{i = 1}^N \alpha_t(i) a_{ij} \right] b_j(O_{t+1}), \quad 1 \leq t \leq T - 1, \quad 1 \leq j \leq N.
+      :label: hmmeq20
+
+3. Termination:
+
+   .. math::
+      P(\mathcal{O} \mid \lambda) = \sum_{i = 1}^N \alpha_{T}(i).
+      :label: hmmeq21
+
+Step 1) initializes the forward probabilities as the joint probability of state
+:math:`S_i` and initial observation :math:`O_1`. The induction step, which is
+the heart of the forward calculation, is illustrated in :numref:`hmmfig4`. This
+figure shows how state :math:`S_j` can be reached at time :math:`t + 1` from the
+:math:`N` possible states, :math:`S_i, 1 \leq i \leq N`, at time :math:`t`.
+Since :math:`\alpha_t(i)` is the probability of the joint event that :math:`O_1
+O_2 \cdots O_t` are observed, and the state at time :math:`t` is :math:`S_i`,
+the product :math:`\alpha_t(i) a_{ij}` is then the probability of the joint
+event that :math:`O_1 O_2 \cdots O_t` are observed, and state :math:`S_j` is
+reached at time :math:`t + 1` via state :math:`S_i` at time :math:`t`. Summing
+this product over all the :math:`N` possible states :math:`S_i, 1 \leq i \leq N`
+at time :math:`t` results in the probability of :math:`S_j` at time :math:`t +
+1` with all the accompanying previous partial observations. Once this is done
+and :math:`S_j` is known, it is easy to see that :math:`\alpha_{t+1}(j)` is
+obtained by accounting for quantity by the probability :math:`b_j(O_{t+1})`. The
+computation of :eq:`hmmeq20` is performed for all states :math:`j, 1 \leq j \leq
+N`, for a given :math:`t`; the computation is then iterated for :math:`t = 1, 2,
+\ldots, T - 1`. Finally, step 3) gives the desired calculation of
+:math:`P(\mathcal{O} \mid \lambda)` as the sum of the terminal forward variables
+:math:`\alpha_T(i)`. This is the case since, by definition,
+
+.. math::
+   \alpha_T(i) = P(O_1 O_2 \cdots O_T, q_T = S_i \mid \lambda)
+   :label: hmmeq22
+
+and hence :math:`P(\mathcal{O} \mid \lambda)` is just the sum of the
+:math:`\alpha_T(i)`'s.
+
+.. _hmmfig4:
+
+.. figure:: images/hmmfig4.png
+   :align: center
+
+   (a) Illustration of the sequence of operations required for the computation
+   of the forward variable :math:`\alpha_{t+1}(j)`. (b) Implementation of the
+   computation of :math:`\alpha_{t}(j)` in terms of a lattice of observations
+   :math:`t`, and states :math:`i`.
+
+If we examine the computation involved in the calculation of
+:math:`\alpha_t(j)`, :math:`1 \leq t \leq T`, :math:`1 \leq j \leq N`, we see
+that it requires on the order of :math:`N^2 T` calculations, rather than
+:math:`2 T N^T` as required by the direct calculation. (Again, to be precise, we
+need :math:`N(N+1)(T-1) + N` multiplications and :math:`N(N-1)(T-1)` additions.)
+For :math:`N = 5`, :math:`T = 100`, we need about :math:`3000` computations for
+the forward method, versus :math:`10^{72}` computations for the direct
+calculation, a savings of about :math:`69` orders of magnitude.
+
+The forward probability calculation is, in effect, based upon the lattice (or
+trellis) structure shown in :numref:`hmmfig4` (b). The key is that since there
+are only :math:`N` states (nodes at each time slot in the lattice), all the
+possible state sequences will re-merge into these :math:`N` nodes, no matter how
+long the observation sequence. At time :math:`t = 1` (the first time slot in the
+lattice), we need to calculate values of :math:`\alpha_1(i)`, :math:`1 \leq i
+\leq N`. At times :math:`t = 2, 3, \ldots, T`, we only need to calculate values
+of :math:`\alpha_t(j)`, :math:`1 \leq j \leq N`, where each calculation involves
+only :math:`N` previous values of :math:`\alpha_{t-1}(i)` because each of the
+:math:`N` grid points is reached from the same :math:`N` grid points at the
+previous time slot.
+
+In a similar manner [#hmm7]_, we can consider a backward variable
+:math:`\beta_t(i)` defined as
+
+.. math::
+   \beta_t(i) = P(O_{t+1} O_{t+2} \cdots O_T \mid q_t = S_i, \lambda)
+   :label: hmmeq23
+
+i.e., the probability of the partial observation sequence from :math:`t + 1` to
+the end, given state :math:`S_i` at time :math:`t` and the model
+:math:`\lambda`. Again we can solve for :math:`\beta_t(i)` inductively, as
+follows:
+
+1. Initialization:
+
+   .. math::
+      \beta_T(i) = 1, \quad 1 \leq i \leq N.
+      :label: hmmeq24
+
+2. Induction:
+
+   .. math::
+      \beta_t(i) = \sum_{j = 1}^N a_{ij} b_j(O_{t+1}) \beta_{t+1}(j), \quad t = T-1, T-2, \cdots, 1, \quad 1 \leq i \leq N.
+      :label: hmmeq25
+
+The initialization step 1) arbitrarily defines :math:`\beta_T(i)` to be
+:math:`1` for all :math:`i`. Step 2), which is illustrated in :numref:`hmmfig5`,
+shows that in order to have been in state :math:`S_i` at time :math:`t`, and to
+account for the observation sequence from time :math:`t + 1` on, you have to
+consider all possible states :math:`S_j` at time :math:`t + 1`, accounting for
+the transition from :math:`S_i` to :math:`S_j` (the :math:`a_{ij}` term), and
+then account for the remaining partial observation sequence from state :math:`j`
+(the :math:`\beta_{t+1}(j)` term). We will see later how the backward, as well
+as the forward calculations are used extensively to help solve fundamental
+Problems 2 and 3 of HMMs.
+
+.. _hmmfig5:
+
+.. figure:: images/hmmfig5.png
+   :align: center
+
+   Illustration of the sequence of operations required for the computation of
+   the backward variable :math:`\beta_t(i)`.
+
+Again, the computation of :math:`\beta_t(i)`, :math:`1 \leq t \leq T`, :math:`1
+\leq i \leq N`, requires on the order of :math:`N^2 T` calculations, and can be
+computed in a lattice structure similar to that of :numref:`hmmfig4` (b).
+
+Solution to Problem 2
+~~~~~~~~~~~~~~~~~~~~~
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
@@ -546,7 +755,16 @@ Solution to Problem 1
            colleagues, in lectures on HMM theory.
 
 .. [#hmm5] The material in this section and in Section III is based on the ideas
-           presented by Jack Ferguson of IDA in lectures at Bell Laboratories
+           presented by Jack Ferguson of IDA in lectures at Bell Laboratories.
+
+.. [#hmm6] Strictly speaking, we only need the forward part of the
+           forward-backward procedure to solve Problem 1. We will introduce the
+           backward part of the procedure in this section since it will be used
+           to help solve Problem 3.
+
+.. [#hmm7] Again we remind the reader that the backward procedure will be used
+           in the solution to Problem 3, and is not required for the solution of
+           Problem 1.
 
 .. rubric:: References
 
