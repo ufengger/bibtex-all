@@ -301,6 +301,13 @@ that of :numref:`hmmfig2` (a) would be a degenerate 1-state model, where the
 state corresponds to the single biased coin, and the unknown parameter is the
 bias of the coin.
 
+.. _hmmfig2:
+
+.. figure:: images/hmmfig2.png
+   :align: center
+
+   Three possible Markov models which can account for the results of hidden coin tossing experiments. (a) 1-coin model. (b) 2-coins model. (c) 3-coins model.
+
 A second form of HMM for explaining the observed sequence of coin toss outcome
 is given in :numref:`hmmfig2` (b). In this case there are 2 states in the model
 and each state corresponds to a different, biased, coin being tossed. Each state
@@ -312,13 +319,6 @@ itself be a set of independent coin tosses, or some other probabilistic event.
 A third form of HMM for explaining the observed sequence of coin toss outcomes
 is given in :numref:`hmmfig2` (c). This model corresponds to using 3 biased
 coins, and choosing from among the three, based on some probabilistic event.
-
-.. _hmmfig2:
-
-.. figure:: images/hmmfig2.png
-   :align: center
-
-   Three possible Markov models which can account for the results of hidden coin tossing experiments. (a) 1-coin model. (b) 2-coins model. (c) 3-coins model.
 
 Given the choice among the three models shown in :numref:`hmmfig2` for
 explaining the observed sequence of heads and tails, a natural question would be
