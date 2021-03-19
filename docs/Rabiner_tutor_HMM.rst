@@ -473,7 +473,7 @@ meaningful sense (i.e., best "explains" the observations?)
 **Problem 3**: How do we adjust the model parameters :math:`\lambda = (A, B,
 \pi)` to maximize :math:`P(\mathcal{O} \mid \lambda)`?
 
-Problem 1 is the evaluation problem, namely given a model and asequence of
+Problem 1 is the evaluation problem, namely given a model and a sequence of
 observations, how do we compute the probability that the observed sequence was
 produced by the model. We can also view the problem as one of scoring how well a
 given model matches a given observation sequence. The latter viewpoint is
