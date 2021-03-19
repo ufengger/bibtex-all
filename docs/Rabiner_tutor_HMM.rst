@@ -414,7 +414,7 @@ An HMM is characterized by the following:
       :label: hmmeq9
 
 Given appropriate values of :math:`N, M, A, B`, and :math:`\pi`, the HMM can be
-used as a generator to give and observation sequence
+used as a generator to give an observation sequence
 
 .. math::
    \mathcal{O} = O_1 O_2 \cdots O_T
@@ -462,13 +462,13 @@ applications. These problems are the following:
 
 **Problem 1**: Given the observation sequence :math:`\mathcal{O} = O_1 O_2
 \cdots O_T`, and a model :math:`\lambda = (A, B, \pi)`, how do we efficiently
-compute :math:`P(\mathcal{O} \mid \lambda`, the probability of the observation
+compute :math:`P(\mathcal{O} \mid \lambda)`, the probability of the observation
 sequence, given the model?
 
 **Problem 2**: Given the observation sequence :math:`\mathcal{O} = O_1 O_2
 \cdots O_T`, and the model :math:`\lambda`, how do we choose a corresponding
 state sequence :math:`Q = q_1 q_2 \cdots q_T` which is optimal in some
-meaningful sense (i.e., best "explains" the observations?
+meaningful sense (i.e., best "explains" the observations?)
 
 **Problem 3**: How do we adjust the model parameters :math:`\lambda = (A, B,
 \pi)` to maximize :math:`P(\mathcal{O} \mid \lambda)`?
@@ -739,6 +739,114 @@ computed in a lattice structure similar to that of :numref:`hmmfig4` (b).
 
 Solution to Problem 2
 ~~~~~~~~~~~~~~~~~~~~~
+
+Unlike Problem 1 for which an exact solution can be given, there are several
+possible ways of solving Problem 2, namely finding the "optimal" state sequence
+associated with the given observation sequence. The difficulty lies with the
+definition of the optimal state sequence; i.e., there are several possible
+optimality criteria. For example, one possible optimality criterion is to choose
+the states :math:`q_t`, which are individually most likely. This optimality
+criterion maximizes the expected number of correct individual states. To
+implement this solution to Problem 2, we define the variable
+
+.. math::
+   \gamma_t(i) = \dfrac{\alpha_t(i) \beta_t(i)}{P(\mathcal{O} \mid \lambda)}
+   = \dfrac{\alpha_t(i) \beta_t(i)}{\sum_{i=1}^N \alpha_t(i) \beta_t(i)}
+   :label: hmmeq27
+
+since :math:`\alpha_t(i)` accounts for the partial observation sequence
+:math:`O_1 O_2 \cdots O_t` and state :math:`S_i` at :math:`t`, while
+:math:`\beta_t(i)` accounts for the remainder of the observation sequence
+:math:`O_{t+1} O_{t+2} \cdots O_T`, given state :math:`S_i` at :math:`t`. The
+normalization factor :math:`P(\mathcal{O} \mid \lambda) = \sum_{i=1}^N
+\alpha_t(i)`, :math:`\beta_t(i)` makes :math:`\gamma_t(i)` a probability measure
+so that
+
+.. math::
+   \sum_{i = 1}^N \gamma_t(i) = 1.
+   :label: hmmeq28
+
+Using :math:`\gamma_t(i)`, we can solve for the individually most likey state
+:math:`q_t` at time :math:`t`, as
+
+.. math::
+   q_t = \mathrm{argmax}_{1 \leq i \leq N} [\gamma_t(i)], \quad 1 \leq t \leq T.
+   :label: hmmeq29
+
+Although :eq:`hmmeq29` maximizes the expected number of correct states (by
+choosing the most likely state for each :math:`t`), there could be some problems
+with the resulting state sequence. For example, when the HMM has state
+transitions which have zero probability (:math:`a_{ij} = 0` for some :math:`i`
+and :math:`j`), the "optimal" state sequence may, in fact, not even be a valid
+state sequence. This is due to the fact that the solution of :eq:`hmmeq29`
+simply determines the most likely state at every instant, without regard to the
+probability of occurrence of sequences of states.
+
+One possible solution to the above problem is to modify the optimality
+criterion. For example, one could solve for the state sequence that maximizes
+the expected number of correct pairs of states :math:`(q_t, q_{t + 1})`, or
+triples of states :math:`(q_t, q_{t + 1}, q_{t+2})`, etc. Although these
+criteria might be reasonable for some applications, the most widely used
+criterion is to find the single best state sequence (path), i.e., to maximize
+:math:`P(Q \mid \mathcal{O}, \lambda)` which is equivalent to maximizing
+:math:`P(Q, \mathcal{O} \mid \lambda)`. A formal technique for finding this
+single best state sequence exists, based on dynamic programming methods, and is
+called the Viterbi algorithm.
+
+**Viterbi Algorithm** [Ref21]_, [Ref22]_: To find the single best state
+sequence, :math:`Q = \{q_1 q_2 \cdots q_T\}`, for the given observation sequence
+:math:`O = \{O_1 O_2 \cdots O_T\}`, we need to define the quantity
+
+.. math::
+   \delta_t(i) = \mathrm{max}_{q_1, q_2, \ldots, q_{t-1}} P[q_1 q_2 \cdots q_t = i, O_1 O_2 \cdots O_t \mid \lambda]
+   :label: hmmeq30
+
+i.e., :math:`\delta_t(i)` is the best score (highest probability) along a single
+path, at time :math:`t`, which accounts for the first :math:`t` observations and
+ends in state :math:`S_i`. By induction we have
+
+.. math::
+   \delta_{t+1}(j) = [\mathrm{max}_i \delta_t(i) a_{ij} \cdot b_j(O_{t+1})].
+   :label: hmmeq31
+
+To actually retrieve the state sequence, we need to keep track of the argument
+which maximized :eq:`hmmeq31`, for each :math:`t` and :math:`j`. We do this via
+the array :math:`\psi_t(j)`. The complete procedure for finding the best state
+sequence can now be stated as follows:
+
+1. Initialization:
+
+   .. math::
+      \delta_1(i) & = \pi b_i(O_1), \quad 1 \leq i \leq N \\
+      \psi_1(i) & = 0
+      :label: hmmeq32
+
+2. Recursion:
+
+   .. math::
+      \delta_t(j) & = \mathrm{max}_{1 \leq i \leq N} [\delta_{t-1}(i) a_{ij}] b_j(O_t), \quad 2 \leq t \leq T, \quad 1 \leq j \leq N \\
+      \psi_t(j) & = \mathrm{argmax}_{1 \leq i \leq N} [\delta_{t-1}(i) a_{ij}], \quad 2 \leq t \leq T, \quad 1 \leq j \leq N.
+      :label: hmmeq33
+
+3. Termination:
+
+   .. math::
+      P^* & = \mathrm{max}_{1 \leq i \leq N} [\delta_T(i)] \\
+      q_T^* & = \mathrm{argmax}_{1 \leq i \leq N} [\delta_T(i)].
+      :label: hmmeq34
+
+4. Path (state sequence) backtracking:
+
+.. math::
+   q_t^* = \psi_{t + 1}(q_{t+1}^*), \quad t = T-1, T-2, \ldots, 1.
+   :label: hmmeq35
+
+It should be noted that the Viterbi algorithm is similar (except for the
+backtracking step) in implementation to the forward calculation of :eq:`hmmeq19`
+:eq:`hmmeq20` :eq:`hmmeq21`. The major difference is the maximization in
+:eq:`hmmeq33` (a) over previous states which is used in place of the summing
+procedure in :eq:`hmmeq20`. It also should be clear that a lattice (or trellis)
+structure efficiently implements the computation of the Viterbi procedure.
 
 .. rubric:: Footnotes
 
