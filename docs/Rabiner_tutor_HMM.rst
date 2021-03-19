@@ -848,6 +848,173 @@ backtracking step) in implementation to the forward calculation of :eq:`hmmeq19`
 procedure in :eq:`hmmeq20`. It also should be clear that a lattice (or trellis)
 structure efficiently implements the computation of the Viterbi procedure.
 
+Solution to Problem 3 [Ref1]_ - [Ref5]_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The third, and by far the most difficult, problem of HMMs is to determine a
+method to adjust the model parameters :math:`(A, B, \pi)` to maximize the
+probability of the observation sequence given the model. There is no known way
+to analytically solve for the model which maximizes the probability of the
+observation sequence. In fact, given any finite observation sequence as training
+data, there is no optimal way of estimating the model parameters. We can,
+however, choose :math:`\lambda = (A, B, \pi)` such that :math:`P(\mathcal{O}
+\mid \lambda)` is locally maximized using an iterative procedure such as the
+Baum-Welch method (or equivalently the EM (expectation-modification) method
+[Ref23]_), or using gradient techniques [Ref14]_. In this section we discuss one
+iterative procedure, based primarily on the classic work of Baum and his
+colleagues, for choosing model parameters.
+
+.. _hmmfig6:
+
+.. figure:: images/hmmfig6.png
+   :align: center
+
+   Illustration of the sequence of operations required for the computation of
+   the joint event that the system is in state :math:`S_i`, at time :math:`t`
+   and state :math:`S_j`, at time :math:`t + 1`.
+
+In order to describe the procedure for reestimation (iterative update and
+improvement) of HMM parameters, we first define :math:`\xi_t(i, j)`, the
+probability of being in state :math:`S_i` at time :math:`t`, and state
+:math:`S_j`, at time :math:`t+1`, given the model and the observation sequence,
+i.e.
+
+.. math::
+   \xi_t(i, j) = P(q_t = S_i, q_{t+1} = S_j \mid \mathcal{O}, \lambda).
+   :label: hmmeq36
+
+The sequence of events leading to the conditions required by :eq:`hmmeq36` is
+illustrated in :numref:`hmmfig6`. It should be clear, from the definitions of
+the forward and backward variables, that we can write :math:`\xi_t(i, j)` in the
+form
+
+.. math::
+   \xi_t(i, j) &= \dfrac{\alpha_t(i) a_{ij} b_j(O_{t+1}) \beta_{t+1}(j)}{P(\mathcal{O} \mid \lambda)} \\
+   &= \dfrac{\alpha_t(i) a_{ij} b_j(O_{t+1}) \beta_{t+1}(j)}{\sum_{i = 1}^N \sum_{j = 1}^N \alpha_t(i) a_{ij} b_j(O_{t+1}) \beta_{t+1}(j)}
+   :label: hmmeq37
+
+where the numerator term is just :math:`P(q_t = S_i, q_{t+1} = S_j, \mathcal{O}
+\mid \lambda)` and division by :math:`P(\mathcal{O} \mid \lambda)` gives the
+desired probability measure.
+
+We have previously defined :math:`\gamma_t(i)` as the probability of being in
+state :math:`S_i` at time :math:`t`, given the observation sequence and the
+model; hence we can relate :math:`\gamma_t(i)` to :math:`\xi_t(i, j)` by summing
+over :math:`j`, giving
+
+.. math::
+   \gamma_t(i) = \sum_{j = 1}^N \xi_t(i, j).
+   :label: hmmeq38
+
+If we sum :math:`\gamma_t(i)` over the time index :math:`t`, we get a quantity which
+can be interpreted as the expected (over time) number of
+times that state :math:`S_i` is visited, or equivalently, the expected
+number of transitions made from state :math:`S_i` (if we exclude the
+time slot :math:`t = T` from the summation). Similarly, summation
+of :math:`\xi_t(i, j)` over :math:`t` (from :math:`t = 1` to :math:`t = T - 1`) can be interpreted
+as the expected number of transitions from state :math:`S_i` to state
+:math:`S_j`. That is
+
+.. math::
+   \sum_{t = 1}^{T-1} \gamma_t(i) &= \text{expected number of transitions from } S_i \\
+   \sum_{t = 1}^{T-1} \xi_t(i, j) &= \text{expected number of transitions from } S_i \text{ to } S_j
+   :label: hmmeq39
+
+Using the above formulas (and the concept of counting event occurrences) we can
+give a method for reestimation of the parameters of an HMM. A set of reasonable
+reestimation formulas for :math:`\pi`, :math:`A`, and :math:`B` are
+
+.. math::
+   \bar{\pi}_i &= \text{expected frequency (number of times) in state } S_i \text{ at time } (t = 1) = \gamma_1(i) \\
+   \bar{a}_{ij} &= \dfrac{\text{expected number of transitions from state } S_i \text{ to state } S_j}{\text{expected number of transitions from state } S_i} \\
+   &= \dfrac{\sum_{t=1}^{T-1} \xi_t(i, j)}{\sum_{t = 1}^{T-1} \gamma_t(i)} \\
+   \bar{b}_j(k) &= \dfrac{\text{expected number of times in state } j \text{ and observing symbol } v_k}{\text{expected number of times in state } j} \\
+   & = \dfrac{\sum_{t = 1, \text{ s.t. } O_t = v_k}^T \gamma_t(j)}{\sum_{t=1}^T \gamma_t(j)}.
+   :label: hmmeq40
+
+If we define the current model as :math:`\lambda = (A, B, \pi)`, and use that to
+compute the right-hand sides of :eq:`hmmeq40`, and we define the reestimated
+model as :math:`\bar{\lambda} = (\bar{A}, \bar{B}, \bar{\pi})`, as determined
+from the left-hand sides of :eq:`hmmeq40`, then it has been proven by Baum and
+his colleagues [Ref6]_, [Ref3]_ that either 1) the initial model :math:`\lambda`
+defines a critical point of the likelihood function, in which case
+:math:`\bar{\lambda} = \lambda`; or 2) model :math:`\bar{\lambda}` is more
+likely than model :math:`\lambda` in the sense that :math:`P(\mathcal{O} \mid
+\bar{\lambda}) > P(\mathcal{O} \mid \lambda)`, i.e., we have found a new model
+:math:`\bar{\lambda}` from which the observation sequence is more likely to have
+been produced.
+
+Based on the above procedure, if we iteratively use :math:`\bar{\lambda}` in
+place of :math:`\lambda` and repeat the reestimation calculation, we then can
+improve the probability of :math:`\mathcal{O}` being observed from the model
+until some limiting point is reached. The final result of this reestimation
+procedure is called a maximum likelihood estimate of the HMM. It should be
+pointed out that the forward-backward algorithm leads to local maxima only, and
+that in most problems of interest, the optimization surface is very complex and
+has many local maxima.
+
+The reestimation formulas of :eq:`hmmeq40` can be derived directly by maximizing
+(using standard constrained optimization techniques) Baum’s auxiliary function
+
+.. math::
+   Q(\lambda, \bar{\lambda}) = \sum_Q P(Q \mid \mathcal{O}, \lambda) \log [P(\mathcal{O}, Q \mid \bar{\lambda})]
+   :label: hmmeq41
+
+over :math:`\bar{\lambda}`. It has been proven by Baum and his colleagues
+[Ref6]_, [Ref3]_ that maximization of :math:`Q(\lambda, \bar{\lambda})` leads to
+increased likelihood, i.e.
+
+.. math::
+   \mathrm{max}_{\bar{\lambda}} [Q(\lambda, \bar{\lambda})] \Rightarrow P(\mathcal{O} \mid \bar{\lambda}) \geq P(\mathcal{O} \mid \lambda).
+   :label: hmmeq42
+
+Eventually the likelihood function converges to a critical point.
+
+**Notes on the Reestimation Procedure**: The reestimation formulas can readily
+be interpreted as an implementation of the EM algorithm of statistics [Ref23]_
+in which the E (expectation) step is the calculation of the auxiliary function
+:math:`Q(\lambda, \bar{\lambda})`, and the M (modification) step is the
+maximization over :math:`\bar{\lambda}`. Thus the Baum-Welch reestimation
+equations are essentially identical to the EM steps for this particular problem.
+
+An important aspect of the reestimation procedure is that
+the stochastic constraints of the HMM parameters, namely
+
+.. math::
+   \sum_{i = 1}^N \bar{\pi}_i &= 1 \\
+   \sum_{j = 1}^N \bar{a}_{ij} &= 1, \quad 1 \leq i \leq N \\
+   \sum_{k = 1}^M \bar{b}_j(k) &= 1, \quad 1 \leq j \leq N
+   :label: hmmeq43
+
+are automatically satisfied at each iteration. By looking at the parameter
+estimation problem as a constrained optimization of :math:`P(\mathcal{O} \mid
+\lambda)` (subject to the constraints of :eq:`hmmeq43`), the techniques of
+Lagrange multipliers can be used to find the values of :math:`\pi, a_{ij}` and
+:math:`b_j(k)` which maximize :math:`P` (we use the notation :math:`P =
+P(\mathcal{O} \mid \lambda)` as short-hand in this section). Based on setting up
+a standard Lagrange optimization using Lagrange multipliers, it can readily be
+shown that :math:`P` is maximized when the following conditions are met:
+
+.. math::
+   \pi_i &= \dfrac{\pi_i \dfrac{\partial P}{\partial \pi_i}}{\sum_{k = 1}^N \pi_k \dfrac{\partial P}{\partial \pi_k}} \\
+   a_{ij} &= \dfrac{a_{ij} \dfrac{\partial P}{\partial a_{ij}}}{\sum_{k = 1}^N a_{ik} \dfrac{\partial P}{\partial a_{ik}}} \\
+   b_j(k) &= \dfrac{b_j(k) \dfrac{\partial P}{\partial b_j(k)}}{\sum_{\ell = 1}^M b_j(\ell) \dfrac{\partial P}{\partial b_j(\ell)}}
+   :label: hmmeq44
+
+By appropriate manipulation of :eq:`hmmeq44`, the right-hand sides of each
+equation can be readily converted to be identical to the right-hand sides of
+each part of :eq:`hmmeq40`, thereby showing that the reestimation formulas are
+indeed exactly correct at critical points of :math:`P`. In fact the form of
+:eq:`hmmeq44` is essentially that of a reestimation formula in which the
+left-hand side is the reestimate and the right-hand side is computed using the
+current values of the variables.
+
+Finally, we note that since the entire problem can be set up as an optimization
+problem, standard gradient techniques can be used to solve for "optimal" values
+of the model parameters [Ref14]_. Such procedures have been tried and have been
+shown to yield solutions comparable to those of the standard reestimation
+procedures.
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
