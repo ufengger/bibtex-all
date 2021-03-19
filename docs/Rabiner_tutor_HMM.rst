@@ -551,7 +551,7 @@ sequence :math:`\mathcal{O}` for the state sequence of :eq:`hmmeq12` is
 where we have assumed statistical indepencence of observations. Thus we get
 
 .. math::
-   P(\mathcal{O} \mid Q, \lambda) = b_{q_1}(O_1) \cdot b_{q_2}(O_2) \cdots b_{q_t}(O_T).
+   P(\mathcal{O} \mid Q, \lambda) = b_{q_1}(O_1) \cdot b_{q_2}(O_2) \cdots b_{q_T}(O_T).
    :label: hmmeq13b
 
 The probability of such a state sequence :math:`Q` can be written as
