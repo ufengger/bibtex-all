@@ -565,14 +565,14 @@ probability that :math:`\mathcal{O}` and :math:`Q` occur simultaneously, is
 simply the product of the above two terms, i.e.,
 
 .. math::
-   P(\mathcal{O}, Q \mid \lambda) = P(\mathcal{O} \mid Q, \lambda) P(Q, \lambda).
+   P(\mathcal{O}, Q \mid \lambda) = P(\mathcal{O} \mid Q, \lambda) P(Q \mid \lambda).
    :label: hmmeq15
 
 The probability of :math:`\mathcal{O}` (given the model) is obtained by summing
-this joint probability over all possible state sequences :math:`q` giving
+this joint probability over all possible state sequences :math:`Q` giving
 
 .. math::
-   P(\mathcal{O} \mid \lambda) & = \sum_{\text{all} Q} P(\mathcal{O} \mid Q, \lambda) P(Q \mid \lambda) \\
+   P(\mathcal{O} \mid \lambda) & = \sum_{\text{all } Q} P(\mathcal{O} \mid Q, \lambda) P(Q \mid \lambda) \\
    & = \sum_{q_1, q_2, \ldots, q_T} \pi_{q_1} b_{q_1}(O_1) a_{q_1 q_2} b_{q_2}(O_2) \cdots a_{q_{T-1} q_T} b_{q_T}(O_T).
    :label: hmmeq17
 
@@ -602,7 +602,7 @@ Clearly a more efficient procedure is required to solve Problem 1. Fortunately
 such a procedure exists and is called the forward-backward procedure.
 
 **The Forward-Backward Procedure** [#hmm6]_ [Ref2]_, [Ref3]_: Consider the
-forward variable :math:`\alpha_t(j)` defined as
+forward variable :math:`\alpha_t(i)` defined as
 
 .. math::
    \alpha_t(i) = P(O_1 O_2 \cdots O_t, q_t = S_i \mid \lambda)
