@@ -1015,6 +1015,111 @@ of the model parameters [Ref14]_. Such procedures have been tried and have been
 shown to yield solutions comparable to those of the standard reestimation
 procedures.
 
+TYPES OF HMMs
+-------------
+
+Until now, we have only considered the special case of ergodic or fully
+connected HMMs in which every state of the model could be reached (in a single
+step) from every other state of the model. (Strictly speaking, an ergodic model
+has the property that every state can be reached from every other state in a
+finite number of steps.) As shown in :numref:`hmmfig7` (a), for an :math:`N = 4`
+state model, this type of model has the property that every :math:`a_{ij}`
+coefficient is positive. Hence for the example of :numref:`hmmfig7` (a) we have
+
+.. math::
+   A =
+   \begin{bmatrix}
+   a_{11} & a_{12} & a_{13} & a_{14} \\
+   a_{21} & a_{22} & a_{23} & a_{24} \\
+   a_{31} & a_{32} & a_{33} & a_{34} \\
+   a_{41} & a_{42} & a_{43} & a_{44}
+   \end{bmatrix}
+
+.. _hmmfig7:
+
+.. figure:: images/hmmfig7.png
+   :align: center
+
+   Illustration of 3 distinct types of HMMs. (a) A 4-state ergodic model. (b) A
+   4-state left-right model. (c) A 6-state parallel path left-right model.
+
+For some applications, in particular those to be discussed later in this paper,
+other types of HMMs have been found to account for observed properties of the
+signal being modeled better than the standard ergodic model. One such model is
+shown in :numref:`hmmfig7` (b). This model is called a left-right model or a
+Bakis model [Ref11]_, [Ref10]_ because the underlying state sequence associated
+with the model has the property that as time increases the state index increases
+(or stays the same), i.e., the states proceed from left to right. Clearly the
+left-right type of HMM has the desirable property that it can readily model
+signals whose properties change overtime- e.g., speech. The fundamental property
+of all left-right HMMs is that the state transition coefficients have the
+property
+
+.. math::
+   a_{ij} = 0, \quad j < i
+   :label: hmmeq45
+
+i.e., no transitions are allowed to states whose indices are lower than the
+current state. Furthermore, the initial state probabilities have the property
+
+.. math::
+   \pi_i =
+   \left\{
+   \begin{split}
+   0 &, \quad i \neq 1\\
+   1 &, \quad i = 1\\
+   \end{split}
+   \right.
+   :label: hmmeq46
+
+since the state sequence must begin in state :math:`1` (and end in state
+:math:`N`) . Often, with left-right models, additional constraints are placed on
+the state transition coefficients to make sure that large changes in state
+indices do not occur; hence a constraint of the form
+
+.. math::
+   a_{ij} = 0, \quad j > i + \Delta
+   :label: hmmeq47
+
+is often used. In particular, for the example of :numref:`hmmfig7` (b), the
+value of :math:`\Delta` is :math:`2`, i.e., no jumps of more than :math:`2`
+states are allowed. The form of the state transition matrix for the example of
+:numref:`hmmfig7` (b) is thus
+
+.. math::
+   A =
+   \begin{bmatrix}
+   a_{11} & a_{12} & a_{13} & 0 \\
+   0 & a_{22} & a_{23} & a_{24} \\
+   0 & 0 & a_{33} & a_{34} \\
+   0 & 0 & 0 & a_{44}
+   \end{bmatrix}
+
+It should be clear that, for the last state in a left-right model, that the
+state transition coefficients are specified as
+
+.. math::
+   a_{NN} &= 1 \\
+   a_{Ni} &= 0, \quad i < N
+   :label: hmmeq48
+
+Although we have dichotomized HMMs into ergodic and left-right models, there are
+many possible variations and combinations possible. By way of example,
+:numref:`hmmfig7` (c) shows a cross-coupled connection of two parallel
+left-right HMMs. Strictly speaking, this model is a left-right model (it obeys
+all the :math:`a_{ij}` constraints); however, it can be seen that it has certain
+flexibility not present in a strict left-right model (i.e., one without parallel
+paths).
+
+It should be clear that the imposition of the constraints of the left-right
+model, or those of the constrained jump model, essentially have no effect on the
+reestimation procedure. This is the case because any HMM parameter set to zero
+initially, will remain at zero throughout the reestimation procedure (see
+:eq:`hmmeq44`).
+
+Continuous Observation Densities in HMMs [Ref24]_, [Ref25]_, [Ref26]_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
