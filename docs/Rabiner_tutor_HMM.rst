@@ -750,6 +750,15 @@ criterion maximizes the expected number of correct individual states. To
 implement this solution to Problem 2, we define the variable
 
 .. math::
+   \gamma_t(i) = P(q_t = S_i \mid \mathcal{O}, \lambda)
+   :label: hmmeq26
+
+i.e., the probability of being in state :math:`S_i` at time :math:`t`, given the
+observation sequence :math:`\mathcal{O}`, and the model :math:`\lambda`.
+Equation :eq:`hmmeq26` can be expressed simply in terms of the forward-backward
+variables, i.e.,
+
+.. math::
    \gamma_t(i) = \dfrac{\alpha_t(i) \beta_t(i)}{P(\mathcal{O} \mid \lambda)}
    = \dfrac{\alpha_t(i) \beta_t(i)}{\sum_{i=1}^N \alpha_t(i) \beta_t(i)}
    :label: hmmeq27
@@ -1208,6 +1217,64 @@ reestimation term for the covariance matrix :math:`\mathbf{U}_{jk}`.
 
 Autoregressive HMMs [Ref27]_, [Ref28]_
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Although the general formulation of continuous density HMMs is applicable to a
+wide range of problems, there is one other very interesting class of HMMs that
+is particularly applicable to speech processing. This is the class of
+autoregressive HMMs [Ref27]_, [Ref28]_. For this class, the observation vectors
+are drawn from an autoregression process.
+
+To be more specific, consider the observation vector :math:`\mathbf{O}` with
+components :math:`(x_0, x_1, x_2, \ldots, x_{K-1})`. Since the basis probability
+density function for the observation vector is Gaussian autoregressive (or order
+:math:`p`), then the components of :math:`\mathbf{O}` are related by
+
+.. math::
+   \mathbf{O}_k = - \sum_{i = 1}^p a_i \mathbf{O}_{k - i} + e_k
+   :label: hmmeq55
+
+where :math:`e_k, k = 0, 1, 2, \ldots, K - 1` are Gaussian, independent,
+identically distributed random variables with zero mean and variance
+:math:`\sigma^2`, and :math:`a_i, i = 1, 2, \ldots, p`, are the autoregression
+or predictor coefficients. It can be shown that for large :math:`K`, the density
+function for :math:`\mathbf{O}` is approximately
+
+.. math::
+   f(\mathbf{O}) = (2 \pi \sigma^2)^{-K/2} \exp{-\dfrac{1}{2 \sigma^2} \delta(\mathbf{O}, \mathbf{a})}
+   :label: hmmeq56
+
+where
+
+.. math::
+   \delta(\mathbf{O}, \mathbf{a}) &= r_a(0) r(0) + 2 \sum_{i = 1}^P r_a(i) r(i) \\
+   \mathbf{a}^{\prime} &= [1, a_1, a_2, \ldots, a_p] \\
+   r_a(i) &= \sum_{n = 0}^{p - i} a_n a_{n + i} \quad (a_0 = 1), 1 \leq i \leq p \\
+   r(i) &= \sum_{n = 0}^{K-i-1} x_n x_{n + i} \quad 0 \leq i \leq p.
+   :label: hmmeq 57
+
+In the above equations it can be recognized that :math:`r(i)` is the
+autocorrelation of the observation samples, and :math:`r_a(i)` is the
+autocorrelation of the autoregressive coefficients.
+
+The total (frame) prediction residual :math:`\alpha` can be written as
+
+.. math::
+   \alpha = E\left[
+   \sum_{i = 1}^K e_i^2
+   \right]
+   = K \sigma^2
+   :label: hmmeq58
+
+where :math:`\sigma^2` is the variance per sample of the error signal. Consider
+the normalized observation vector
+
+.. math::
+   \hat{\mathbf{O}} = \dfrac{\mathbf{O}}{\sqrt{\alpha}} = \dfrac{\mathbf{O}}{\sqrt{K \sigma^2}}
+   :label: hmmeq59
+
+where each sample :math:`x_i`, is divided by :math:`\sqrt{K \sigma^2}`, i.e.,
+each sample is normalized by the sample variance. Then
+:math:`f(\hat{\mathbf{O}})` can be written as
 
 .. rubric:: Footnotes
 
