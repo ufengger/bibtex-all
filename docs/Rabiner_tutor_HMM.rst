@@ -1120,6 +1120,95 @@ initially, will remain at zero throughout the reestimation procedure (see
 Continuous Observation Densities in HMMs [Ref24]_, [Ref25]_, [Ref26]_
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+All of our discussion, to this point, has considered only the case when the
+observations were characterized as discrete symbols chosen from a finite
+alphabet, and therefore we could use a discrete probability density within each
+state of this model. The problem with this approach, at least for some
+applications, is that the observations are continuous signals (or vectors).
+Although it is possible to quantize such continuous signals via codebooks, etc.,
+there might be serious degradation associated with such quantization. Hence it
+would be advantageous to be able to use HMMs with continuous observation
+densities.
+
+In order to use a continuous observation density, some restrictions have to be
+placed on the form of the model probability density function (pdf) to insure
+that the parameters of the pdf can be reestimated in a consistent way. The most
+general representation of the pdf, for which a reestimation procedure has been
+formulated [Ref24]_, [Ref25]_, [Ref26]_, is a finite mixture of the form
+
+.. math::
+   b_j(\mathbf{O}) = \sum_{m = 1}^M c_{jm} \mathcal{N} [\mathbf{O}, {\mu}_{jm}, \mathbf{U}_{jm}], \quad 1 \leq j \leq N
+   :label: hmmeq49
+
+where :math:`\mathbf{O}` is the vector being modeled, :math:`c_{jm}` is the
+mixture coefficient for the :math:`m` -th mixture in state :math:`j` and
+:math:`\mathcal{N}` is any log-concave or elliptically symmetric density
+[Ref24]_ (e.g., Gaussian), with mean vector :math:`\mu_{jm}` and covariance
+matrix :math:`\mathbf{U}_{jm}` for the :math:`m` -th in state :math:`j`. Usually
+a Gaussian density is used for :math:`\mathcal{N}`. The mixture gains
+:math:`c_{jm}` satisfy the stochastic constraint
+
+.. math::
+   \sum_{m = 1}^M c_{jm} &= 1, \quad 1 \leq j \leq N \\
+   c_{jm} \geq 0, \quad 1 \leq j \leq N, 1 \leq m \leq M
+   :label: hmmeq50
+
+so that the pdf is properly normalized, i.e.,
+
+.. math::
+   \int_{-\infty}^{\infty} b_j(x) dx = 1, \quad 1 \leq j \leq N.
+   :label: hmmeq51
+
+The pdf of :eq:`hmmeq49` can be used to approximate, arbitrarily closely, any
+finite, continuous density function. Hence it can be applied to a wide range of
+problems.
+
+It can be shown [Ref24]_, [Ref25]_, [Ref26]_ that the reestimation formulas for
+the coefficients of the mixture density, i.e., :math:`c_{jm}, \mu_{jk}`, and
+:math:`\mathbf{U}_{jk}`, are of the form
+
+.. math::
+   \bar{c}_{jk} = \dfrac{\sum_{t = 1}^T \gamma_t(j, k)}{\sum_{t = 1}^T \sum_{k = 1}^M \gamma_t(j, k)}
+   :label: hmmeq52
+
+.. math::
+   \bar{\mu}_{jk} = \dfrac{\sum_{t = 1}^T \gamma_t(j, k) \cdot \mathbf{O}_t}{\sum_{t = 1}^T \gamma_t(j, k)}
+   :label: hmmeq53
+
+.. math::
+   \bar{\mathbf{U}}_{jk} = \dfrac{\sum_{t = 1}^T \gamma_t(j, k) \cdot (\mathbf{O}_t - \mathbf{\mu}_{jk})(\mathbf{O}_t - \mathbf{\mu}_{jk})^{\prime}}{\sum_{t = 1}^T \gamma_t(j, k)}
+   :label: hmmeq54
+
+where prime denotes vector transpose and where :math:`\gamma_t(j, k)` is the
+probability of being in state :math:`j` at time :math:`t` with the :math:`k` -th
+mixture component accounting for :math:`\mathbf{O}_t`, i.e.,
+
+.. math::
+   \gamma_t(j, k) =
+   \left[
+   \dfrac{\alpha_t(j) \beta_t(j)}{\sum_{j = 1}^N \alpha_t(j) \beta_t(j)}
+   \right]
+   \left[
+   \dfrac{c_{jk} \mathcal{N}(\mathbf{O}_t, \mu_{jk}, \mathbf{U}_{jk})}{\sum_{m = 1}^M c_{jm} \mathcal{N}(\mathbf{O}_t, \mu_{jm}, \mathbf{U}_{jm})}
+   \right].
+
+(The term :math:`\gamma_t(j, k)` generalizes to :math:`\gamma_t(j)` of
+:eq:`hmmeq26` in the case of a simple mixture, or a discrete density.) The
+reestimation formula for :math:`a_{ij}` is identical to the one used for
+discrete observation densities (i.e., :eq:`hmmeq40`). The interpretation of
+:eq:`hmmeq52`, :eq:`hmmeq53`, :eq:`hmmeq54` is fairly straightforward. The
+reestimation formula for :math:`c_{jk}` is the ratio between the expected number
+of times the system is in state :math:`j` using the :math:`k` -th mixture
+component, and the expected number of times the system is in state :math:`j`.
+Similarly, the reestimation formula for the mean vector :math:`\mu_{jk}` weights
+each numerator term of :eq:`hmmeq52` by the observation, thereby giving the
+expected value of the portion of the observation vector accounted for by the
+:math:`k` -th mixture component. A similar interpretation can be given for the
+reestimation term for the covariance matrix :math:`\mathbf{U}_{jk}`.
+
+Autoregressive HMMs [Ref27]_, [Ref28]_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
