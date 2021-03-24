@@ -1393,6 +1393,240 @@ parameters so as to reduce the number of parameters (i.e., size of the model)
 thereby making the parameter estimation problem somewhat simpler. We will
 discuss this method later in this paper.
 
+Inclusion of Explicit State Duration Density in HMMs [#hmm8]_, [Ref29]_, [Ref30]_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Perhaps the major weakness of conventional HMMs is the modeling of state
+duration. Earlier we showed :eq:`hmmeq5` that the inherent duration probability
+density :math:`p_i(d)` associated with state :math:`S_i`, with self transition
+coefficient :math:`a_{ii}`, was of the form
+
+.. math::
+   p_i(d) & = (a_{ii})^{d-1} (1 - a_{ii}) \\
+   & = \text{ probability of } d \text{ consecutive observations in state } S_i.
+   :label: hmmeq64
+
+For most physical signals, this exponential state duration density is
+inappropriate. Instead we would prefer to explicitly model duration density in
+some analytic form. :numref:`hmmfig9` illustrates, for a pair of model states
+:math:`S_i` and :math:`S_j`, the differences between HMMs without and with
+explicit duration density. In part (a) the states have exponential duration
+densities based on self-transition coefficients :math:`a_{ii}` and
+:math:`a_{jj}`, respectively. In part (b), the self-transition coefficients are
+set to zero, and an explicit duration density is specified [#hmm9]_. For this
+case, a transition is made only after the appropriate number of observations
+have occurred in the state (as specified by the duration density).
+
+.. _hmmfig9:
+
+.. figure:: images/hmmfig9.png
+   :align: center
+
+   Illustration of general interstate connections of (a) a normal HMM with
+   exponential state duration density, and (b) a variable duration HMM with
+   specified state densities and no self transitions from a state back to
+   itself.
+
+Based on the simple model of :numref:`hmmfig9` (b), the sequence of events of
+the variable duration HMM is as follows:
+
+1. An initial state, :math:`q_1 = S_i`, is chosen according to the initial state
+   distribution :math:`\pi_i`.
+
+2. A duration :math:`d_1` is chosen according to the state duration density
+   :math:`p_{q_1}(d_1)`. (For expedience and ease of implementation the duration
+   density :math:`p_q(d)` is truncated at a maximum duration value :math:`D`.)
+
+3. Observations :math:`O_1 O_2 \cdots O_{d_1}` are chosen according to the joint
+   observation density, :math:`b_{q_1}(O_1 O_2 \cdots O_{d_1})`. Generally we
+   assume independent of observations so that :math:`b_{q_1}(O_1 O_2 \cdots
+   O_{d_1}) = \prod_{t = 1}^{d_1} b_{q_1}(O_t)`.
+
+4. The next state, :math:`q_2 = S_j`, is chosen according to the state
+   transition probabilities, :math:`a_{q_1 q_2}`, with the constraint that
+   :math:`a_{q_1 q_2} = 0`, i.e., no transition back to the same state can
+   occur. (Clearly this is a requirement since we assume that, in state
+   :math:`q_1`, exactly :math:`d_1` observations occur.)
+
+A little thought should convince the reader that the variable duration HMM can
+be made equivalent to the standard HMM by setting :math:`p_i(d)` to be the
+exponential density of :eq:`hmmqe64`.
+
+Using the above formulation, several changes must be made to the formulas of
+Section III to allow calculation of :math:`P(\mathcal{O} \mid \lambda)` and for
+reestimation of all model parameters. In particular we assume that the first
+state begins at :math:`t = 1` and the last state ends at :math:`t = T`, i.e.,
+entire duration intervals are included with the observation sequence. We then
+define the forward variable :math:`\alpha_t(i)` as
+
+.. math::
+   \alpha_t(i) = P(O_1 O_2 \cdots O_t, S_i \text{ ends at } t \mid \lambda).
+   :label: hmmeq65
+
+We assume that a total of :math:`r` states have been visited during the first
+:math:`t` observations and we denote the states as :math:`q_1, q_2, \ldots,
+q_r`, with durations associated with each state of :math:`d_1, d_2, \ldots, d_r`
+Thus the constraints of :eq:`hmmeq65` are
+
+.. math::
+   q_r &= S_i \\
+   \sum_{s = 1}^r d_s & = t.
+   :label: hmmeq66
+
+Equation :eq:`hmmeq65` can then be written as
+
+.. math::
+   \alpha_t(i) &= \sum_q \sum_d \pi_{q_1} \cdot p_{q_1}(d_1) \cdots P(O_1 O_2 \cdots O_{d_1} \mid q_1) \\
+   & \quad \cdot a_{q_1 q_2} p_{q_2}(d_2) P(O_{d_1 + 1} \cdots O_{d_1 + d_2} \mid q_2) \cdots \\
+   & \quad \cdot a_{q_{r-1} q_r} p_{q_r}(d_r) P(O_{d_1 + d_2 + \cdots \d_{r-1} + 1} \cdots O_{t} \mid q_t)
+   :label: hmmeq67
+
+where the sum is over all states :math:`q` and all possible state durations
+:math:`d`. By induction we can write :math:`\alpha_t(j)` as
+
+.. math::
+   \alpha_t(j) = \sum_{i = 1}^N \sum_{d = 1}^D \alpha_{t-d}(i) a_{ij} p_{j}(d) \prod_{s = t-d+1}^t b_j(\mathbf{O}_s)
+   :label: hmmeq68
+
+where :math:`D` is the maximum duration within any state. To initialize the
+computation of :math:`\alpha_t(j)` we use
+
+.. math::
+   \alpha_1(i) &= \pi_i p_i(1) \cdot b_i(\mathbf{O}_1) \\
+   \alpha_2(i) &= \pi_i p_i(2) \prod_{s = 1}^2 b_i(\mathbf{O}_s) + \sum_{j = 1, j \neq i}^N \alpha_1(j) a_{ji} p_i(1) b_i(\mathbf{O}_2) \\
+   \alpha_3(i) &= \pi_i p_i(3) \prod_{s = 1}^3 b_i(\mathbf{O}_s) + \sum_{d = 1}^2 \sum_{j = 1, j \neq i}^N \alpha_{3-d}(j) a_{ji} p_i(d) \prod_{s = 4-d}^3 b_i(\mathbf{O}_s) \\
+   :label: hmmeq69
+
+etc., until :math:`\alpha_D(i)` is computed; then :eq:`hmmeq68` can be used for
+all :math:`t > D`. It should be clear that the desired probability of
+:math:`\mathcal{O}` given the model :math:`\lambda` can be written in terms of
+the :math:`\alpha`’s as
+
+.. math::
+   P(\mathcal{O} \mid \lambda) = \sum_{i = 1}^N \alpha_T(i)
+   :label: hmmeq70
+
+as was previously used for ordinary HMMs.
+
+In ordertogive reestimation formulas for all the variables of the variable
+duration HMM, we must define three more forward-backward variables, namely
+
+.. math::
+   \alpha_t^*(i) = P(O_1 O_2 \cdots O_t, S_i \text{ begins at } t+1 \mid \lambda)
+   :label: hmmeq71
+
+.. math::
+   \beta_t(i) = P(O_{t+1} \cdots O_T \mid S_i \text{ ends at } t, \lambda)
+   :label: hmmeq72
+
+.. math::
+   \beta_t^*(i) = P(O_{t+1} \cdots O_T \mid S_i \text{ begins at } t+1, \lambda).
+   :label: hmmeq73
+
+The relationships between :math:`\alpha, \alpha^*, \beta,` and :math:`\beta^*`
+are as follows:
+
+.. math::
+   \alpha_t^*(j) = \sum_{i = 1}^N \alpha_t(i) a_{ij}
+   :label: hmmeq74
+
+.. math::
+   \alpha_t(i) = \sum_{d=1}^D \alpha_{t-d}^*(i) p_i(d) \prod_{s = t-d+1}^t b_i(\mathbf{O}_s)
+   :label: hmmeq75
+
+.. math::
+   \beta_t(i) = \sum_{j = 1}^N a_{ij} \beta_t^*(j)
+   :label: hmmeq76
+
+.. math::
+   \beta_t^*(i) = \sum_{d = 1}^D \beta_{t+d}(i) p_i(d) \prod_{s = t+1}^{t+d} b_i(\mathbf{O}_s).
+   :label: hmmeq77
+
+Based on the above relationships and definitions, the reestimation formulas for
+the variable duration HMM are
+
+.. math::
+   \bar{\pi}_i = \dfrac{\pi_i \beta_0^*(i)}{P(\mathcal{O} \mid \lambda)}
+   :label: hmmeq78
+
+.. math::
+   \bar{a}_{ij} = \dfrac{\sum_{t = 1}^T \alpha_t(i) a_{ij} \beta_t^*(j)}
+   {\sum_{j = 1}^N \sum_{t = 1}^T \alpha_t(i) a_{ij} \beta_t^*(j)}
+   :label: hmmeq79
+
+.. math::
+   \bar{b}_i(k) = \dfrac
+   {\sum_{t = 1 \text{ s.t. } O_t = k}^T \left[
+   \sum_{\tau < t} \alpha_{\tau}^*(i) \beta_{\tau}^*(i) - \sum_{\tau < t} \alpha_{\tau}(i) \beta_{\tau}(i)
+   \right]}
+   {\sum_{k = 1}^M \sum_{t = 1 \text{ s.t. } O_t = v_k}^T
+   \left[
+   \sum_{\tau < t} \alpha_{\tau}^*(i) \beta_{\tau}^*(i) - \sum_{\tau < t} \alpha_{\tau}(i) \beta_{\tau}(i)
+   \right]}
+   :label: hmmeq80
+
+.. math::
+   \bar{p}_i(d) = \dfrac
+   {\sum_{t=1}^T \alpha_t^*(i) p_i(d) \beta_{t+d}(i)
+   \prod_{s=t+1}^{t+d} b_{j}(\mathbf{O}_s)}
+   {\sum_{d = 1}^D
+   \sum_{t=1}^T \alpha_t^*(i) p_i(d) \beta_{t+d}(i)
+   \prod_{s=t+1}^{t+d} b_{j}(\mathbf{O}_s)}
+   :label: hmmeq81
+
+The interpretation of the reestimation formulas is the following. The formula
+for :math:`\bar{\pi}_i` is the probability that state :math:`i` was the first
+state, given :math:`\mathcal{O}`. The formula for :math:`\bar{a}_{ij}` is almost
+the same as for the usual HMM except it uses the condition that the alpha terms
+in which a state ends at :math:`t`, join with the beta terms in which a new
+state begins at :math:`t + 1`. The formula for :math:`\bar{b}_i(k)` (assuming a
+discrete density) is the expected number of times that observation :math:`O_t =
+v_k` occurred in state :math:`i`, normalized by the expected number of times
+that any observation occurred in state :math:`i`. Finally, the reestimation
+formula for :math:`\bar{p}_i(d)` is the ratio of the expected number of times
+state :math:`i` occurred with duration :math:`d`, to the expected number of
+times state :math:`i` occurred with any duration.
+
+The importance of incorporating state duration densities is reflected in the
+observation that, for some problems, the quality of the modeling is
+significantly improved when explicit state duration densities are used. However,
+there are drawbacks to the use of the variable duration model discussed in this
+section. One is the greatly increased computational load associated with using
+variable durations. It can be seen from the definition and initialization
+conditions on the forward variable :math:`\alpha_i(i)`, from :eq:`hmmeq68`,
+:eq:`hmmeq69`, that about :math:`D` times the storage and :math:`D^2/2` times
+the computation is required. For :math:`D` on the order of 25 (as is reasonable
+for many speech processing problems), computation is increased by a factor
+of 300. Another problem with the variable duration models is the large number of
+parameters (:math:`D`), associated with each state, that must be estimated, in
+addition to the usual HMM parameters. Furthermore, for a fixed number of
+observations :math:`T`, in the training set, there are, on average, fewer state
+transitions and much less data to estimate :math:`p_i(d)` than would be used in
+a standard HMM. Thus the reestimation problem is more difficult for variable
+duration HMMs than for the standard HMM.
+
+One proposal to alleviate some of these problems is to use a parametric state
+duration density instead of the non-parametric :math:`p_i(d)` used above
+[Ref29]_, [Ref30]_. In particular, proposals include the Gaussian family with
+
+.. math::
+   p_i(d) = \mathcal{N}(d, \mu_i, \sigma_i^2)
+   :label: hmmeq82
+
+with parameters :math:`\mu_i` and :math:`\sigma_i^2`, or the Gamma family with
+
+.. math::
+   p_i(d) = \dfrac{\eta_i^{\nu_i} d^{\nu_i - 1} e^{-\eta_i d}}
+   {\Gamma(\nu_i)}
+   :label: hmmeq83
+
+with parameters :math:`\nu_i` and :math:`\eta_i` and with mean :math:`\nu_i
+\eta_i^{-1}` and variance :math:`\nu_i \eta_i^{-2}`. Reestimation formulas for
+:math:`\eta_i` and :math:`\nu_i` have been derived and used with good results
+[Ref19]_. Another possibility, which has been used with good success, is to
+assume a uniform duration distribution (over an appropriate range of durations)
+and use a path-constrained Viterbi decoding procedure [Ref31]_.
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
@@ -1419,6 +1653,15 @@ discuss this method later in this paper.
 .. [#hmm7] Again we remind the reader that the backward procedure will be used
            in the solution to Problem 3, and is not required for the solution of
            Problem 1.
+
+.. [#hmm8] In cases wherea Bakis type model is used, i.e., left-right models
+           where the number of states is proportional to the average duration,
+           explicit inclusion of state duration density is neither necessary nor
+           is it useful.
+
+.. [#hmm9] Again the ideas behind using explicit state duration densities are
+           due to Jack Ferguson of IDA. Most of the material in this section is
+           based on Ferguson's original work.
 
 .. rubric:: References
 
