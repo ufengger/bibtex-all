@@ -1276,6 +1276,123 @@ where each sample :math:`x_i`, is divided by :math:`\sqrt{K \sigma^2}`, i.e.,
 each sample is normalized by the sample variance. Then
 :math:`f(\hat{\mathbf{O}})` can be written as
 
+.. math::
+   f(\hat{\mathbf{O}}) = \left(
+   \dfrac{2 \pi}{K}
+   \right)^{-K/2}
+   \exp(-\dfrac{K}{2} \delta(\hat{\mathbf{O}}, \mathbf{a}))
+   :label: hmmeq60
+
+In practice, the factor :math:`K` (in front of the exponential of :eq:`hmmeq60`)
+is replaced by an effective frame length :math:`K` which represents the
+effective length of each data vector. Thus if consecutive data vectors are
+overlapped by 3 to 1, then we would use :math:`\hat{K} = K/3` in :eq:`hmmeq60`,
+so that the contribution of each sample of signal to the overall density is
+counted exactly once.
+
+The way in which we use Gaussian autoregressive density in HMMs is
+straightforward. We assume a mixture density of the form
+
+.. math::
+   b_j(\mathbf{O}) = \sum_{m = 1}^M c_{jm} b_{jm}(\mathbf{O})
+   :label: hmmeq61
+
+where each :math:`b_{jm}(\mathbf{O})` is the density defined by :eq:`hmmeq60`
+with autoregression vector :math:`a_{jm}` (or equivalently by autocorrelation
+vector :math:`r_{a_{jm}}`), i.e.,
+
+.. math::
+   b_{jm}(\mathbf{O}) = \left(
+   \dfrac{2 \pi}{K}
+   \right)^{-K/2}
+   \exp(-\dfrac{K}{2} \delta(\mathbf{O}, \mathbf{a}_{jm})).
+   :label: hmmeq62
+
+A reestimation formula for the sequence autocorrelation, :math:`r(i)` of
+:eq:`hmmeq57`, for the :math:`j` -th state, :math:`k` th mixture, component has
+been derived, and is of the form
+
+.. math::
+   \bar{\mathbf{r}}_{jk} = \dfrac{\sum_{t = 1}^T \gamma_t(j, k) \cdot \mathbf{r}_t}{\sum_{t = 1}^T \gamma_t(j, k)}
+   :label: hmmeq63
+
+where :math:`\gamma_t(j, k)` is defined as the probability of being in state
+:math:`j` at time :math:`t` and using mixture component :math:`k`, i.e.,
+
+.. math::
+   \gamma_t(j, k) =
+   \left[
+   \dfrac{\alpha_t(j) \beta_t(j)}
+   {\sum_{j = 1}^N \alpha_t(j) \beta_t(j)}
+   \right]
+   \left[
+   \dfrac{c_{jk} b_{jk}(\mathbf{O}_t)}
+   {\sum_{k = 1}^M c_{jk} b_{jk}(\mathbf{O}_t)}
+   \right].
+   :label: hmmeq63
+
+It can be seen that :math:`\bar{\mathbf{r}}_{jk}` is a weighted sum (by
+probability of occurrence) of the normalized autocorrelations of the frames in
+the observation sequence. From :math:`\bar{\mathbf{r}}_{jk}`, one can solve a
+set of normal equations to obtain the corresponding autoregressive coefficient
+vector :math:`\bar{\mathbf{a}}_{jk}`, for the :math:`k` -th mixture of state
+:math:`j`. The new autocorrection vectors of the autoregression coefficients can
+then be calculated using :eq:`hmmeq57`, thereby closing the reestimation loop.
+
+Variants on HMM Structures - Null Transitions and Tied States
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Throughout this paper we have considered HMMs in which the observations were
+associated with states of the model. It is also possible to consider models in
+which the observations are associated with the arcs of the model. This type of
+HMM has been used extensively in the IBM continuous speech recognizer [Ref13]_.
+It has been found useful, for this type of model, to allow transitions which
+produce no output-i.e., jumps from one state to another which produce no
+observation [Ref13]_. Such transitions are called null transitions and are
+designated by a dashed line with the symbol :math:`\phi` used to denote the null
+output.
+
+.. _hmmfig8:
+
+.. figure:: images/hmmfig8.png
+   :align: center
+
+   Examples of networks incorporating null transitions. (a) Left-right
+   model. (b) Finite state network. (c) Grammar network.
+
+:numref:`hmmfig8` illustrates 3 examples (from speech processing tasks) where
+null arcs have been successfully utilized. The example of part (a) corresponds
+to an HMM (a left-right model) with a large number of states in which it is
+possible to omit transitions between any pair of states. Hence it is possible to
+generate observation sequences with as few as :math:`1` observation and still
+account for a path which begins in state :math:`1` and ends in state :math:`N`.
+
+The example of :numref:`hmmfig8` (b) is a finite state network (FSN)
+representation of aword in terms of linguistic unit models (i.e., the sound on
+each arc is itself an HMM). For this model the null transition gives a compact
+and efficient way of describing alternate word pronunciations (i.e., symbol
+delections).
+
+Finally the FSN of :numref:`hmmfig8` (c) shows how the ability to insert a null
+transition into a grammar network allows a relatively simple network to generate
+arbitrarily long word (digit) sequences. In the example shown in
+:numref:`hmmfig8` (c), the null transition allows the network to generate
+arbitrary sequences of digits of arbitrary length by returning to the initial
+state after each individual digit is produced.
+
+Another interesting variation in the HMM structure is the concept of parameter
+tieing [Ref13]_. Basically the idea is to set up an equivalence relation between
+HMM parameters in different states. In this manner the number of independent
+parameters in the model is reduced and the parameter estimation becomes somewhat
+simpler. Parameter tieing is used in cases where the observation density (for
+example) is known to be the same in 2 or more states. Such cases occur often in
+characterizing speech sounds. The technique is especially appropriate in the
+case where there is insufficient training data to estimate, reliably, a large
+number of model parameters. For such cases it is appropriate to tie model
+parameters so as to reduce the number of parameters (i.e., size of the model)
+thereby making the parameter estimation problem somewhat simpler. We will
+discuss this method later in this paper.
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
