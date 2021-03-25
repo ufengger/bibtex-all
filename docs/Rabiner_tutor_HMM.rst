@@ -501,7 +501,7 @@ observed training data-i.e., to create best models for real phenomena.
 
 To fix ideas, consider the following simple isolated word speech recognizer. For
 each word of a :math:`W` word vocabulary, we want to design a separate
-:math:`N` -state HMM. We represent the speech signal of a given word as a time
+:math:`N`-state HMM. We represent the speech signal of a given word as a time
 sequence of coded spectral vectors. We assume that the coding is done using a
 spectral codebook with :math:`M` unique spectral vectors; hence each observation
 is the index of the spectral vector closest (in some spectral sense) to the
@@ -597,7 +597,7 @@ term in the sum of :eq:`hmmeq17`. (To be precise, we need :math:`(2T-1)N^T`
 multiplications, and :math:`N^T-1` additions.) This calculation is
 computationally unfeasible, even for small values of :math:`N` and :math:`T`;
 e.g., for :math:`N = 5` (states), :math:`T = 100` (observations), there are on
-the order of :math:`2 \cdot 100 \cdot 5^{100} \sim 10^{72}` computations!
+the order of :math:`2 \cdot 100 \cdot 5^{100} \approx 10^{72}` computations!
 Clearly a more efficient procedure is required to solve Problem 1. Fortunately
 such a procedure exists and is called the forward-backward procedure.
 
