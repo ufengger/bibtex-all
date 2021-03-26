@@ -2245,6 +2245,21 @@ depending on the signal being modeled. With these comments we end our discussion
 of the theoretical aspects of hidden Markov models, and proceed to a discussion
 of how such models have been applied to selected problems in speech recognition.
 
+IMPLEMENTATION OF SPEECH RECOGNIZERS USING HMMs
+-----------------------------------------------
+
+TBA.
+
+CONNECTED WORD RECOGNITION USING HMMs [Ref59]_ - [Ref63]_
+---------------------------------------------------------
+
+TBA.
+
+HMMs FOR LARGE VOCABULARY SPEECH RECOGNITION [Ref6]_ - [Ref13]_, [Ref31]_, [Ref37]_, [Ref38]_, [Ref51]_, [Ref64]_ - [Ref66]_
+----------------------------------------------------------------------------------------------------------------------------
+
+TBA.
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
