@@ -1800,6 +1800,243 @@ version, namely
    D_s(\lambda_1, \lambda_2) = \dfrac{D(\lambda_1 \lambda_2) + D(\lambda_2, \lambda_1)}{2}.
    :label: hmmeq89
 
+IMPLEMENTATION ISSUES FOR HMMs
+------------------------------
+
+The discussion in the previous two sections has primarily dealt with the theory
+of HMMs and several variations on the form of the model. In this section we deal
+with several practical implementation issues including scaling, multiple
+observation sequences, initial parameter estimates, missing data, and choice of
+model size and type. For some of these implementation issues we can prescribe
+exact analytical solutions; for other issues we can only provide some
+seat-of-the-pants experience gained from working with HMMs over the last several
+years.
+
+Scaling [Ref14]_
+~~~~~~~~~~~~~~~~
+
+In order to understand why scaling is required for implementing the reestimation
+procedure of HMMs, consider the definition of :math:`\alpha_t(i)` of
+:eq:`hmmeq18`. It can be seen that :math:`\alpha_t(i)` consists of the sum of a
+large number of terms, each of the form
+
+.. math::
+   \left(
+   \prod_{s = 1}^{t - 1} a_{q_s q_{s+1}} \prod_{s = 1}^t b_{q_s}(O_s)
+   \right)
+
+with :math:`q_t = S_i`. Since each :math:`a` and :math:`b` term is less than 1
+(generally significantly less than 1), it can be seen that as :math:`t` starts
+to get big (e.g., 10 or more), each term of :math:`\alpha_t(i)` starts to head
+exponentially to zero. For sufficiently large :math:`t` (e.g., 100 or more) the
+dynamic range of the :math:`\alpha_t(i)` computation will exceed the precision
+range of essentially any machine (even in double precision). Hence the only
+reasonable way of performing the computation is by incorporating a scaling
+procedure.
+
+The basic scaling procedure which is used is to multiply :math:`\alpha_t(i)` by
+a scaling coefficient that is independent of :math:`i` (i.e., it depends only on
+:math:`t`), with the goal of keeping the scaled :math:`\alpha_t(i)` within the
+dynamic range of the computer for :math:`1 \leq t \leq T`. A similar scaling is
+done to the :math:`\beta_t(i)` coefficients (since these also tend to zero
+exponentially fast) and then, at the end of the computation, the scaling
+coefficients are canceled out exactly.
+
+To understand this scaling procedure better, consider the reestimation formula
+for the state transition coefficients :math:`a_{ij}`. If we write the
+reestimation formula :eq:`hmmeq41` directly in terms of the forward and backward
+variables we get
+
+.. math::
+   \bar{a}_{ij} = \dfrac
+   {\sum_{t = 1}^{T-1} \alpha_t(i) a_{ij} b_j(O_{t+1}) \beta_{t+1}(j)}
+   {\sum_{t = 1}^{T-1} \sum_{j = 1}^N \alpha_t(i) a_{ij} b_j(O_{t+1}) \beta_{t+1}(j)}.
+   :label: hmmeq90
+
+Consider the computation of :math:`\alpha_t(i)`. For each :math:`t`, we first
+compute :math:`\alpha_t(i)` according to the induction formula :eq:`hmmeq20`,
+and then we multiply it by a scaling coefficient :math:`c_t`, where
+
+.. math::
+   c_t = \dfrac{1}
+   {\sum_{i = 1}^N \alpha_t(i)}.
+   :label: hmmeq91
+
+Thus, for a fixed :math:`t`, we first compute
+
+.. math::
+   \alpha_t(i) = \sum_{j=1}^N \hat{\alpha}_{t-1}(j) a_{ij} b_j(O_t).
+   :label: hmmeq92a
+
+Then the scaled coefficient set :math:`\hat{\alpha}_t(i)` is computed as
+
+.. math::
+   \hat{\alpha}_t(i) = \dfrac
+   {\sum_{j=1}^N \hat{\alpha}_{t-1}(j) a_{ij} b_j(O_t)}
+   {\sum_{i=1}^N \sum_{j=1}^N \hat{\alpha}_{t-1}(j) a_{ij} b_j(O_t)}.
+   :label: hmmeq92b
+
+By induction we can write :math:`\hat{\alpha}_{t-1}(j)` as
+
+.. math::
+   \hat{\alpha}_{t-1}(j) = \left(
+   \prod_{\tau = 1}^{t - 1} c_{\tau}
+   \right)
+   \alpha_{t-1}(j).
+   :label: hmmeq93a
+
+Thus we can write :math:`\hat{\alpha}_{t}(i)` as
+
+.. math::
+   \hat{\alpha}_{t}(i) = \dfrac
+   {\sum_{j=1}^N \alpha_{t-1}(j) \left(
+   \prod_{\tau = 1}^{t - 1} c_{\tau}
+   \right) a_{ij} b_j(O_t)}
+   {\sum_{i=1}^N \sum_{j=1}^N \alpha_{t-1}(j) \left(
+   \prod_{\tau = 1}^{t - 1} c_{\tau}
+   \right) a_{ij} b_j(O_t)}
+   = \dfrac
+   {\alpha_t(i)}
+   {\sum_{i=1}^N \alpha_t(i)}
+   :label: hmmeq93b
+
+i.e., each :math:`\alpha_t(i)` is effectively scaled by the sum over all states
+of :math:`\alpha_t(i)`.
+
+Next we compute the :math:`\beta_t(i)` terms from the backward recursion. The
+only difference here is that we use the same scale factors for each time
+:math:`t` for the betas as was used for the alphas. Hence the scaled
+:math:`\beta`'s are of the form
+
+.. math::
+   \hat{\beta}_t(i) = c_t \beta_t(i).
+   :label: hmmeq94
+
+Since each scale factor effectively restores the magnitude of the :math:`\alpha`
+terms to 1, and since the magnitudes of the :math:`\alpha` and :math:`\beta`
+terms are comparable, using the same scaling factors on the :math:`\beta`'s as
+was used on the :math:`\alpha`'s is an effective way of keeping the computation
+within reasonable bounds. Furthermore, in terms of the scaled variables we see
+that the reestimation equation :eq:`hmmeq90` becomes
+
+.. math::
+   \bar{a}_{ij} = \dfrac
+   {\sum_{t=1}^{T-1} \hat{\alpha}_t(i) a_{ij} b_j(O_{t+1}) \hat{\beta}_{t+1}(j)}
+   {\sum_{t=1}^{T-1} \sum_{j=1}^N \hat{\alpha}_t(i) a_{ij} b_j(O_{t+1}) \hat{\beta}_{t+1}(j)}
+   :label: hmmeq95
+
+but each :math:`\hat{\alpha}_t(i)` can be written as
+
+.. math::
+   \hat{\alpha}_t(i) = \left[
+   \prod_{s=1}^t c_s
+   \right]
+   \alpha_t(i) = C_t \alpha_t(i)
+   :label: hmmeq96
+
+and each :math:`\hat{\beta}_{t+1}(j)` can be written as
+
+.. math::
+   \hat{\beta}_{t+1}(j) = \left[
+   \prod_{s=t+1}^T c_s
+   \right]
+   \beta_{t+1}(j) = D_{t+1} \beta_{t+1}(j).
+   :label: hmmeq97
+
+Thus :eq:`hmmeq95` can be written as
+
+.. math::
+   \bar{\alpha}_{ij} = \dfrac
+   {\sum_{t=1}^{T-1} C_t \alpha_t(i) a_{ij} b_j(O_{t+1}) D_{t+1} \beta_{t+1}(j)}
+   {\sum_{t=1}^{T-1} \sum_{j=1}^N C_t \alpha_t(i) a_{ij} b_j(O_{t+1}) D_{t+1} \beta_{t+1}(j)}.
+   :label: hmmeq98
+
+Finally the term :math:`C_t D_{t+1}` can be seen to be of the form
+
+.. math::
+   C_t D_{t+1} = \prod_{s=1}^t c_s \prod_{s=t+1}^T c_s = \prod_{s=1}^T c_s = C_T
+   :label: hmmeq99
+
+independent of :math:`t`. Hence the terms :math:`C_t D_{t+1}` cancel out of both
+the numerator and denominator of :eq:`hmmeq98` and the exact reestimation
+equation is therefore realized.
+
+It should be obvious that the above scaling procedure applies equally well to
+reestimation of the :math:`\pi` or :math:`B` coefficients. It should also be
+obvious that the scaling procedure of :eq:`hmmeq92` need not be applied at every
+time instant :math:`t`, but can be performed whenever desired, or necessary
+(e.g., to prevent underflow). If scaling is not performed at some instant
+:math:`t`, the scaling coefficients :math:`c_t`, are set to :math:`1` at that
+time and all the conditions discussed above are then met.
+
+The only real change to the HMM procedure because of scaling is the procedure
+for computing :math:`P(O \mid \lambda)`. We cannot merely sum up the
+:math:`\hat{\alpha_T(i)}` terms since these are scaled already. However, we can
+use the property that
+
+.. math::
+   \prod_{t=1}^T c_t \sum_{i=1}^N \alpha_T(i) = C_T \sum_{i=1}^N \alpha_T(i) = 1.
+   :label: hmmeq100
+
+Thus we have
+
+.. math::
+   \prod_{t=1}^T c_t \cdot P(O \mid \lambda) = 1
+   :label: hmmeq101
+
+or
+
+.. math::
+   P(O \mid \lambda) = \dfrac{1}{\prod_{t=1}^T c_t}
+   :label: hmmeq102
+
+or
+
+.. math::
+   \log P(O \mid \lambda) = - \sum_{t=1}^T \log c_t.
+   :label: hmmeq103
+
+Thus the log of :math:`P` can be computed, but not :math:`P` since it would
+be out of the dynamic range of the machine anyway.
+
+Finally we note that when using the Viterbi algorithm to give the maximum
+likelihood state sequence, no scaling is required if we use logarithms in the
+following way. (Refer back to :eq:`hmmeq32`, :eq:`hmmeq33`, :eq:`hmmeq34`.) We
+define
+
+.. math::
+   \phi_t(i) = \mathrm{max}_{q_1, q_2, \ldots, q_t} \left\{
+   \log P[q_1 q_2 \cdots q_t, O_1 O_2 \cdots O_t \mid \lambda]
+   \right\}
+   :label: hmmeq104
+
+and initially set
+
+.. math::
+   \phi_1(i) = \log(\pi_i) + \log b_i(O_1)
+   :label: hmmeq105a
+
+with the recursion step
+
+.. math::
+   \phi_t(j) = \mathrm{max}_{1 \leq i \leq N} \left[
+   \phi_{t-1}(i) + \log(a_{ij}) + \log b_j(O_t)
+   \right]
+   :label: hmmeq105b
+
+and termination step
+
+.. math::
+   \log(P^*) = \mathrm{max}_{1 \leq i \leq N} \phi_T(i).
+   :label: hmmeq105c
+
+Again we arrive at :math:`\log P^*` rather than :math:`P^*`, but with
+significantly less computation and with no numerical problems. (The reader
+should note that the terms :math:`\log a_{ij}`, of :eq:`hmmeq105b` can be
+precomputed and therefore do not cost anything in the computation. Furthermore,
+the terms :math:`\log b_j(O_t)` can be precomputed when a finite observation
+symbol analysis (e.g., a codebook of observation sequences) is used.
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
