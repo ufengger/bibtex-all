@@ -2113,6 +2113,126 @@ obtained for the :math:`\bar{b}_j(\ell)` term.
 Initial Estimates of HMM Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+In theory, the reestimation equations should give values of the HMM parameters
+which correspond to a local maximum of the likelihood function. A key question
+is therefore how do we choose initial estimates of the HMM parameters so that
+the local maximum is the global maximum of the likelihood function.
+
+Basically there is no simple or straightforward answer to the above question.
+Instead, experience has shown that either random (subject to the stochastic and
+the nonzero value constraints) or uniform initial estimates of the :math:`\pi`
+and :math:`A` parameters is adequate for giving useful reestimates of these
+parameters in almost all cases. However, for the :math:`B` parameters,
+experience has shown that good initial estimates are helpful in the discrete
+symbol case, and are essential (when dealing with multiple mixtures) in the
+continuous distribution case [Ref35]_. Such initial estimates can be obtained in
+a number of ways, including manual segmentation of the observation sequence(s)
+into states with averaging of observations within states, maximum likelihood
+segmentation of observations with averaging, and segmental :math:`k`-means
+segmentation with clustering, etc. We discuss such segmentation techniques later
+in this paper.
+
+Effects of Insufficient Training Data [Ref36]_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Another problem associated with training HMM parameters via reestimation methods
+is that the observation sequence used for training is, of necessity, finite.
+Thus there is often an insufficient number of occurrences of different model
+events (e.g., symbol occurrences within states) to give good estimates of the
+model parameters. One solution to this problem is to increase the size of the
+training observation set. Often this is impractical. A second possible solution
+is to reduce the size of the model (e.g., number of states, number of symbols
+per state, etc). Although this is always possible, often there are physical
+reasons why a given model is used and therefore the model size cannot be
+changed. A third possible solution is to interpolate one set of parameter
+estimates with another set of parameter estimates from a model for which an
+adequate amount of training data exists [Ref36]_. The idea is to simultaneously
+design both the desired model as well as a smaller model for which the amount of
+training data is adequate to give good parameter estimates, and then to
+interpolate the parameter estimates from the two models. The way in which the
+smaller model is chosen is by tieing one or more sets of parameters of the
+initial model to create the smaller model. Thus if we have estimates for the
+parameters for the model :math:`\lambda = (A, B, \pi)`, as well as for the
+reduced size model :math:`\lambda^{\prime} = (A^{\prime}, B^{\prime}, K^{\prime})`,
+then the interpolated model, :math:`\tilde{\lambda} = (\tilde{A}, \tilde{B}, \tilde{\pi})`,
+is obtained as
+
+.. math::
+   \tilde{\lambda} = \epsilon \lambda + (1 - \epsilon) \lambda^{\prime}
+   :label: hmmeq112
+
+where :math:`\epsilon` represents the weighting of the parameters of the full
+model, and :math:`(1 - \epsilon)` represents the weighting of the parameters of
+the reduced model. A key issue is the determination of the optimal value of
+:math:`\epsilon`, which is clearly a function of the amount of training data.
+(As the amount of training data gets large, we expect :math:`\epsilon` to tend
+to :math:`1.0`; similarly for small amounts of training data we expect
+:math:`\epsilon` to tend to :math:`0.0`.) The solution to the determination of
+an optimal value for :math:`\epsilon` was provided by Jelinek and Mercer
+[Ref36]_ who showed how the optimal value for :math:`\epsilon` could be
+estimated using the forward-backward algorithm by interpreting :eq:`hmmeq112` as
+an expanded HMM of the type shown in :numref:`hmmfig10`. For this expanded model
+the parameter :math:`\epsilon` is the probability of a state transition from the
+(neutral) state :math:`\tilde{s}` to the model :math:`\lambda`; similarly
+:math:`(1 - \epsilon)` is the probability of a state transition from
+:math:`\tilde{s}` to the model :math:`\lambda^{\prime}`. Between each of the
+models, :math:`\lambda` and :math:`\lambda^{\prime}`, and :math:`\tilde{s}`,
+there is a null transition. Using the model of :numref:`hmmfig9`, the value of
+:math:`\epsilon` can be estimated from the training data in the standard manner.
+A key point is to segment the training data :math:`T` into two disjoint sets,
+i.e., :math:`T = T_1 \cup T_2`. Training set :math:`T_1` is first used to train
+models :math:`\lambda` and :math:`\lambda^{\prime}` (i.e., to give estimates of
+:math:`(A, B, \pi)` and :math:`(A^{\prime}, B^{\prime}, \pi^{\prime})`. Training
+set :math:`T_2` is then used to give an estimate of :math:`\epsilon`, assuming
+the models :math:`\lambda` and :math:`\lambda^{\prime}` are fixed. A modified
+version of this training procedure, called the method of deleted interpolation
+[Ref36]_, iterates the above procedure through multiple partitions of the
+training set. For example one might consider a partition of the training set
+such that :math:`T_1` is 90 percent of :math:`T` and :math:`T_2` is the
+remaining 10 percent of :math:`T`. There are a large number of ways in which
+such a partitioning can be accomplished but one particularly simple one is to
+cycle :math:`T_2` through the data, i.e., the first partition uses the last 10
+percent of the data as :math:`T_2`, the second partition uses the next-to-last
+10 percent of the data as :math:`T_2`, etc.
+
+.. _hmmfig10:
+
+.. figure:: images/hmmfig10.png
+   :align: center
+
+   Example of how the process of deleted interpolation can be represented using
+   a state diagram.
+
+The technique of deleted interpolation has been successfully applied to a number
+of problems in speech recognition including the estimation of trigram word
+probabilities for language models [Ref13]_, and the estimation of HMM output
+probabilities for trigram phone models [Ref37]_, [Ref38]_.
+
+Another way of handling the effects of insufficient training data is to add
+extra constraints to the model parameters to insure that no model parameter
+estimate falls below a specified level. Thus, for example, we might specify the
+constraint, for a discrete symbol model, that
+
+.. math::
+   b_j(k) \geq \delta
+   :label: hmmeq113a
+
+or, for a continuous distribution model, that
+
+.. math::
+   U_{jk}(r, r) \geq \delta.
+   :label: hmmeq113b
+
+The constraints can be applied as a postprocessor to the reestimation equations
+such that if a constraint is violated, the relevant parameter is manually
+corrected, and all remaining parameters are rescaled so that the densities obey
+the required stochastic constraints. Such post-processor techniques have been
+applied to several problems in speech processing with good success [Ref39]_. It
+can be seen from :eq:`hmmeq112` that this procedure is essentially equivalent to
+a simple form of deleted interpolation in which the model
+:math:`\lambda^{\prime}` is a uniform distribution model, and the interpolation
+value :math:`\epsilon` is chosen as the fixed constant :math:`(1 - \delta)`.
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
