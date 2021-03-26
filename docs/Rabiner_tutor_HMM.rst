@@ -2037,6 +2037,82 @@ precomputed and therefore do not cost anything in the computation. Furthermore,
 the terms :math:`\log b_j(O_t)` can be precomputed when a finite observation
 symbol analysis (e.g., a codebook of observation sequences) is used.
 
+Multiple Observation Sequences [Ref14]_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In Section IV we discussed a form of HMM called the left-right or Bakis model in
+which the state proceeds from state 1 at :math:`t = 1` to state :math:`N` at
+:math:`t = T` in a sequential manner (recall the model of :numref:`hmmfig7`
+(b)). We have already discussed how a left-right model imposes constraints on
+the state transition matrix, and the initial state probabilities :eq:`hmmeq45` -
+:eq:`hmm48`. However, the major problem with left-right models is that one
+cannot use a single observation sequence to train the model (i.e., for
+reestimation of model parameters). This is because the transient nature of the
+states within the model only allow a small number of observations for any state
+(until a tran- sition is made to a successor state). Hence, in order to have
+sufficient data to make reliable estimates of all model parameters, one has to
+use multiple observation sequences.
+
+The modification of the reestimation procedure is straightforward and goes as
+follows. We denote the set of :math:`K` observation sequences as
+
+.. math::
+   \mathbf{O} = [\mathbf{O}^{(1)}, \mathbf{O}^{(2)}, \ldots, \mathbf{O}^{(k)}]
+   :label: hmmeq106
+
+where :math:`\mathbf{O}^{(k)} = [O_1^{(k)} O_2^{(2)} \cdots O_{T_k}^{(k)}]` is
+the :math:`k`-th observation sequence. We assume each observation sequence is
+independent of every other observation sequence, and our goal is to adjust the
+parameters of the model :math:`\lambda` to maximize
+
+.. math::
+   P(O \mid \lambda) &= \prod_{k = 1}^K P(\mathbf{O}^{(k)} \mid \lambda) \\
+   &= \prod_{k=1}^K P_k.
+   :label: hmmeq107
+
+Since the reestimation formulas are based on frequencies of occurrence of
+various events, the reestimation formulas for multiple observation sequences are
+modified by adding together the individual frequencies of occurrence for each
+sequence. Thus the modified reestimation formulas for :math:`\bar{a}_{ij}` and
+:math:`\bar{b}_j(\ell)` are
+
+.. math::
+   \bar{a}_{ij} = \dfrac
+   {\sum_{k=1}^K \dfrac{1}{P_k} \sum_{t=1}^{T_k-1} \alpha_t^k(i) a_{ij} b_j(O_{t+1}^{(k)}) \beta_{t+1}^k(j)}
+   {\sum_{k=1}^K \dfrac{1}{P_k} \sum_{t=1}^{T_k-1} \alpha_t^k(i) \beta_{t+1}^k(j)}
+   :label: hmmeq109
+
+and
+
+.. math::
+   \bar{b}_j{\ell} = \dfrac
+   {\sum_{k=1}^K \dfrac{1}{P_k} \sum_{t=1, \text{ s.t. } O_t = v_t}^{T_k-1} \alpha_t^k(i) \beta_t^k(i)}
+   {\sum_{k=1}^K \dfrac{1}{P_k} \sum_{t=1}^{T_k-1} \alpha_t^k(i) \beta_t^k(i)}
+   :label: hmmeq110
+
+and :math:`\pi` is not reestimated since :math:`\pi_1 = 1, \pi_i = 0, i \neq 1`.
+
+The proper scaling of :eq:`hmmeq109` - :eq:`hmmeq110` is now straightforward
+since each observation sequence has its own scaling factor. The key idea is to
+remove the scaling factor from each term before summing. This can be
+accomplished by writing the reestimation equations in terms of the scaled
+variables, i.e.,
+
+.. math::
+   \bar{a}_{ij} = \dfrac
+   {\sum_{k=1}^K \dfrac{1}{P_k} \sum_{t=1}^{T_k-1} \hat{\alpha}_t^k(i) a_{ij} b_j(O_{t+1}^{(k)}) \hat{\beta}_t^k(i)}
+   {\sum_{k=1}^K \dfrac{1}{P_k} \sum_{t=1}^{T_k-1} \hat{\alpha}_t^k(i) \hat{\beta}_t^k(i)}.
+   :label: hmmeq111
+
+In this manner, for each sequence :math:`O^{(k)}`, the same scale factors will
+appear in each term of the sum over :math:`t` as appears in the :math:`P_k`
+term, and hence will cancel exactly. Thus using the scaled values of the alphas
+and betas results in an unscaled :math:`\bar{a}_{ij}`. A similar result is
+obtained for the :math:`\bar{b}_j(\ell)` term.
+
+Initial Estimates of HMM Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
