@@ -1963,11 +1963,11 @@ equation is therefore realized.
 
 It should be obvious that the above scaling procedure applies equally well to
 reestimation of the :math:`\pi` or :math:`B` coefficients. It should also be
-obvious that the scaling procedure of :eq:`hmmeq92` need not be applied at every
-time instant :math:`t`, but can be performed whenever desired, or necessary
-(e.g., to prevent underflow). If scaling is not performed at some instant
-:math:`t`, the scaling coefficients :math:`c_t`, are set to :math:`1` at that
-time and all the conditions discussed above are then met.
+obvious that the scaling procedure of :eq:`hmmeq92a` and :eq:`hmmeq92b` need not
+be applied at every time instant :math:`t`, but can be performed whenever
+desired, or necessary (e.g., to prevent underflow). If scaling is not performed
+at some instant :math:`t`, the scaling coefficients :math:`c_t`, are set to
+:math:`1` at that time and all the conditions discussed above are then met.
 
 The only real change to the HMM procedure because of scaling is the procedure
 for computing :math:`P(O \mid \lambda)`. We cannot merely sum up the
@@ -2045,7 +2045,7 @@ which the state proceeds from state 1 at :math:`t = 1` to state :math:`N` at
 :math:`t = T` in a sequential manner (recall the model of :numref:`hmmfig7`
 (b)). We have already discussed how a left-right model imposes constraints on
 the state transition matrix, and the initial state probabilities :eq:`hmmeq45` -
-:eq:`hmm48`. However, the major problem with left-right models is that one
+:eq:`hmmeq48`. However, the major problem with left-right models is that one
 cannot use a single observation sequence to train the model (i.e., for
 reestimation of model parameters). This is because the transient nature of the
 states within the model only allow a small number of observations for any state
