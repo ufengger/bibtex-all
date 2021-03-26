@@ -2233,6 +2233,18 @@ a simple form of deleted interpolation in which the model
 :math:`\lambda^{\prime}` is a uniform distribution model, and the interpolation
 value :math:`\epsilon` is chosen as the fixed constant :math:`(1 - \delta)`.
 
+Choice of Model
+~~~~~~~~~~~~~~~
+
+The remaining issue in implementing HMMs is the choice of type of model (ergodic
+or left-right or some other form), choice of model size (number of states), and
+choice of observation symbols (discrete or continuous, single or multi-mixture,
+choice of observation parameters). Unfortunately, there is no simple,
+theoretically correct, way of making such choices. These choices must be made
+depending on the signal being modeled. With these comments we end our discussion
+of the theoretical aspects of hidden Markov models, and proceed to a discussion
+of how such models have been applied to selected problems in speech recognition.
+
 .. rubric:: Footnotes
 
 .. [#hmm1] The idea of characterizing the theoretical aspects of hidden Markov
