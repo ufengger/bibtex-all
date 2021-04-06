@@ -79,5 +79,5 @@ for pagenum in range(0, len(xmdoc), 2):
 xmdoc.save(outname)
 xmdoc.close()
 
-# cmd = 'rm ' + xmpdf + ' ' + xmcpdf + ' ' + locfile
-# os.system(cmd)
+cmd = 'rm ' + xmpdf + ' ' + xmcpdf + ' ' + locfile
+os.system(cmd)
