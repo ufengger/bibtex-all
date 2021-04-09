@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Christie_清洁女工之死_2009.rst
    Rabiner_tutor_HMM.rst
    张书岩_简化字溯源_1997.rst
    袁珂_中国神话史_2015.rst
