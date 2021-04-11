@@ -2,12 +2,12 @@ import os
 import fitz
 from pdfCropMargins import crop
 
-filename = '~/Sync/literature/Sandel_自由主义与正义的局限_2011.pdf'
-outname = 'liberty.pdf'
-lineH = 30.0
+filename = '~/Sync/literature/村上春树_世界尽头与冷酷仙境_2007.pdf'
+outname = 'world.pdf'
+lineH = 15.0
 
-chap_start = 7
-chap_end = 256
+# chap_start = 7
+# chap_end = 256
 
 # intermediate
 locfile = 'haha.pdf'
@@ -18,8 +18,8 @@ cmd = 'cp ' + filename + ' ' + locfile
 os.system(cmd)
 doc = fitz.open(locfile)
 
-doc.delete_pages(chap_end, -1)
-doc.delete_pages(0, chap_start - 2)
+# doc.delete_pages(chap_end, -1)
+# doc.delete_pages(0, chap_start - 2)
 
 # repeat every page two times
 for origin_pagenum in range(len(doc)):
@@ -30,7 +30,7 @@ doc.save(xmpdf)
 doc.close()
 
 # crop each page
-crop(["-b", "c", "-ap", "30", "-p", "5", xmpdf, "-o", xmcpdf])
+crop(["-b", "c", "-ap", "73", "-p", "5", "-v", xmpdf, "-o", xmcpdf])
 
 xmdoc = fitz.open(xmpdf)
 xmcdoc = fitz.open(xmcpdf)
