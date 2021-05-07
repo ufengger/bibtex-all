@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   鲁迅_且介亭杂文_1973.rst
    Christie_清洁女工之死_2009.rst
    Rabiner_tutor_HMM.rst
    张书岩_简化字溯源_1997.rst
