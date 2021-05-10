@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   杨学军_留存记忆_2016.rst
    鲁迅_且介亭杂文_1973.rst
    Christie_清洁女工之死_2009.rst
    Rabiner_tutor_HMM.rst
