@@ -1,3 +1,4 @@
 /auto
 docs/_build/
 *.pdf
+scripts/*.txt
