@@ -24,6 +24,13 @@ def get_title_authors(text, bib_dict):
         bib_dict['title'] = jsondict['name']
         get_authors(jsondict, bib_dict)
 
+def get_year(text, bib_dict):
+    """Get the year."""
+    pattern = '<span class="pl">出版年:</span>(.*)<br/>'
+    result = re.search(pattern, text)
+    if result != None:
+        bib_dict['year'] = re.sub('^\s*', '', result.group(1))
+
 def get_pub(text, bib_dict):
     """Get the publisher."""
     pattern = '<span class="pl">出版社:</span>(.*)<br/>'
@@ -35,8 +42,10 @@ def douban_entry(url, bib_dict):
     """Get a bibtex entry from book.douban.com."""
     r = requests.get(url, headers=headers)
     if r.ok == True:
-        get_pub(r.text, bib_dict)
         get_title_authors(r.text, bib_dict)
+        get_year(r.text, bib_dict)
+        get_pub(r.text, bib_dict)
+        bib_dict['url'] = url
         print(bib_dict)
     else:
         print('The url can not be requested.')
