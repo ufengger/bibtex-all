@@ -2,3 +2,4 @@
 docs/_build/
 *.pdf
 scripts/*.txt
+scripts/__pycache__/
