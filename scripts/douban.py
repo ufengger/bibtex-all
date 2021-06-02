@@ -26,7 +26,7 @@ def get_title_authors(text, bib_dict):
 
 def get_year(text, bib_dict):
     """Get the year."""
-    pattern = '<span class="pl">出版年:</span>(.*)<br/>'
+    pattern = '<span class="pl">出版年:</span>.*?(\d{4}).*?<br/>'
     result = re.search(pattern, text)
     if result != None:
         bib_dict['year'] = re.sub('^\s*', '', result.group(1))
@@ -65,7 +65,6 @@ def douban_entry(url, bib_dict):
 print('Number of arguments:', len(sys.argv), 'arguments.')
 print('Argument List:', str(sys.argv))
 
-# bib_dict = {'title': '', 'author': '', 'year': '', 'publisher': '', 'url': '', 'note': ''}
 bib_dict = {}
 
 douban_entry(sys.argv[1], bib_dict)
