@@ -38,6 +38,17 @@ def get_pub(text, bib_dict):
     if result != None:
         bib_dict['publisher'] = re.sub('^\s*', '', result.group(1))
 
+def get_translator(text, bib_dict):
+    """Get the translators."""
+    pattern = '<span class="pl"> 译者</span>:(.*?)</span><br/>'
+    result = re.search(pattern, text, re.S)
+    if result != None:
+        text = result.group(1)
+        zh = re.findall("[\u4e00-\u9fa5]+", text)
+        bib_dict['note'] = ''
+        for k in range(len(zh)):
+            bib_dict['note'] += zh[k]
+
 def douban_entry(url, bib_dict):
     """Get a bibtex entry from book.douban.com."""
     r = requests.get(url, headers=headers)
@@ -46,6 +57,7 @@ def douban_entry(url, bib_dict):
         get_year(r.text, bib_dict)
         get_pub(r.text, bib_dict)
         bib_dict['url'] = url
+        get_translator(r.text, bib_dict)
         print(bib_dict)
     else:
         print('The url can not be requested.')
