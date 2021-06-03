@@ -105,12 +105,4 @@ def bibtex_export(url):
     else:
         print('Something wrong...')
 
-
-
-# print('Number of arguments:', len(sys.argv), 'arguments.')
-# print('Argument List:', str(sys.argv))
-
-# bib_dict = {}
-
-# douban_entry(sys.argv[1], bib_dict)
 bibtex_export(sys.argv[1])
