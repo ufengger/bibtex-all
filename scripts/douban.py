@@ -83,7 +83,11 @@ def bibtex_print(bib_dict, bib_file):
         entry += auth_str
     if 'title' in bib_dict:
         entry += '  title =        {' + bib_dict['title'] + '},\n'
-        bibtex_key += '_' + bib_dict['title']
+        idx = bib_dict['title'].find('：')
+        if idx == -1:
+            bibtex_key += '_' + bib_dict['title']
+        else:
+            bibtex_key += '_' + bib_dict['title'][:idx]
     if 'year' in bib_dict:
         entry += '  year =         ' + bib_dict['year'] + ',\n'
         bibtex_key += '_' + bib_dict['year']
