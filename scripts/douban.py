@@ -4,7 +4,6 @@ import sys
 import requests
 import re
 import json
-from bs4 import BeautifulSoup
 
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0'}
 
@@ -26,21 +25,21 @@ def get_title_authors(text, bib_dict):
 
 def get_year(text, bib_dict):
     """Get the year."""
-    pattern = '<span class="pl">出版年:</span>.*?(\d{4}).*?<br/>'
+    pattern = '<span class="pl">\s*出版年\s*:</span>.*?(\d{4}).*?<br/>'
     result = re.search(pattern, text)
     if result != None:
         bib_dict['year'] = re.sub('^\s*', '', result.group(1))
 
 def get_pub(text, bib_dict):
     """Get the publisher."""
-    pattern = '<span class="pl">出版社:</span>(.*)<br/>'
+    pattern = '<span class="pl">\s*出版社\s*:</span>(.*)<br/>'
     result = re.search(pattern, text)
     if result != None:
         bib_dict['publisher'] = re.sub('^\s*', '', result.group(1))
 
 def get_translator(text, bib_dict):
     """Get the translators."""
-    pattern = '<span class="pl"> 译者</span>:(.*?)</span><br/>'
+    pattern = '<span class="pl">\s*译者\s*</span>:(.*?)</span><br/>'
     result = re.search(pattern, text, re.S)
     if result != None:
         text = result.group(1)
@@ -48,6 +47,13 @@ def get_translator(text, bib_dict):
         bib_dict['note'] = ''
         for k in range(len(zh)):
             bib_dict['note'] += zh[k]
+
+def get_extra_title(text, bib_dict):
+    """Get the extra title."""
+    pattern = '<span class="pl">\s*副标题\s*:</span>(.*?)<br/>'
+    result = re.search(pattern, text, re.S)
+    if result != None:
+        bib_dict['title'] += '：' + re.sub('^\s*', '', result.group(1))
 
 def douban_entry(url, bib_dict):
     """Get a bibtex entry from book.douban.com."""
@@ -58,6 +64,7 @@ def douban_entry(url, bib_dict):
         get_pub(r.text, bib_dict)
         bib_dict['url'] = url
         get_translator(r.text, bib_dict)
+        get_extra_title(r.text, bib_dict)
         print(bib_dict)
     else:
         print('The url can not be requested.')
