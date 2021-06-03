@@ -70,8 +70,8 @@ def douban_entry(url, bib_dict):
     else:
         return False
 
-def bibtex_print(bib_dict):
-    """Format the bibtex entry."""
+def bibtex_print(bib_dict, bib_file):
+    """Format the bibtex entry, and write it to the bibtex file."""
     entry = '@Book{%s,\n'
     bibtex_key = ''
     if 'author' in bib_dict:
@@ -93,16 +93,18 @@ def bibtex_print(bib_dict):
         entry += '  url =          {' + bib_dict['url'] + '},\n'
     if 'note' in bib_dict:
         entry += '  note =         {' + bib_dict['note'] + '译},\n'
-    entry += '}'
-    print(entry %(bibtex_key))
+    entry += '}\n\n'
+    # print(entry %(bibtex_key))
+    with open(bib_file, 'a') as f:
+        f.write(entry %(bibtex_key))
 
-def bibtex_export(url):
+def bibtex_export(bib_file, url):
     """Export douban url to bibtex entry."""
     bib_dict = {}
     status = douban_entry(url, bib_dict)
     if status:
-        bibtex_print(bib_dict)
+        bibtex_print(bib_dict, bib_file)
     else:
         print('Something wrong...')
 
-bibtex_export(sys.argv[1])
+bibtex_export(sys.argv[1], sys.argv[2])
