@@ -66,12 +66,51 @@ def douban_entry(url, bib_dict):
         get_translator(r.text, bib_dict)
         get_extra_title(r.text, bib_dict)
         print(bib_dict)
+        return True
     else:
-        print('The url can not be requested.')
+        return False
 
-print('Number of arguments:', len(sys.argv), 'arguments.')
-print('Argument List:', str(sys.argv))
+def bibtex_print(bib_dict):
+    """Format the bibtex entry."""
+    entry = '@Book{%s,\n'
+    bibtex_key = ''
+    if 'author' in bib_dict:
+        auth_str = '  author =       {' + bib_dict['author'][0]
+        bibtex_key += bib_dict['author'][0]
+        for k in range(1, len(bib_dict['author'])):
+            auth_str += ' and ' + bib_dict['author'][k]
+        auth_str += '},\n'
+        entry += auth_str
+    if 'title' in bib_dict:
+        entry += '  title =        {' + bib_dict['title'] + '},\n'
+        bibtex_key += '_' + bib_dict['title']
+    if 'year' in bib_dict:
+        entry += '  year =         ' + bib_dict['year'] + ',\n'
+        bibtex_key += '_' + bib_dict['year']
+    if 'publisher' in bib_dict:
+        entry += '  publisher =    {' + bib_dict['publisher'] + '},\n'
+    if 'url' in bib_dict:
+        entry += '  url =          {' + bib_dict['url'] + '},\n'
+    if 'note' in bib_dict:
+        entry += '  note =         {' + bib_dict['note'] + '译},\n'
+    entry += '}'
+    print(entry %(bibtex_key))
 
-bib_dict = {}
+def bibtex_export(url):
+    """Export douban url to bibtex entry."""
+    bib_dict = {}
+    status = douban_entry(url, bib_dict)
+    if status:
+        bibtex_print(bib_dict)
+    else:
+        print('Something wrong...')
 
-douban_entry(sys.argv[1], bib_dict)
+
+
+# print('Number of arguments:', len(sys.argv), 'arguments.')
+# print('Argument List:', str(sys.argv))
+
+# bib_dict = {}
+
+# douban_entry(sys.argv[1], bib_dict)
+bibtex_export(sys.argv[1])
