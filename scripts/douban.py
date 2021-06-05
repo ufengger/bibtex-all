@@ -39,7 +39,7 @@ def get_pub(text, bib_dict):
 
 def get_translator(text, bib_dict):
     """Get the translators."""
-    pattern = '<span class="pl">\s*译者\s*</span>:(.*?)</span><br/>'
+    pattern = '<span class="pl">\s*译者(.*?)<br'
     result = re.search(pattern, text, re.S)
     if result != None:
         text = result.group(1)
