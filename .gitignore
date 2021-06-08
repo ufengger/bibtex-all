@@ -3,3 +3,6 @@ docs/_build/
 *.pdf
 scripts/*.txt
 scripts/__pycache__/
+scripts/douban.build/
+scripts/dc.out
+dc.out
