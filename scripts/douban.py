@@ -74,7 +74,7 @@ def bibtex_print(bib_dict, bib_file):
     """Format the bibtex entry, and write it to the bibtex file."""
     entry = '@Book{%s,\n'
     bibtex_key = ''
-    if 'author' in bib_dict:
+    if len(bib_dict['author']) > 0:
         auth_str = '  author =       {' + bib_dict['author'][0]
         bibtex_key += bib_dict['author'][0]
         for k in range(1, len(bib_dict['author'])):
