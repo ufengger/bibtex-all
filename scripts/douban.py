@@ -5,7 +5,7 @@ import requests
 import re
 import json
 
-headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0'}
+headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0'}
 
 def get_authors(jdict, bib_dict):
     """Get the authors from json dict."""
