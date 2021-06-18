@@ -99,7 +99,7 @@ def bibtex_print(bib_dict, bib_file):
     with open(bib_file, 'a') as f:
         f.write(entry %(bibtex_key))
 
-def bibtex_export(bib_file, url, proxies):
+def bibtex_export(bib_file, url, proxies={}):
     """Export douban url to bibtex entry."""
     bib_dict = {}
     status = douban_entry(url, bib_dict, proxies)
