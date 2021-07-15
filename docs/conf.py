@@ -53,6 +53,19 @@ master_doc = 'index'
 # numfig settings
 numfig = True
 
+# sphinxcontrib-proof options
+proof_theorem_types = {
+   "algorithm": "Algorithm",
+   "corollary": "Corollary",
+   "definition": "Definition",
+   "example": "Example",
+   "lemma": "Lemma",
+   "proof": "Proof",
+   "property": "Property",
+   "theorem": "Theorem",
+   "proposition": "Proposition",
+   "remark": "Remark",
+}
 
 # -- Options for HTML output -------------------------------------------------
 
