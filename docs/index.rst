@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Mato_lp_07.rst
    冈田英弘_紫禁城的荣光_2017.rst
    陶孟和_北平生活费之分析_2011.rst
    笑忘书_2013.rst
