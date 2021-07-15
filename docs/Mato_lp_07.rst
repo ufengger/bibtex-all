@@ -37,6 +37,6 @@ Duality of Linear Programming
       :header: "", "The system :math:`Ax\\leq b` ", "The system :math:`Ax=b`"
       :align: center
 
-      "has a solution :math:`x\geq 0` iff", ":math:`y\geq 0,y^TA\geq 0` :math:`\Rightarrow y^Tb\geq 0`", ":math:`y^TA\geq 0` :math:`\Rightarrow y^Tb\geq 0`"
-      "has a solution :math:`x\in\mathbb{R}^n` iff", ":math:`y\geq 0, y^TA=0` :math:`\Rightarrow y^Tb\geq 0`", ":math:`y^TA=0` :math:`\Rightarrow y^Tb=0`"
+      "has a solution :math:`x\geq 0` iff", ":math:`y\geq 0, \text{ } y^{\mathrm{T}}A\geq 0` :math:`\Rightarrow y^{\mathrm{T}}b\geq 0`", ":math:`y^{\mathrm{T}}A\geq 0` :math:`\Rightarrow y^{\mathrm{T}}b\geq 0`"
+      "has a solution :math:`x\in\mathbb{R}^n` iff", ":math:`y\geq 0, \text{ } y^{\mathrm{T}}A=0` :math:`\Rightarrow y^{\mathrm{T}}b\geq 0`", ":math:`y^{\mathrm{T}}A=0` :math:`\Rightarrow y^{\mathrm{T}}b=0`"
 
