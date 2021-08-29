@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Lane_生命之源_2016.rst
    岛田庄司_异位_2011.rst
    梅汝璈_远东国际军事法庭_1988.rst
    Mato_lp_07.rst
