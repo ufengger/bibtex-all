@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Luo_homo_21.rst
    Nowicki_factor_15.rst
    张爱玲_倾城之恋_2012.rst
    Lane_生命之源_2016.rst
