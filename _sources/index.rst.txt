@@ -19,6 +19,10 @@
    :hidden:
    :caption: 目录
 
+   Luo_homo_21.rst
+   Nowicki_factor_15.rst
+   张爱玲_倾城之恋_2012.rst
+   Lane_生命之源_2016.rst
    岛田庄司_异位_2011.rst
    梅汝璈_远东国际军事法庭_1988.rst
    Mato_lp_07.rst

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>读书笔记 &mdash; Reading Notes  文档</title>
+  <title>Notes on: Nowicki, M., &amp; Skrzypczyński, P. (2015): Indoor navigation with a smartphone fusing inertial and wifi data via factor graph optimization &mdash; Reading Notes  文档</title>
   
 
   
@@ -39,7 +39,8 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="Notes on: Luo, S., Zhao, Y., Xiao, Y., Lin, R., &amp; Yan, Y. (2021): A temporal-spatial spectrum prediction using the concept of homotopy theory for uav communications" href="Luo_homo_21.html" /> 
+    <link rel="next" title="Notes on: 张爱玲, (2012): 倾城之恋" href="张爱玲_倾城之恋_2012.html" />
+    <link rel="prev" title="Notes on: Luo, S., Zhao, Y., Xiao, Y., Lin, R., &amp; Yan, Y. (2021): A temporal-spatial spectrum prediction using the concept of homotopy theory for uav communications" href="Luo_homo_21.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -53,7 +54,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> Reading Notes
+            <a href="index.html" class="icon icon-home"> Reading Notes
           
 
           
@@ -84,9 +85,12 @@
             
             
               <p class="caption"><span class="caption-text">目录</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Luo_homo_21.html">Notes on: Luo, S., Zhao, Y., Xiao, Y., Lin, R., &amp; Yan, Y. (2021): A temporal-spatial spectrum prediction using the concept of homotopy theory for uav communications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Nowicki_factor_15.html">Notes on: Nowicki, M., &amp; Skrzypczyński, P. (2015): Indoor navigation with a smartphone fusing inertial and wifi data via factor graph optimization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Notes on: Nowicki, M., &amp; Skrzypczyński, P. (2015): Indoor navigation with a smartphone fusing inertial and wifi data via factor graph optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wifi-fingerprinting">3.3 WiFi Fingerprinting</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="张爱玲_倾城之恋_2012.html">Notes on: 张爱玲,  (2012): 倾城之恋</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lane_生命之源_2016.html">Notes on: Lane, N. (2016): 生命之源：能量、演化与复杂生命的起源</a></li>
 <li class="toctree-l1"><a class="reference internal" href="岛田庄司_异位_2011.html">Notes on: 岛田庄司,  (2011): 异位</a></li>
@@ -162,7 +166,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Reading Notes</a>
+          <a href="index.html">Reading Notes</a>
         
       </nav>
 
@@ -191,15 +195,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>读书笔记</li>
+      <li>Notes on: Nowicki, M., &amp; Skrzypczyński, P. (2015): Indoor navigation with a smartphone fusing inertial and wifi data via factor graph optimization</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Nowicki_factor_15.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -212,17 +216,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
-<h1>读书笔记<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<blockquote>
-<div><p>天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。</p>
-<p>赵钱孙李，周吴郑王。冯秦褚卫，姜沈韩杨。</p>
-<p>太上老君急急如律令！敕！敕！敕！</p>
-<blockquote>
-<div><p>——鲁迅《故事新编》</p>
-</div></blockquote>
-</div></blockquote>
-<div class="toctree-wrapper compound">
+  <div class="section" id="notes-on-nowicki-m-skrzypczynski-p-2015-indoor-navigation-with-a-smartphone-fusing-inertial-and-wifi-data-via-factor-graph-optimization">
+<h1>Notes on: Nowicki, M., &amp; Skrzypczyński, P. (2015): Indoor navigation with a smartphone fusing inertial and wifi data via factor graph optimization<a class="headerlink" href="#notes-on-nowicki-m-skrzypczynski-p-2015-indoor-navigation-with-a-smartphone-fusing-inertial-and-wifi-data-via-factor-graph-optimization" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="http://dx.doi.org/10.1007/978-3-319-29003-4_16">View on DOI</a></p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">Nowicki_factor_15</span><span class="p">,</span>
+  <span class="na">author</span>    <span class="p">=</span> <span class="s">{Nowicki, Michał and Skrzypczyński, Piotr}</span><span class="p">,</span>
+  <span class="na">title</span>     <span class="p">=</span> <span class="s">{Indoor Navigation with a Smartphone Fusing Inertial and WiFi</span>
+<span class="s">               Data via Factor Graph Optimization}</span><span class="p">,</span>
+  <span class="na">journal</span>   <span class="p">=</span> <span class="s">{Mobile Computing, Applications, and Services}</span><span class="p">,</span>
+  <span class="na">pages</span>     <span class="p">=</span> <span class="s">{280–298}</span><span class="p">,</span>
+  <span class="na">year</span>      <span class="p">=</span> <span class="s">{2015}</span><span class="p">,</span>
+  <span class="na">doi</span>       <span class="p">=</span> <span class="s">{10.1007/978-3-319-29003-4_16}</span><span class="p">,</span>
+  <span class="na">url</span>       <span class="p">=</span> <span class="s">{http://dx.doi.org/10.1007/978-3-319-29003-4_16}</span><span class="p">,</span>
+  <span class="na">isbn</span>      <span class="p">=</span> <span class="s">{9783319290034}</span><span class="p">,</span>
+  <span class="na">issn</span>      <span class="p">=</span> <span class="s">{1867-822X}</span><span class="p">,</span>
+  <span class="na">publisher</span> <span class="p">=</span> <span class="s">{Springer International Publishing}</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="wifi-fingerprinting">
+<h2>3.3 WiFi Fingerprinting<a class="headerlink" href="#wifi-fingerprinting" title="永久链接至标题">¶</a></h2>
+<p>It is possible to:</p>
+<ol class="arabic simple">
+<li><p>compare the current WiFi scan to a pre-existing database of fingerprints
+taken at known locations,</p></li>
+<li><p>compare the current WiFi scan to the WiFi fingerprints recorded earlier
+during the system operation.</p></li>
+</ol>
+<p>The <strong>former</strong> method assumes that before the start of a navigation task a small
+set of WiFi scans is taken in known poses of the user, and these fingerprints
+are stored in the memory of the smartphone. The procedure to obtain these WiFi
+fingerprints is straightforward and fast, as only WiFi scans in few selected
+locations are needed. The <strong>latter</strong> operation mode assumes no prior knowledge
+of the environment as only the WiFi scans taken during the system operation are
+compared. The matching of WiFi fingerprints provides localization constraints
+equivalent to the loop closure mechanism in SLAM, as it detects previously
+visited locations (either known a priori or discovered) and allows to reduce the
+dead reckoning drift.</p>
 </div>
 </div>
 
@@ -234,8 +264,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Luo_homo_21.html" class="btn btn-neutral float-right" title="Notes on: Luo, S., Zhao, Y., Xiao, Y., Lin, R., &amp; Yan, Y. (2021): A temporal-spatial spectrum prediction using the concept of homotopy theory for uav communications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="张爱玲_倾城之恋_2012.html" class="btn btn-neutral float-right" title="Notes on: 张爱玲, (2012): 倾城之恋" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="Luo_homo_21.html" class="btn btn-neutral float-left" title="Notes on: Luo, S., Zhao, Y., Xiao, Y., Lin, R., &amp; Yan, Y. (2021): A temporal-spatial spectrum prediction using the concept of homotopy theory for uav communications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
