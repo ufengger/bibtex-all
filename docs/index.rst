@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   薛林荣_鲁迅的饭局_2021.rst
    Luo_homo_21.rst
    Nowicki_factor_15.rst
    张爱玲_倾城之恋_2012.rst
