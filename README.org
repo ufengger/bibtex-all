@@ -1,0 +1,1805 @@
+* Sarkka_bayes_filter_2009
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Sarkka_bayes_filter_2009.pdf
+  :END:
+** Purpose of Bayesian filtering
+   :PROPERTIES:
+   :NOTER_PAGE: 78
+   :END:
+
+Bayesian 滤波的目的是计算 $p(x_k | y_{1:k})$, 我以前一直以为是计算 $p(x_k |
+y_k)$, 这是一个持续很长时间的误解。
+
+** Normalization constant Z_k
+   :PROPERTIES:
+   :NOTER_PAGE: 78
+   :END:
+
+根据贝叶斯法则，可以计算得到 $Z_k = p(y_k | y_{1:k-1})$.
+
+* Barber. Bayesian reasoning and machine learning
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Barber_learn_2012.pdf
+  :NOTER_PAGE: 115
+  :END:
+** Definition of Clique
+   :PROPERTIES:
+   :NOTER_PAGE: 54
+   :END:
+
+Note that cliques need not to be maximal, compare the definition of cliques in
+
+- Lauritzen, S. L. (1996). Graphical Models. : Oxford University Press, USA.
+
+on Page 5, where cliques should be maximal.
+
+** TODO Exercise 2.10
+   :PROPERTIES:
+   :NOTER_PAGE: 59
+   :END:
+
+有意思的习题，但是完全没有想法。
+
+** 缩写 BN 的含义
+   :PROPERTIES:
+   :NOTER_PAGE: 61
+   :END:
+
+BN = Belief networks = Bayes' networks = Bayesian belief networks.
+
+** d-Separation
+   :PROPERTIES:
+   :NOTER_PAGE: 73
+   :END:
+
+Mark.
+
+** in/dependence
+   :PROPERTIES:
+   :NOTER_PAGE: 75
+   :END:
+
+从 BN 的图结构中得到的关于独立性（independence）的判断都是对的，但是关于相关性
+（dependence）的判断不一定对。
+
+** Determining Markov equivalence
+   :PROPERTIES:
+   :NOTER_PAGE: 76
+   :END:
+
+定义了什么是 immorality 和 skeleton. 两个 DAG 是 Markov 等价的，当且仅当它们有相
+同的 skeleton 以及 immorality 的集合。
+
+** Causality
+   :PROPERTIES:
+   :NOTER_PAGE: 77
+   :END:
+   
+Formally BNs only make independence statements, not causal ones.
+
+** Definition of Markov Network
+   :PROPERTIES:
+   :NOTER_PAGE: 90
+   :END:
+
+Compare the property (F) defined on Page 35 of
+
+- Lauritzen, S. L. (1996). Graphical Models. : Oxford University Press, USA.
+
+** Properties of Markov Networks
+   :PROPERTIES:
+   :NOTER_PAGE: 91
+   :END:
+
+Proofs can be found on Page 29, Property (3.6) of
+
+- Lauritzen, S. L. (1996). Graphical Models. : Oxford University Press, USA.
+
+The statements in Definition 4.4  should not be called "definition".
+
+** Markov properties
+   :PROPERTIES:
+   :NOTER_PAGE: 91
+   :END:
+
+It's better to see Sec. 3.2.1 Markov properties on undirected graphs of
+
+- Lauritzen, S. L. (1996). Graphical Models. : Oxford University Press, USA.
+
+** Global Markov Property
+   :PROPERTIES:
+   :NOTER_PAGE: 92
+   :END:
+
+For proofs, see Proposition 3.8, on Page 35 of
+
+- Lauritzen, S. L. (1996). Graphical Models. : Oxford University Press, USA.
+
+** Hammersley-Clifford Theorem
+   :PROPERTIES:
+   :NOTER_PAGE: 93
+   :END:
+
+One can not find the explicit statements of HC theorem. The theorem is stated as
+follows:
+
+A probability distribution $P$ with positive and continuous density $f$ with
+respect to a product measure $\mu$ satisfies the pairwise Markov property with
+respect to an undirected graph $G$ if and only if it factorizes according to
+$G$.
+
+From Theorem 3.9 on Page 36 of
+
+- Lauritzen, S. L. (1996). Graphical Models. : Oxford University Press, USA.
+
+** Comments on Variable Elimination
+   :PROPERTIES:
+   :NOTER_PAGE: 108
+   :END:
+
+cf. Appendix A of
+
+- Kschischang, F., Frey, B., & Loeliger, H. (2001). Factor graphs and the
+  sum-product algorithm. IEEE Transactions on Information Theory, 47(2),
+  498–519. http://dx.doi.org/10.1109/18.910572
+
+* Lauri_graph_96
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Lauri_graph_96.djvu
+  :NOTER_PAGE: 100
+  :END:
+
+** Check
+   :PROPERTIES:
+   :NOTER_PAGE: 93
+   :END:
+
+* Kschischang, Frey and Loeliger. Factor graphs and the sum-product algorithm
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Ksch_factor_bp_01.pdf
+  :NOTER_PAGE: 7
+  :END:
+** Definition of summary operator
+   :PROPERTIES:
+   :NOTER_PAGE: 2
+   :END:
+
+The summary operator or "not-sum" is denoted by $\sum_{\sim x_i}$ which means
+$\sum_{X \\ x_i}$, where $X = \{x_1, \ldots, x_n\}$.
+
+** Definition of global functions
+   :PROPERTIES:
+   :NOTER_PAGE: 2
+   :END:
+
+The global function in this article is defined as a map $g \colon S \to R$,
+where $S = A_1 \times A_2 \times \cdots \times A_n$ and $R$ is a semiring. In
+most cases $R$ is just the field of real numbers, but in some cases, $R$ may be
+a finite field, see [[#Ksch_factor_bp_01_example_2][Example 2]] .
+
+** Key observation
+   :PROPERTIES:
+   :NOTER_PAGE: 3
+   :END:
+
+When a factor graph is cycle-free, the factor graph not only encodes in its
+structure the factorization of the global function, but also encodes arithmetic
+expressions by which the marginal functions associated with the global function
+may be computed.
+
+** TODO Detailed Example
+   :PROPERTIES:
+   :NOTER_PAGE: 6
+   :END:
+
+How could one know the set of leaf vertices?
+
+** Example 2
+   :PROPERTIES:
+   :NOTER_PAGE: 7
+   :CUSTOM_ID: Ksch_factor_bp_01_example_2
+   :END:
+
+Note that the factor graph in Fig. 8 is not cycle-free.
+
+** Trellis structure of codes
+   :PROPERTIES:
+   :NOTER_PAGE: 7
+   :END:
+
+Can't find it online.
+
+** Example 3
+   :PROPERTIES:
+   :NOTER_PAGE: 8
+   :END:
+
+It is important to note that a factor graph corresponding to a trellis is
+cycle-free. Since every code has a trellis representation, it follows that every
+code can be represented by a cycle-free factor graph.
+
+** Comments on cut-set bound
+   :PROPERTIES:
+   :NOTER_PAGE: 8
+   :END:
+
+给定一个码（或者更准确的说给定一个校验矩阵），现在有两种方式将这个码关联到一个因
+子图。一是直接用校验矩阵得到的一堆方程来校验；二是先得到这个码的 trellis 表示，
+然后再用这个 trellis 表示的因子图。方式一得到的因子图可能有 cycle ，方式二得到的
+因子图是 cycle-free 的，但是状态空间可能特别大。
+
+[[#Forney_code_01_cut_set_bound][Cut-Set Bound]] 说明，除非因子图有 cycle，否则状态空间不会太小，这促使人们研究带
+cycle 的因子图。
+
+** Comments on Example 5
+   :PROPERTIES:
+   :NOTER_PAGE: 9
+   :END:
+
+关于式 (12), 这里并没有像通常那样省略先验概率 $p(x)$, 而是使用了精确的解析表达式。
+这很重要，首先 $x$ 必须满足这个特征函数，其次当我们求 $x$ 使得 $g$ 最大的时候，
+若 $x$ 不满足特征函数，则特征函数这个表达式为 $0$.
+
+暂时的疑问，所谓解码就是要求 $x$ 使得 $g$ 最大，但是前面的 sum-product 算法似乎
+不是做这件事的。那么该如何解码呢。
+
+** IV. Trellis Processing
+   :PROPERTIES:
+   :NOTER_PAGE: 10
+   :END:
+
+** V. Iterative Processing: the Sum-Product Algorithm in Factor Graphs with Cycles
+   :PROPERTIES:
+   :NOTER_PAGE: 13
+   :END:
+
+** VI. Factor-Graph Transformations
+   :PROPERTIES:
+   :NOTER_PAGE: 15
+   :END:
+
+** Appendix A. From Factor Trees to Expression Trees
+   :PROPERTIES:
+   :NOTER_PAGE: 19
+   :END:
+
+** Appendix B. Other Graphical Models for Probability Distributions
+   :PROPERTIES:
+   :NOTER_PAGE: 20
+   :END:
+
+** Origin of factor graphs
+   :PROPERTIES:
+   :NOTER_PAGE: 22
+   :END:
+
+The concept of factor graphs as a generalization of Tanner graphs was devised by
+a group at ISIT'97 in Ulm, Germany, that included the authors, G. D. Forney,
+Jr., R. Koetter, D. J. C. MacKay, R. J. McEliece, R. M. Tanner, and N. Wiberg.
+
+* Aumayer and Petovello. Effect of Sampling Rate Error on GNSS Velocity and Clock Drift Estimation
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Aumayer_clock_15.pdf
+  :NOTER_PAGE: 1
+  :END:
+
+这篇文章主要关注 GNSS 接收终端的采样时钟的误差对接收机的测量值以及时钟模型的影响。
+
+* Forney. Codes on Graphs: Normal Realizations
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Forney_code_01.pdf
+  :NOTER_PAGE: 9
+  :END:
+** cut-set bound
+   :PROPERTIES:
+   :NOTER_PAGE: 9
+   :CUSTOM_ID: Forney_code_01_cut_set_bound
+   :END:
+
+The Cut-Set Bound shows that state-space sizes cannot be reduced substantially
+unless the realization has cycles, which motivates the consideration of
+realizations with cycles.
+
+* Tan. GNSS systems and engineering: the Chinese Beidou navigation and position satellite
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Tan_beidou_18.pdf
+  :NOTER_PAGE: 18
+  :END:
+** RN
+   :PROPERTIES:
+   :NOTER_PAGE: 14
+   :END:
+
+RN = Radio Navigation Satellite Service.
+** RD
+   :PROPERTIES:
+   :NOTER_PAGE: 14
+   :END:
+
+RD = Radio Determination Satellite Service.
+** Beidou 1
+   :PROPERTIES:
+   :NOTER_PAGE: 14
+   :END:
+
+The first generation of Chinese satellite navigation positioning system utilized
+a positioning principle totally different from the one mentioned here. The
+confirmation of radio navigation parameter and position calculation required by
+user positioning is accomplished by ground control center other than the user,
+in fact, both positioning of the user terminal and positioning report from the
+user terminal to ground control center are completed, therefore it is called RD.
+
+RN is a subset of RD.
+** GPS constellation
+   :PROPERTIES:
+   :NOTER_PAGE: 16
+   :END:
+
+The proposed constellation was a total of 24 satellites distributed on three
+circular orbital planes, with eight satellites on each orbital plane with a dip
+angle of 63 degree.
+
+During the implementation of the engineering, due to concern about the proposed
+of GPS, financial expenditure is a constraint. In order to guarantee the
+effective experiment set up in [[https://en.wikipedia.org/wiki/Yuma_Proving_Ground][Yuma Proving Grounds]], three orbital planes were
+changed to six orbital planes to reflect the limited experimental satellite on
+the proving ground. There were four satellites on each plane and this had a good
+effect on the experiment but made the constellation layout difficult. In order
+to not waste the quantity of satellites or form a blank area in coverage, six
+orbital planes remain as they currently are. However, the three-orbital-plane
+scheme is still recommended by the GPS Modernization Plan.
+** Latest development in GPS
+   :PROPERTIES:
+   :NOTER_PAGE: 18
+   :END:
+
+The Time Keeping System (TKS) and autonomous navigation (Auto-NAV) are added on
+the BLOCK-IIR satellite. This has autonomous working ability for 180 days
+without requiring ground system intervention. Autonomous navigation performs
+distance measurement and information exchange through UHF inter-satellite links,
+autonomously updating ephemeris on board, and accomplishing the calibration of
+the satellite clock. The time system is maintained by using a highly stable
+cesium atomic clock and rubidium atomic clock.
+
+The GPS III Program was launched in 2000. Its fundamental target up until 2020
+is:
+
+(1) to realize the navigation signal's capability of penetrating vegetation;
+
+(2) to reach positioning accuracy of 1 m;
+
+(3) to realize full ILS capability through a wide area differential;
+
+(4) to improve timing accuracy to 1 ns;
+
+(5) to possess excellent war navigation performance - in a war zone at least,
+the navigation signal could be enhanced by 30 dB (1000 times);
+
+(6) to fully realize an automatic early warning navigation signal.
+
+* Turvey_犯罪心理画像_2005
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/literature/Turvey_犯罪心理画像_2005.pdf
+  :NOTER_PAGE: 146
+  :END:
+** 物证
+   :PROPERTIES:
+   :NOTER_PAGE: 112
+   :END:
+
+在美国仅 5% ～ 25% 的刑事案件在庭审中利用到了物证。数据来源于：
+
+- Horvath, F., & Meesig, R. (1996). The criminal investigation process and the
+  role of forensic evidence: a review of empirical findings. Journal of Forensic
+  Sciences, 41(6), 14032. http://dx.doi.org/10.1520/jfs14032j
+
+** Notes for page 113
+   :PROPERTIES:
+   :NOTER_PAGE: 113
+   :END:
+
+** 第 5 章 犯罪再现简介
+   :PROPERTIES:
+   :NOTER_PAGE: 115
+   :END:
+
+现场血迹的喷溅形状比起血迹的 DNA 分析更能说明问题。
+
+1. 顺序性证据。
+2. 方位性证据。
+3. 行为证据。
+4. 位置证据。
+5. 所属关系证据。
+6. 限定现场的证据。
+
+目前已有大量的研究表明，目击证人的证词是不可靠的。
+
+** 第 6 章 证据动态变化
+   :PROPERTIES:
+   :NOTER_PAGE: 129
+   :END:
+
+Thornton:
+
+刑事科学家几乎已经普遍地接受了洛卡尔物质交换定律。这条定律是洛卡尔于 20 世纪初提
+出来的，当时洛卡尔是法国里昂第一所犯罪实验室的主任。洛卡尔物质交换定律是指一旦两
+件物体相互接触，其间必将发生物质交换。
+
+* TODO Wainwright and Jordan. Graphical Models, Exponential Families, and Variational Inference
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/WJ_graph_2007.pdf
+  :NOTER_PAGE: 65
+  :END:
+** 2.1 Probability Distributions on Graphs
+   :PROPERTIES:
+   :NOTER_PAGE: 7
+   :END:
+** 2.1.1 Directed Graphical Models
+   :PROPERTIES:
+   :NOTER_PAGE: 8
+   :END:
+** 2.1.2 Undirected Graphical Models
+   :PROPERTIES:
+   :NOTER_PAGE: 9
+   :END:
+
+In (2.2), the index set $\mathcal{C}$ is often taken to be the set of all
+maximal cliques of the graph, but this condition can be imposed without loss of
+generality, because any representation based on non-maximal cliques can always
+be converted to one based on maximal cliques by redefining the compatibility
+function on a maximal clique to be the product over the compatibility functions
+on the subsets of that clique. However, there may be computational benefits to
+using a non-maximal representation -- in particular, algorithms may be able to
+exploit specific features of the factorization special to the non-maximal
+representation. For this reason, we do not necessarily restrict compatibility
+functions to maximal cliques only, but instead define the set $\mathcal{C}$ to
+contain all cliques.
+** 2.1.3 Factor Graphs
+   :PROPERTIES:
+   :NOTER_PAGE: 10
+   :END:
+
+Here the authors give two references:
+
+- Kschischang, F., Frey, B., & Loeliger, H. (2001). Factor graphs and the
+  sum-product algorithm. IEEE Transactions on Information Theory, 47(2),
+  498–519. http://dx.doi.org/10.1109/18.910572
+
+- Loeliger, H. (2004). An introduction to factor graphs. IEEE Signal Processing
+  Magazine, 21(1), 28–41. http://dx.doi.org/10.1109/msp.2004.1267047
+** 2.2 Conditional Independence
+   :PROPERTIES:
+   :NOTER_PAGE: 11
+   :END:
+** 2.3 Statistical Inference and Exact Algorithms
+   :PROPERTIES:
+   :NOTER_PAGE: 12
+   :END:
+** 2.4 Applications
+   :PROPERTIES:
+   :NOTER_PAGE: 13
+   :END:
+** 2.4.1 Hierarchical Bayesian Models
+   :PROPERTIES:
+   :NOTER_PAGE: 14
+   :END:
+** 2.4.2 Contingency Table Analysis
+   :PROPERTIES:
+   :NOTER_PAGE: 15
+   :END:
+** 2.4.3 Constraint Satisfaction and Combinatorial Optimization
+   :PROPERTIES:
+   :NOTER_PAGE: 16
+   :END:
+** 2.4.4 Bioinformatics
+   :PROPERTIES:
+   :NOTER_PAGE: 17
+   :END:
+** 2.4.5 Language and speech processing
+   :PROPERTIES:
+   :NOTER_PAGE: 20
+   :END:
+** 2.4.6 Image Processing and Spatial Statistics
+   :PROPERTIES:
+   :NOTER_PAGE: 21
+   :END:
+** 2.4.7 Error-Correcting Coding
+   :PROPERTIES:
+   :NOTER_PAGE: 23
+   :END:
+** 2.5 Exact Inference Algorithms
+   :PROPERTIES:
+   :NOTER_PAGE: 25
+   :END:
+
+In computing a marginal probability, we must sum or integrate the joint
+probability distribution over one or more variables. We can perform this
+computation as a sequence of operations by choosing a specific ordering of the
+variables (and making an appeal to Fubini's theorem).
+
+The phase "exact inference" refers to the (essentially symbolic) problem of
+organizing this sequential computation, including managing the intermediate
+factors that arise. Assuming that each individual sum or integral is performed
+exactly, then the overall algorithm yields an exact numerical result.
+
+The sum-product and junction tree algorithms are essentially dynamic programming
+algorithms based on a calculus for sharing intermediate terms. The algorithms
+involve "message-passing" operations on graphs, where the message are exactly
+these shared intermediate terms. Upon convergence of the algorithms, we obtain
+marginal probabilities for all cliques of the original graph.
+** Undirected Moral Graph
+   :PROPERTIES:
+   :NOTER_PAGE: 26
+   :END:
+
+We thus transform a directed graph to an undirected moral graph, in which all
+parents of each child are linked, and all edges are converted to undirected
+edges. In this moral graph, the factors are all defined on cliques, so that the
+moralized version of any directed factorization (2.1) is a special case of the
+undirected factorization (2.2).
+
+Throughout the rest of the survey, we assume that this transformation has been
+carried out.
+** 2.5.1 Message-Passing on Trees
+   :PROPERTIES:
+   :NOTER_PAGE: 26
+   :END:
+** Comment on (2.5)
+   :PROPERTIES:
+   :NOTER_PAGE: 26
+   :END:
+
+The subscript $\{ x^{\prime} | x^{\prime}_s = x_s\}$ means all the vector
+$x^{\prime}$ such that its $s$-th component is equal to $x_s$.
+
+** Sum-product algorithms (on trees)
+   :PROPERTIES:
+   :NOTER_PAGE: 27
+   :END:
+
+Let $N(s)$ be the set of neighbors of $s$. For each $t \in N(s)$, we can define
+a subgraph $T_u = (V_u, E_u)$ be the subgraph formed by the set of nodes (and
+edges joining them) that can be reached from $u$ by paths that do not pass
+through node $s$. The key property of a tree is that each such subgraph $T_u$ is
+again a tree, and $T_u$ and $T_v$ are vetex-disjoint for $u \neq v$. In this
+way, each vertex $u \in N(s)$ can be viewed as the root of a subtree $T_u$.
+
+** 2.5.2 Junction Tree Representation
+   :PROPERTIES:
+   :NOTER_PAGE: 29
+   :END:
+
+A graph $G$ has a junction tree if and only if it is triangulated.
+
+** Comment on (2.12)
+   :PROPERTIES:
+   :NOTER_PAGE: 32
+   :END:
+
+The decomposition (2.12) is directly in terms of marginal distributions, and
+does not require a normalization constant (i.e., $Z = 1$).
+
+** 2.6 Message-passing Algorithms for Approximate Inference
+   :PROPERTIES:
+   :NOTER_PAGE: 34
+   :END:
+
+** Definition of Treewidth
+   :PROPERTIES:
+   :NOTER_PAGE: 34
+   :END:
+
+cf. [[https://en.wikipedia.org/wiki/Treewidth][wikipedia]]
+
+** 3.1 Exponential Representations via Maximum Entropy
+   :PROPERTIES:
+   :NOTER_PAGE: 37
+   :END:
+
+** 3.2 Basics of Exponential Families
+   :PROPERTIES:
+   :NOTER_PAGE: 39
+   :END:
+
+- Regular families: the domain $\Omega$ is open.
+- Minimal: the set of sufficient statistics are linear independent.
+- Overcomplete: contrary to minimal families, cf. [[#WJ_graph_eg_3_2]]
+
+The authors claim that there do exist non-regular exponential families in
+Brown's monograph:
+
+- Brown, L. D. (1986). Fundamentals of statistical exponential families with
+  applications in statistical decision theory. : Institute of Mathematical
+  Statistics.
+
+cf. Example 3.4 on Page 72 of the above monograph.
+
+** Comments on (3.7)
+   :PROPERTIES:
+   :NOTER_PAGE: 40
+   :END:
+
+We will see shortly that $A$ is a convex function of $\theta$, which in turn
+implies that $\Omega$ must be a convex set.
+
+** 3.3 Examples of Graphical Models in Exponential Form
+   :PROPERTIES:
+   :NOTER_PAGE: 41
+   :END:
+
+** Example 3.1 (Ising Model)
+   :PROPERTIES:
+   :NOTER_PAGE: 41
+   :END:
+
+** Comments on Table 3.1
+   :PROPERTIES:
+   :NOTER_PAGE: 42
+   :END:
+
+In Table 3.1, the exponential families have a factor function $h(x)$, i.e. the
+definition (3.5) should be $p_{\theta} = h(x) \mathrm{exp}\{\ \theta \cdot
+\phi(x) - A(\theta)\}$.
+
+** Example 3.2 (Metric Labeling and Potts Model)
+   :PROPERTIES:
+   :NOTER_PAGE: 43
+   :CUSTOM_ID: WJ_graph_eg_3_2
+   :END:
+
+The authors provide a overcomplete example. And, the sufficient statistics in
+this example are referred to as the standard overcomplete representation.
+
+** Example 3.3 (Gaussian MRF)
+   :PROPERTIES:
+   :NOTER_PAGE: 44
+   :END:
+
+** Frobenius Inner Product
+   :PROPERTIES:
+   :NOTER_PAGE: 45
+   :END:
+
+Given two (complex) $n \times m$ matrices $A$ and $B$, the [[https://en.wikipedia.org/wiki/Frobenius_inner_product][Frobenius inner
+product]] of $A$ and $B$ is defined as $\mathrm{Tr}(A^{\dagger}B)$, where
+$\dagger$ denotes the Hermitian conjugate.
+
+** Example 3.6
+   :PROPERTIES:
+   :NOTER_PAGE: 49
+   :END:
+
+Interesting.
+
+** Comments on (3.21)
+   :PROPERTIES:
+   :NOTER_PAGE: 50
+   :END:
+
+See the explanations in Example 5 of
+
+- Kschischang, F., Frey, B., & Loeliger, H. (2001). Factor graphs and the
+  sum-product algorithm. IEEE Transactions on Information Theory, 47(2),
+  498–519. http://dx.doi.org/10.1109/18.910572
+
+The key point is to assume that the a priori distribution for the transmitted
+vectors is uniform over codewords, so we have $p(x) = \chi_C(x) / |C|$, where
+$\chi_C(x)$ is the characteristic function for $C$.
+
+** Figure 2.9
+   :PROPERTIES:
+   :NOTER_PAGE: 50
+   :END:
+
+#+ATTR_ORG: :width 600
+[[file:images/WJ_graph_fig_2_9.png]]
+
+** 3.4 Mean Parameterization and Inference Problems
+   :PROPERTIES:
+   :NOTER_PAGE: 51
+   :END:
+
+** 3.4.1 Mean Parameter Spaces and Marginal Polytopes
+   :PROPERTIES:
+   :NOTER_PAGE: 52
+   :END:
+
+** Example 3.7 (Gaussian MRF Mean Parameters)
+   :PROPERTIES:
+   :NOTER_PAGE: 53
+   :END:
+
+For the one-dim case, the parameter space $\Omega$ can be viewed as the upper
+(or lower) half space, but the set $\mathcal{M}$ is depicted in Fig. 3.4.
+
+** Properties of $\mathcal{M}$
+   :PROPERTIES:
+   :NOTER_PAGE: 54
+   :END:
+
+- $\mathcal{M}$ is always convex.
+- cf. Appendix B.3
+
+** Example 3.8 (Ising Mean Parameters)
+   :PROPERTIES:
+   :NOTER_PAGE: 55
+   :END:
+
+** Example 3.9 (Codeword Polytopes and Binary Matroids)
+   :PROPERTIES:
+   :NOTER_PAGE: 57
+   :END:
+
+#+ATTR_ORG: :width 600
+[[file:images/WJ_graph_fig_3_7.png]]
+
+** Facet Complexity
+   :PROPERTIES:
+   :NOTER_PAGE: 60
+   :END:
+
+It is natural to ask how the number of constraints required grows as a function
+of the graph size. Interestingly, we will see later that this so-called facet
+complexity depends critically on the graph structure. For trees, any marginal
+polytope is characterized by local constraints -- involving only pairs of random
+variables on edges -- with the total number growing only linearly in the graph
+size. In sharp contrast, for general graphs with cycles, the constraints are
+very nonlocal and the growth in their number is astonishingly fast.
+
+** 3.4.2 Role of Mean Parameters in Inference Problems
+   :PROPERTIES:
+   :NOTER_PAGE: 60
+   :END:
+
+The computation of *forward mapping*, from the canonical parameters $\theta \in
+\Omega$ to the mean parameters $\mu \in \mathcal{M}$, can be viewed as a
+fundamental class of inference problems in exponential family models.
+
+The *backward mapping*, namely from mean parameters $\mu \in \mathcal{M}$ to
+canonical parameters $\theta \in \Omega$, also has a natural statistical
+interpretation. Actually, this is equivalent to find the maximum likelyhood
+estimate $\hat{\theta}$.
+
+** 3.5 Properties of $A$
+   :PROPERTIES:
+   :NOTER_PAGE: 61
+   :END:
+
+Under suitable conditions, the function $A$ and its conjugate dual $A^*$ -- or
+more precisely, their derivatives -- turn out to define a one-to-one and
+surjective mapping between the canonical and mean parameters.
+
+*** 3.5.1 Derivatives and Convexity
+    :PROPERTIES:
+    :NOTER_PAGE: 61
+    :END:
+
+*** Comments on the Differentiability of $A$
+    :PROPERTIES:
+    :NOTER_PAGE: 62
+    :END:
+
+ cf. Theorem 2.2 on Page 34 of
+
+ - Brown, L. D. (1986). Fundamentals of statistical exponential families with
+   applications in statistical decision theory. : Institute of Mathematical
+   Statistics.
+
+*** 3.5.2 Forward Mapping to Mean Parameters
+    :PROPERTIES:
+    :NOTER_PAGE: 63
+    :END:
+
+ The gradient mapping $\nabla A \colon \Omega \to \mathcal{M}$ is one-to-one if
+ and only if the exponential representation is minimal.
+
+ Under the forward mapping defined by the gradient of $A$, we say that a pair
+ $(\theta, \mu)$ is dually coupled if $\mu = \nabla A (\theta)$.
+
+ The image of the gradient mapping is simply the interior $\mathcal{M}^{\circ}$
+ if the exponential representation is minimal.
+
+*** Theorem 3.3
+    :PROPERTIES:
+    :NOTER_PAGE: 65
+    :END:
+
+** 3.6 Conjugate Duality: Maximum Likelihood and Maximum Entropy
+   :PROPERTIES:
+   :NOTER_PAGE: 66
+   :END:
+
+*** 3.6.1 General Form of Conjugate Dual
+    :PROPERTIES:
+    :NOTER_PAGE: 66
+    :END:
+
+*** 3.6.2 Some Simple Examples
+    :PROPERTIES:
+    :NOTER_PAGE: 69
+    :END:
+
+*** Example 3.10 (Conjugate Duality for Bernoulli)
+    :PROPERTIES:
+    :NOTER_PAGE: 69
+    :END:
+
+*** Example 3.11 (Conjugate Duality for Exponential)
+    :PROPERTIES:
+    :NOTER_PAGE: 72
+    :END:
+
+** 3.7 Computational Challenges with High-Dimentional Models
+   :PROPERTIES:
+   :NOTER_PAGE: 73
+   :END:
+
+** 4.1 Sum-Product and Bethe Approximation
+   :PROPERTIES:
+   :NOTER_PAGE: 76
+   :END:
+
+** 4.2 Kikuchi and Hypertree-based Methods
+   :PROPERTIES:
+   :NOTER_PAGE: 98
+   :END:
+
+** 4.3 Expectation-Propagation Algorithms
+   :PROPERTIES:
+   :NOTER_PAGE: 109
+   :END:
+
+** 5.1 Tractable Families
+   :PROPERTIES:
+   :NOTER_PAGE: 127
+   :END:
+
+** 5.2 Optimization and Lower Bounds
+   :PROPERTIES:
+   :NOTER_PAGE: 129
+   :END:
+
+** 5.3 Naive Mean Field Algorithms
+   :PROPERTIES:
+   :NOTER_PAGE: 134
+   :END:
+
+** 5.4 Nonconvexity of Mean Field
+   :PROPERTIES:
+   :NOTER_PAGE: 138
+   :END:
+
+** 5.5 Structured Mean Field
+   :PROPERTIES:
+   :NOTER_PAGE: 142
+   :END:
+
+** 6.1 Estimation in Fully Observed Models
+   :PROPERTIES:
+   :NOTER_PAGE: 148
+   :END:
+
+** 6.2 Partially Observed Models and Expectation-Maximization
+   :PROPERTIES:
+   :NOTER_PAGE: 153
+   :END:
+
+** 6.3 Variational Bayes
+   :PROPERTIES:
+   :NOTER_PAGE: 159
+   :END:
+
+** 7.1 Generic Convex Combinations and Convex Surrogates
+   :PROPERTIES:
+   :NOTER_PAGE: 167
+   :END:
+
+** 7.2 Variational Methods from Convex Relaxations
+   :PROPERTIES:
+   :NOTER_PAGE: 170
+   :END:
+
+** 7.3 Other Convex Variational Methods
+   :PROPERTIES:
+   :NOTER_PAGE: 182
+   :END:
+
+** 7.4 Algorithmic Stability
+   :PROPERTIES:
+   :NOTER_PAGE: 186
+   :END:
+
+** 7.5 Convex Surrogates in Parameter Estimation
+   :PROPERTIES:
+   :NOTER_PAGE: 189
+   :END:
+
+** 8.1 Variational Formulation of Computing Modes
+   :PROPERTIES:
+   :NOTER_PAGE: 195
+   :END:
+
+** 8.2 Max-product and Linear Programming on Trees
+   :PROPERTIES:
+   :NOTER_PAGE: 198
+   :END:
+
+** 8.3 Max-product for Gaussians and Other Convex Problems
+   :PROPERTIES:
+   :NOTER_PAGE: 202
+   :END:
+
+** 8.4 First-order LP Relaxation and Reweighted Max-product
+   :PROPERTIES:
+   :NOTER_PAGE: 204
+   :END:
+
+** 8.5 Higher-order LP Relaxations
+   :PROPERTIES:
+   :NOTER_PAGE: 226
+   :END:
+
+** 9.1 Moment Matrices and Their Properties
+   :PROPERTIES:
+   :NOTER_PAGE: 235
+   :END:
+
+** 9.2 Semidefinite Bounds on Marginal Polytopes
+   :PROPERTIES:
+   :NOTER_PAGE: 239
+   :END:
+
+** 9.3 Link to LP Relaxations and Graphical Structure
+   :PROPERTIES:
+   :NOTER_PAGE: 248
+   :END:
+
+** 9.4 Second-order Cone Relaxations
+   :PROPERTIES:
+   :NOTER_PAGE: 252
+   :END:
+
+* Grisetti et al. Tutorial on Graph-Based SLAM
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Gris_graph_slam_10.pdf
+  :NOTER_PAGE: 5
+  :END:
+
+** I. Introduction
+   :PROPERTIES:
+   :NOTER_PAGE: 1
+   :END:
+
+Solving a graph-based SLAM problem involves to construct a graph whose nodes
+represent robot poses or landmarks and in which an edge between two nodes
+encodes a sensor measurement that constrains the connected poses. Obviously,
+such constrains can be contradictory since observations are always affected by
+noise. Once such a graph is constructed, the crucial problem is to find a
+configuration of the nodes that is maximally consistent with the measurements.
+This involves solving a large error minimization problem.
+
+** II. Probabilistic Formulation of SLAM
+   :PROPERTIES:
+   :NOTER_PAGE: 1
+   :END:
+
+** DBN vs FG
+   :PROPERTIES:
+   :NOTER_PAGE: 3
+   :END:
+
+Expressing SLAM as a DBN (dynamic Bayesian network) highlights its *temporal
+structure*. "Graph-based" or "network-based" formulation of the SLAM problem
+highlights the underlying *spatial structure*.
+
+| Formulation of SLAM | Highlights         |
+|---------------------+--------------------|
+| DBN                 | temporal structure |
+| FG                  | spatial structure  |
+
+** Two tasks
+   :PROPERTIES:
+   :NOTER_PAGE: 3
+   :END:
+
+Two tasks in graph-based SLAM:
+
+1. Graph construction: constructing the graph from the raw measurements;
+2. Graph optimization: determining the most likely configuration of the poses
+   given the edges of the graph.
+
+| task               | nickname  | sensor                   |
+|--------------------+-----------+--------------------------|
+| graph construction | front-end | heavily sensor dependent |
+| graph optimization | back-end  | sensor agnostic          |
+
+The main focus of this paper is graph optimization, but I'm interested in graph
+construction.
+
+** IV. Graph-based SLAM
+   :PROPERTIES:
+   :NOTER_PAGE: 4
+   :END:
+
+** A. Error Minimization via Iterative Local Linearizations
+   :PROPERTIES:
+   :NOTER_PAGE: 5
+   :END:
+
+** B. Considerations about the Structure of the linearized System
+   :PROPERTIES:
+   :NOTER_PAGE: 6
+   :END:
+
+** C. Least Squares on a Manifold
+   :PROPERTIES:
+   :NOTER_PAGE: 6
+   :END:
+
+* DONE Suenderhauf et al. Robust Graphical Models for GNSS-Based Localization in Urban Environments
+  CLOSED: [2021-11-24 Wed 15:41]
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Suen_factor_12.pdf
+  :NOTER_PAGE: 6
+  :END:
+** II. GNSS-Based Localization Problem
+   :PROPERTIES:
+   :NOTER_PAGE: 1
+   :END:
+
+From a roboticist's perspective, GNSS-based localization is a 3D localization
+problem with range-only observations to distant landmarks.
+
+** IV. Modeling the GNSS-based Localization Problem as a Factor Graph
+   :PROPERTIES:
+   :NOTER_PAGE: 2
+   :END:
+** IV-A. the Vehicle State Vertices
+   :PROPERTIES:
+   :NOTER_PAGE: 2
+   :END:
+
+Possible state variables:
+
+- 3D position $(x, y, z)$
+- clock error $\delta^{clock}$
+- clock error drift $\dot{\delta}^{clock}$
+- vehicle orientation $\theta$
+- velocity $v$
+- acceleration $a$
+- rotation rate $\omega$
+- road curvature $1/r$
+
+** IV-B. the Pseudorange Factor
+   :PROPERTIES:
+   :NOTER_PAGE: 2
+   :END:
+
+** IV-C. the State Transition Factor
+   :PROPERTIES:
+   :NOTER_PAGE: 3
+   :END:
+
+Clock model.
+
+** IV-D. the Motion Model Factor
+   :PROPERTIES:
+   :NOTER_PAGE: 3
+   :END:
+
+The usual dynamical model, under the assumption of Markov properties.
+
+** IV-E. the State Prior Factor
+   :PROPERTIES:
+   :NOTER_PAGE: 3
+   :END:
+
+If only some of the entries in the prior are actually available (e.g. only $v$
+and $\omega$), the entries in the information matrix associated with the
+unavailable entries can simply be set $0$ so that they will not have any
+influence during the optimization.
+
+** IV-F. Solving for the Maximum a Posterior Solution
+   :PROPERTIES:
+   :NOTER_PAGE: 3
+   :END:
+
+This is a smoother, not a filter.
+
+** V. Towards a Problem Formulation Robust to Multipath Errors
+   :PROPERTIES:
+   :NOTER_PAGE: 4
+   :END:
+
+A *switch variable* $s_{tj}$ is associated with each factor that could
+potentially represent an outlier.
+
+** V-A. the Switched Pseudorange Factor
+   :PROPERTIES:
+   :NOTER_PAGE: 4
+   :END:
+
+But, how to determine the switch parameter?
+
+** V-B. the Switch Transition Factor
+   :PROPERTIES:
+   :NOTER_PAGE: 4
+   :END:
+
+Model of switch factor, also Markov.
+
+** VII. Conclutions and Outlook
+   :PROPERTIES:
+   :NOTER_PAGE: 5
+   :END:
+
+A key difference to the SLAM problem however is that GNSS-based localization is
+usually understood as an *online* problem, i.e. it has to be solved while new
+measurements and observations arrive. In SLAM, we are sometimes satisfied with
+an *offline* or *batch* solution, after all the data has been gathered. However,
+since efficient methods for incremental optimization-based smoothing are
+available, we can solve the GNSS-based localization problem online if it is
+required and still keep the factor graph representation to apply the robust
+approach that we proposed.
+
+** Final Remark
+   :PROPERTIES:
+   :NOTER_PAGE: 6
+   :END:
+
+Not interesting.
+
+* Grewal et al. GNSS, INS and Integration, 3rd edition
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Grewal_GNSS_INS_3rd.pdf
+  :NOTER_PAGE: 324
+  :END:
+** 7.4 Multipath Problem
+   :PROPERTIES:
+   :NOTER_PAGE: 306
+   :END:
+
+Errors due to multipath cannot be reduced by the use of differential GNSS.
+
+** 7.4.1 How Multipath Causes Ranging Errors
+   :PROPERTIES:
+   :NOTER_PAGE: 306
+   :END:
+
+For the in-phase secondary path, the resulting correlation peak is delayed; for
+the out-phase secondary path, the resulting correlation peak is advanced.
+
+| Phase of secondary path | Resulting Correlation |
+|-------------------------+-----------------------|
+| In-phase                | delayed               |
+| Out-phase               | advanced              |
+
+Also see Fig. 7.2
+
+[[file:images/Grewal_GNSS_INS_3rd_fig_7_2.png][Effects of multipath on C/A code cross-correlation function]]
+
+** 7.5 Methods of Multipath Mitigation
+   :PROPERTIES:
+   :NOTER_PAGE: 308
+   :END:
+
+Processing against *slowly changing* multipath can be broadly separated into two
+classes:
+
+1. spatial processing
+2. time-domain processing
+
+** 7.5.1 Spatial Processing Techniques
+   :PROPERTIES:
+   :NOTER_PAGE: 309
+   :END:
+
+** 7.5.1.1 Antenna Location Strategy
+   :PROPERTIES:
+   :NOTER_PAGE: 309
+   :END:
+
+** 7.5.1.2 Ground Plane Antennas
+   :PROPERTIES:
+   :NOTER_PAGE: 309
+   :END:
+
+** 7.5.1.3 Directive Antenna Arrays
+   :PROPERTIES:
+   :NOTER_PAGE: 309
+   :END:
+
+** 7.5.1.4 Long-Term Signal Observation
+   :PROPERTIES:
+   :NOTER_PAGE: 309
+   :END:
+
+** 7.5.2 Time-Domain Processing
+   :PROPERTIES:
+   :NOTER_PAGE: 311
+   :END:
+
+** 7.5.2.1 Narrow-Correlator Technology (1990-1993)
+   :PROPERTIES:
+   :NOTER_PAGE: 311
+   :END:
+
+A 2-MHz precorrelation bandwidth causes the peak of the direct-path
+cross-correlation function to be severely rounded. Consequently, the sloping
+sides of a secondary-path component of the correlation function can
+significantly shift the location of the peak. Using 8-MHz bandwidth, where it
+can be noted that the sharper peak of the direct-path cross-correlation function
+is less easily shifted by the secondary-path component. It can also be shown
+that at larger bandwidths, the sharper peak is more resistant to disturbance by
+receiver thermal noise, even though the precorrelation signal-to-noise ratio is
+increased.
+
+Another advantage of a larger precorrelation bandwidth is that the spacing
+between the early and late reference codes in a code tracking loop can be made
+smaller without significantly reducing the gain of the loop, hence the term
+narrow correlator. It can be shown that this causes the noises on the early and
+late correlator outputs to become more highly correlated, resulting in less
+noise on the loop error signal. An additional benefit is that the code tracking
+loop will be affected only by the multipath-induced distortions near the peak of
+the correlation function.
+
+** 7.5.2.2 Leading-Edge Techniques
+   :PROPERTIES:
+   :NOTER_PAGE: 312
+   :END:
+
+Not useful.
+
+** 7.5.2.3 Correlation Function Shape-Based Methods
+   :PROPERTIES:
+   :NOTER_PAGE: 313
+   :END:
+
+The idea has merit, but for best results, many correlations with different
+values of reference code delay are required to obtain a sampled version of the
+function shape. Another practical difficulty arises in attempting to map each
+measured shape into a corresponding direct-path delay estimate. Even in the
+simple two-path model there are six signal parameters, so that a very large
+number of correlation function shapes must be handled.
+
+** 7.5.2.4 Modified Correlator Reference Waveforms
+   :PROPERTIES:
+   :NOTER_PAGE: 313
+   :END:
+
+** 7.5.3 Multipath Mitigation Technology (MMT)
+   :PROPERTIES:
+   :NOTER_PAGE: 314
+   :END:
+
+** 7.5.3.3 Two-Path MLE
+   :PROPERTIES:
+   :NOTER_PAGE: 315
+   :END:
+
+** 7.5.3.4 Asymptotic Properties of MLE
+   :PROPERTIES:
+   :NOTER_PAGE: 316
+   :END:
+
+** 7.5.3.5 MMT Algorithm
+   :PROPERTIES:
+   :NOTER_PAGE: 316
+   :END:
+
+** 7.5.3.6 MMT Baseband Signal Model
+   :PROPERTIES:
+   :NOTER_PAGE: 316
+   :END:
+
+** 7.5.3.7 Baseband Signal Vectors
+   :PROPERTIES:
+   :NOTER_PAGE: 317
+   :END:
+
+** 7.5.3.8 Log-Likelihood Function
+   :PROPERTIES:
+   :NOTER_PAGE: 317
+   :END:
+
+** 7.5.3.9 Secondary-Path Amplitude Constraint
+   :PROPERTIES:
+   :NOTER_PAGE: 319
+   :END:
+
+** 7.5.3.10 Signal Compression
+   :PROPERTIES:
+   :NOTER_PAGE: 319
+   :END:
+
+* Nowicki_factor_15
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Nowicki_factor_15.pdf
+  :NOTER_PAGE: 7
+  :END:
+
+* DONE Xue et al. Indoor RSSI Radio Map Reconstruction
+  CLOSED: [2021-11-25 Thu 10:31]
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Xue_low_18.pdf
+  :NOTER_PAGE: 1
+  :END:
+** Remarks
+   :PROPERTIES:
+   :NOTER_PAGE: 1
+   :END:
+
+文章希望用更少的点去还原整个 RSSI，算法是 compressive sensing, low rank matrix.
+但是看结果，需要的点并不少。
+
+* BDS
+
+| 信号 |     频点 | 卫星         | 调制方式                   |   带宽 | 码速率 |  码长 | 码类型 | 电文类型 |
+|------+----------+--------------+----------------------------+--------+--------+-------+--------+----------|
+| B1I  | 1561.098 | GEO/MEO/IGSO | BPSK                       |  4.092 |  2.046 |  2046 | Gold   | D1/D2    |
+| B1C  |  1575.42 | MEO/IGSO     | BOC(1,1) + QMBOC(6,1,4/33) | 32.736 |  1.023 | 10230 | Weil   | B-CNAV1  |
+| B3I  | 1268.520 | GEO/MEO/IGSO | BPSK                       |  20.46 |  10.23 | 10230 | Gold   | D1/D2    |
+| B2a  |  1176.45 | MEO/IGSO     | BPSK(10) + BPSK(10)        |  20.46 |  10.23 | 10230 | Gold   | B-CNAV2  |
+| B2b  |  1207.14 | MEO/IGSO     | BPSK(10)                   |  20.46 |  10.23 | 10230 | Gold   | B-CNAV3  |
+
+* TODO 史树中. 凸性
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/史树中_凸性_1991.pdf
+  :NOTER_PAGE: 136
+  :END:
+** 第一章 凸集
+   :PROPERTIES:
+   :NOTER_PAGE: 5
+   :END:
+
+** 凹凸两字的起源
+   :PROPERTIES:
+   :NOTER_PAGE: 5
+   :END:
+
+该书作者请教了古文字学家林沄教授。他的回答摘要如下：
+
+关于“凹凸”两字实在不属于我们古文字学的范围。在先秦古文字中至今没有见到过。…… 东
+汉许慎编的《说文解字》中也没有这两个字。出现这两个字最早的著作现在查到的是晋代葛
+洪（281?－341）著《抱朴子》。…… 可以推论，凹凸这两个字是魏晋时代新造的象形字，用
+抽象的几何图形概括洼下和突起这两个概念。中国文字的发展一般规律是原始象形字、会意
+字被形声字取代，凹凸两字却相反。这是很有趣的。
+
+** 定义一
+   :PROPERTIES:
+   :NOTER_PAGE: 7
+   :END:
+
+用边界上的点是否全部为凸点来定义凸性。
+
+** 有界的凹图形是不存在的
+   :PROPERTIES:
+   :NOTER_PAGE: 9
+   :END:
+
+…… 由此也可以说明这本小册子为什么象其它一些类似主题的书一样，题目中只带“凸”字，
+而不带“凹”字。虽然“凹”似乎是“凸”的反义词，其实“凹性”对于有界的图形（它自然比无界
+的图形有用得多）来说不可能象“凸性”那样成为一种整体的几何性质。
+
+** 定义二
+   :PROPERTIES:
+   :NOTER_PAGE: 12
+   :END:
+
+用集合内任意连接两点的线段是否还在该集合内来判断凸性。
+
+** 定义一和定义二是否等价
+   :PROPERTIES:
+   :NOTER_PAGE: 13
+   :END:
+
+这里涉及一条相当深刻的凸性基本定理，它说明：
+
+边界上每一点的“高于周围”的“局部凸性”与整个边界的“四周鼓出”的“整体凸性”是一致的。
+
+其证明相当不简单。而“凸性”的众多应用也恰好都是由此引起的。
+
+** 数系的扩充
+   :PROPERTIES:
+   :NOTER_PAGE: 15
+   :END:
+
+从 $\mathbb{Q}$ 到 $\mathbb{R}$ 用连续性公理：
+
+单调有界数列有极限。
+
+还可以用其他形式的公理来定义实数。例如列紧性公理：
+
+每个有界数列有收敛子列。
+
+** 代数开集仅是一个代数概念
+   :PROPERTIES:
+   :NOTER_PAGE: 40
+   :END:
+
+用代数开集在 $\mathbb{R}^2$ 上定义的拓扑与 $\mathbb{R}^2$ 上的向量空间结构不协调，
+或者更确切的说是与它的加法运算不协调（即加法运算在此拓扑下不连续）。因此这种，我
+们不把代数开集看作一种新的拓扑概念，而仍看作是代数概念。
+
+** “解析”的含义
+   :PROPERTIES:
+   :NOTER_PAGE: 44
+   :END:
+
+按照上世纪德国数学家 Weierstrass (1815 - 1897) 的说法，“解析”是指四则运算，但是
+允许运算无限多次。因此，可用“无限次多项式（幂级数）”表示的函数就被称为“解析函数”。
+目前通常的理解实际上还是沿用 Weierstrass 的理解，但“无限运算”则被明确为是极限运
+算。
+
+不过，需要指出的是：“解析几何”中的“解析”两字据说是被用错了的，因为解析几何中原则
+上不用极限运算。Bourbaki 学派的发起人之一 Dieudonné (1906 - 1994) 不止一次愤愤地
+说，目前人们所说的“解析几何”不过是线性代数的一部份，“真正的解析几何”应该是指涉及
+解析函数的几何学，即所谓“复几何”之类。
+
+** 第二章 凸函数
+   :PROPERTIES:
+   :NOTER_PAGE: 69
+   :END:
+
+** 等价定义
+   :PROPERTIES:
+   :NOTER_PAGE: 69
+   :END:
+
+函数 $f$ 为凸函数等价于说 $epi(f)$ 是闭集。
+
+** 下半连续函数
+   :PROPERTIES:
+   :NOTER_PAGE: 73
+   :END:
+
+函数 $f$ 称为下半连续函数，是指其 $epi(f)$ 为闭集。
+
+** 定义 4 $f$-平均
+   :PROPERTIES:
+   :NOTER_PAGE: 78
+   :END:
+
+** 凸函数在某点达到整体极小值的充要条件
+   :PROPERTIES:
+   :NOTER_PAGE: 84
+   :END:
+
+设 $f$ 为区间 $(a, b)$ 上的凸函数，那么 $f$ 在 $x_0 \in (a, b)$ 上达到最小值的充
+要条件为 $0 \in [f^{\prime}_{-}(x_0), f^{\prime}_{+}(x_0)]$ 。
+
+其中 $f^{\prime}_{-}(x_0)$ 为左导数，$f^{\prime}_{+}(x_0)$ 为右导数。
+
+** 定义 6 次微分
+   :PROPERTIES:
+   :NOTER_PAGE: 85
+   :END:
+
+函数 $f$ 为区间 $(a, b)$ 上的凸函数，其次微分定义为 $\partial f(x) =
+[f^{\prime}_{-}(x), f^{\prime}_{+}(x)]$ 。次微分不一定是一个单值函数，而是每个
+$x$ 对应 $\mathbb{R}$ 的一个集合。这种类型的对应称为集值映射。$f$ 的可导点就对应
+次微分退化为单点集的点。一般则有次微分是 $f$ 的 $epi(f)$ 在点 $(x, f(x))$ 处的承
+托直线的斜率全体。这里承托直线代替了可导情形的切线。
+
+** 定理 3
+   :PROPERTIES:
+   :NOTER_PAGE: 86
+   :END:
+
+定理 3 在数学界似乎并不为人们所熟知。但是用 $y^{\prime \prime} / y^{\prime}$ 来
+作为对一个函数的平均值的某种度量在数理经济学界却是经典的。这件事所谓的
+Arrow-Pratt 风险厌恶度量。
+
+虽然 Arrow-Pratt 风险厌恶度量已为数理经济学家所熟知，有趣的是他们似乎不太知道我
+们这里的定理 3 ，而常常去寻求复杂得多的经济学解释。
+
+** Comments on (29)
+   :PROPERTIES:
+   :NOTER_PAGE: 91
+   :END:
+
+式 (29) 的下标应为 $x \in \mathbb{R}$ 。
+
+** Young 不等式
+   :PROPERTIES:
+   :NOTER_PAGE: 92
+   :END:
+
+** 定理 4 共轭函数与次微分的关系
+   :PROPERTIES:
+   :NOTER_PAGE: 95
+   :END:
+
+设 $f$ 是不恒为 $+\infty$ 的任意函数。那么下列两个命题等价：
+
+1. $p \in \partial f (x)$
+2. $f(x) + f^{*}(p) = p x$
+
+根据定理 4 ，可以证明下述推论：
+
+若函数 $f$ 在点 $x_0$ 处次可微，那么 $f(x_0) = f^{**}(x_0)$ 。
+
+** 定理 5 (Moreau-Fenchel)
+   :PROPERTIES:
+   :NOTER_PAGE: 98
+   :END:
+
+设 $f$ 为任意函数。那么 $f$ 是下半连续真凸函数的充要条件为 $f = f^{**}$ 。
+
+这条定理特别是说明下半连续的真凸函数与仿射函数的上包络是一回事，因为 $f^{**}$ 是
+仿射函数的上包络。其实定理的要点也正在于此。共轭函数概念在这里只起着一种便于表达
+的作用。
+
+定理 5 的证明显得有些冗长。但其证明的思路还是很简单的：因为下半连续真凸函数的上
+图是闭凸集，所以它一定是一些闭半平面的交集。这些闭半平面有的是仿射函数的上图，有
+的并不是，那些就是边界直线垂直的半平面。因此，定理的证明归结为指出除去那些垂直的
+半平面后，余下的闭半平面仍能围成函数的上图，这是证明的难点。
+
+** 定理 6 (Moreau-Rockafellar)
+   :PROPERTIES:
+   :NOTER_PAGE: 101
+   :END:
+
+设 $f, g$ 为 $\mathbb{R}$ 上的真凸函数。如果
+
+$0 \in int(dom(f) - dom(g))$,
+
+那么，对任意的 $x \in \mathbb{R}$,
+
+$\partial(f + g) (x) = \partial f(x) + \partial g(x)$
+
+** 结语
+   :PROPERTIES:
+   :NOTER_PAGE: 133
+   :END:
+
+我们这本题为《凸性》的小册子从“凹凸”这两个汉字讲起，一直在罗里罗嗦地东拉西扯。这
+可能是作者已不太年轻的缘故。人在年轻时，爱故作高深来藏拙；人到中年，明明是在把自
+己的浅薄暴露无遗，也总要喋喋不休地表白自己的一孔之见。
+
+* TODO Rosen et al. SE-sync
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/RCB_slam_18.pdf
+  :NOTER_PAGE: 5
+  :END:
+** 1. Introduction
+   :PROPERTIES:
+   :NOTER_PAGE: 1
+   :END:
+
+This paper presents one such method, /SE-sync/, for solving the fundamental
+perceptual problem of /pose estimation/. Formally, we address the problem of
+/synchronization over the special Euclidean group/:
+
+estimate the values of a set of unknown group elements $x_1, \ldots, x_n \in
+\mathrm{SE}(d)$ given noisy measurements of a subset of their pairwise relative
+transforms $x_i^{-1} x_j$.
+
+** 2. Related work
+   :PROPERTIES:
+   :NOTER_PAGE: 2
+   :END:
+
+Given the fundamental computational hardness of non-convex optimization, prior
+work on special Euclidean synchronization has predominantly focused on the
+development of /approximate/ algorithms that can efficiently compute
+high-quality estimates in practice. These approximate algorithms can be broadly
+categorized into two classes.
+
+The *first* class consists of algorithms that are based upon the (heuristic)
+application of fast /local/ search techniques to identify promising estimates.
+
+A *second* class of algorithms employs /convex relaxation/: in this approach,
+one modifies the original estimation problem so as to obtain a /convex
+approximation/ that can be (/globally/) solved efficiently.
+
+** 3. Problem formulation
+   :PROPERTIES:
+   :NOTER_PAGE: 4
+   :END:
+
+*** 3.1 Notations and math preliminaries
+    :PROPERTIES:
+    :NOTER_PAGE: 4
+    :END:
+
+*** Gradient and Hessian on manifold vs Euclidean spaces
+    :PROPERTIES:
+    :NOTER_PAGE: 4
+    :END:
+
+When considering an extrinsic realization $\mathcal{M} \subset \mathbb{R}^d$ of
+a manifold $\mathcal{M}$ as an embedded submanifold of a Euclidean space and a
+function $f \colon \mathbb{R}^d \to \mathbb{R}$, it will occasionally be
+important for us to distinguish the notions of $f$ considered as a function on
+$\mathbb{R}^d$ and $f$ considered as a function on the submanifold
+$\mathcal{M}$; in these cases, to avoid confusion we will always reserve $\nabla
+f$ and $\nabla^2 f$ for the gradient and Hessian of $f$ with respect to the
+usual metric on $\mathbb{R}^d$, and write $\mathrm{grad}f$ and $\mathrm{Hess}f$
+to refer to the Riemannian gradient and Hessian of $f$ considered as a function
+on $\mathcal{M}$ (equipped with the metric inherited from its embedding).
+
+*** Special Euclidean Group
+    :PROPERTIES:
+    :NOTER_PAGE: 4
+    :END:
+
+The special Euclidean group is identified with the semidirect product
+$\mathbb{R}^d \rtimes \mathrm{SO}(d)$ with group operations:
+
+$(t_1, R_1) \cdot (t_2, R_2) = (t_1 + R_1 t_2, R_1 R_2)$,
+
+$(t, R)^{-1} = (-R^{-1} t, R^{-1})$.
+
+Elements like $(t, R)$ in special Euclidean group can be also identified as a
+matrix:
+
+$$\begin{bmatrix} R & t \\ 0 & 1 \end{bmatrix}$$
+
+Note that $\mathbb{R}^d$ is a normal subgroup of the special Euclidean group.
+
+*** Stiefel manifold
+    :PROPERTIES:
+    :NOTER_PAGE: 4
+    :END:
+
+The set of orthonormal $k$-frames in $\mathbb{R}^n$ ($k \leq n$):
+
+$$\mathrm{St}(k, n) = \{ Y \in \mathbb{R}^{n \times k} : Y^{\mathrm{T}} Y = I_k \}$$
+
+is also a smooth compact matrix manifold, called the /Stiefel manifold/, and we
+equip $\mathrm{St}(k, n)$ with the Riemannian metric induced by its embedding
+into $\mathbb{R}^{n \times k}$.
+
+*** Graph theory
+    :PROPERTIES:
+    :NOTER_PAGE: 4
+    :END:
+
+For a /undirected graph/ $G = (\mathcal{V}, \mathcal{E})$, we write $\delta(v)$
+for the set of edges incident to a vertex $v$.
+
+For a /directed graph/ $\vec{G} = (\mathcal{V}, \vec{\mathcal{E}})$, we again
+let $\delta(v)$ denotes the set of directed edges incident to $v$, and
+$\delta^{-}(v)$ and $\delta^{+}(v)$ denote the sets of edges leaving and
+entering vertex $v$.
+
+| notations       | meaning                       |
+|-----------------+-------------------------------|
+| $\delta^{-}(v)$ | the set of edges leaving $v$  |
+| $\delta^{+}(v)$ | the set of edges entering $v$ |
+
+Given an undirected graph $G = (\mathcal{V}, \mathcal{E})$, we can construct a
+directed graph $\vec{G} = (\mathcal{V}, \vec{\mathcal{E}})$ from it by
+arbitrarily ordering the elements of each pair $\{i, j\} \in \mathcal{E}$; the
+graph $\vec{G}$ so obtained is called an /orientation/ of $G$.
+
+We can associate to a directed graph $\vec{G} = (\mathcal{V},
+\vec{\mathcal{E}})$ with $n = |\mathcal{V}|$ and $m = |\mathcal{E}|$ the
+incidence matrix $A(\vec{G}) \in \mathbb{R}^{n \times m}$ whose rows and columns
+are indexed by $i \in \mathcal{V}$ and $e \in \mathcal{\vec{E}}$, respectively,
+and whose elements are determined by
+
+\begin{equation}
+  A(\vec{G})_{ie} = \left\{ 
+  \begin{aligned}
+    1 &, & e \in \delta^{+}(i) \\ -1 &, & e \in \delta^{-}(i) \\ 0 &, & \text{otherwise}
+  \end{aligned}
+  \right.
+\end{equation}
+
+Similarly, we can associate to an undirected graph $G$ an /oriented incidence
+matrix/ $A(G)$ obtained as the incidence matrix of any of its orientations
+$\vec{G}$. We obtain a /reduced (oriented) incidence matrix/ $\underline{A}(G)$
+by removing the final row from the (oriented) incidence matrix $A(G)$.
+
+Finally, we can associate to a weighted undirected graph $G = (\mathcal{V},
+\mathcal{E}, w)$ with $n = |\mathcal{V}|$ the /Laplacian matrix/ $L(G) \in
+\mathrm{Sym}(n)$ whose rows and columns are indexed by $i \in \mathcal{V}$, and
+whose elements are determined by:
+
+\begin{equation}
+  L(G)_{ij} = \left\{ 
+  \begin{aligned}
+    \sum_{e \in \delta(i)} w(e) &, & i = j \\
+    -w(e) &, & i \neq j \text{ and } e = \{i, j\} \in \mathcal{E} \\
+    0 &, & \text{otherwise}
+  \end{aligned}
+  \right.
+\end{equation}
+
+A straightforward computation shows that the Laplacian of a weighted graph $G$
+and the incidence matrix of one of its orientations $\vec{G}$ are related by
+
+\begin{equation}
+  L(G) = A(\vec{G}) W A(\vec{G})^{\mathrm{T}},
+\end{equation}
+
+where $W = \mathrm{Diag}(w(e_1), \ldots, w(e_m))$ is the diagonal matrix
+containing the weights of the edges of $G$.
+
+*** TODO Isotropic Langevin distribution
+    :PROPERTIES:
+    :NOTER_PAGE: 5
+    :END:
+
+cf. Appendix A at the end of this paper.
+
+*** 3.2 The special Euclidean synchronization problem
+    :PROPERTIES:
+    :NOTER_PAGE: 5
+    :END:
+
+** 4. Forming the semidefinite relaxation
+   :PROPERTIES:
+   :NOTER_PAGE: 6
+   :END:
+
+*** 4.1 Simplifying the MLE
+    :PROPERTIES:
+    :NOTER_PAGE: 6
+    :END:
+
+*** 4.2 Relaxing the MLE
+    :PROPERTIES:
+    :NOTER_PAGE: 7
+    :END:
+
+** 5. The SE-Sync algorithm
+   :PROPERTIES:
+   :NOTER_PAGE: 8
+   :END:
+
+*** 5.1 Solving the semidefinite relaxation
+    :PROPERTIES:
+    :NOTER_PAGE: 8
+    :END:
+
+*** 5.2 Rounding the solution
+    :PROPERTIES:
+    :NOTER_PAGE: 11
+    :END:
+
+*** 5.3 The complete algorithm
+    :PROPERTIES:
+    :NOTER_PAGE: 11
+    :END:
+
+* TODO Brown. Statistical Exponential Families
+  :PROPERTIES:
+  :NOTER_DOCUMENT: ../../Sync/sci-tech/Brown_exp_1986.pdf
+  :NOTER_PAGE: 13
+  :END:
+** Chapter 1. Basic Properties
+   :PROPERTIES:
+   :NOTER_PAGE: 13
+   :END:
+*** Standard exponential families
+    :PROPERTIES:
+    :NOTER_PAGE: 13
+    :END:
+
+** Chapter 2. Analytic Properties
+   :PROPERTIES:
+   :NOTER_PAGE: 44
+   :END:
+** Chapter 3. Parametrizations
+   :PROPERTIES:
+   :NOTER_PAGE: 82
+   :END:
+** Chapter 4. Applications
+   :PROPERTIES:
+   :NOTER_PAGE: 102
+   :END:
+** Chapter 5. Maximum Likelihood Estimation
+   :PROPERTIES:
+   :NOTER_PAGE: 156
+   :END:
+** Chapter 6. the Dual of the Maximum Likelihood Estimator
+   :PROPERTIES:
+   :NOTER_PAGE: 186
+   :END:
+** Chapter 7. Tail Probabilities
+   :PROPERTIES:
+   :NOTER_PAGE: 220
+   :END:
