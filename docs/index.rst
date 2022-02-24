@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   秦晖_西方的双重标准和普京的一重标准_2022.rst
    Eckermann_歌德谈话录_1978.rst
    秦晖_走出帝制_2015.rst
    Turvey_犯罪心理画像_2005.rst
