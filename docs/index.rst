@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   叶永烈_四人帮_2014.rst
    Holt_柏林病人_2021.rst
    邹金灿_唐宋诗会意_2016.rst
    Stern_我的五个德国_2020.rst
