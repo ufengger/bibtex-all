@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   建国以来毛泽东文稿_vol12.rst
    魏舒歌_战场之外_2020.rst
    叶永烈_四人帮_2014.rst
    Holt_柏林病人_2021.rst
