@@ -16,7 +16,7 @@
 
 .. toctree::
    :maxdepth: 2
-   :includehidden:
+   :hidden:
    :caption: 目录
 
    Plokhy_Chernobyl_2020.rst
@@ -29,7 +29,7 @@
    Holt_柏林病人_2021.rst
    邹金灿_唐宋诗会意_2016.rst
    Stern_我的五个德国_2020.rst
-   秦晖_乌克兰评论系列.rst
+   秦晖_乌克兰评论.rst
    Eckermann_歌德谈话录_1978.rst
    秦晖_走出帝制_2015.rst
    Turvey_犯罪心理画像_2005.rst
