@@ -16,7 +16,7 @@
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
+   :includehidden:
    :caption: 目录
 
    Plokhy_Chernobyl_2020.rst
