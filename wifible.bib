@@ -2750,3 +2750,44 @@
   month =        6,
 }
 
+@article{YPK_wifi_21,
+  author =       {Yu, Seung Min and Park, Jihong and Ko, Seung-Woo},
+  title =        {Integrating Geometry-Driven and Data-Driven Positioning Via
+                  Combinatorial Data Augmentation},
+  journal =      {CoRR},
+  year =         2021,
+  url =          {http://arxiv.org/abs/2105.07475v2},
+  abstract =     {Due to the emergence of various wireless sensing technologies,
+                  numerous positioning algorithms have been introduced in the
+                  literature, categorized into \emph{geometry-driven
+                  positioning} (GP) and \emph{data-driven positioning} (DP).
+                  These approaches have complementary limitations, e.g., a
+                  non-line-of-sight issue for GP and the lack of a real-time
+                  training dataset for DP, calling for combining the two for
+                  practical use. To this end, this paper aims at introducing a
+                  new principle, called \emph{combinatorial data augmentation}
+                  (CDA), a catalyst for the two approaches' tight integration.
+                  Specifically, GP-based datasets augmented from different
+                  combinations of positioning entities can be used as DP's
+                  inputs and labels. We confirm the CDA's effectiveness from
+                  field experiments based on WiFi \emph{round-trip times} (RTTs)
+                  and \emph{inertial measurement units} (IMUs) by designing
+                  several CDA-driven positioning algorithms. First, we show that
+                  CDA enables us to quantify the given position estimates'
+                  uncertainties. Then, we can filter out unreliable ones for
+                  WiFi RTT positioning and compute the covariance matrix of a
+                  Kalman filter to integrate two position estimates derived by
+                  WiFi RTT and IMUs. The mean and standard deviations of the
+                  resultant positioning error are $1.65$ (m) and $1.01$ (m),
+                  respectively. Next, we use the above position estimate to its
+                  real-time label for \emph{fingerprint-based positioning}
+                  (FBP), shown to provide an acceptable positioning accuracy,
+                  say the average positioning error of $1.51$ (m) with a
+                  standard deviation of $0.88$ (m). Lastly, we discuss the
+                  proposed CDA's potential from positioning and beyond
+                  positioning perspectives.},
+  archivePrefix ={arXiv},
+  eprint =       {2105.07475},
+  primaryClass = {cs.IT},
+}
+
