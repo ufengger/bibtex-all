@@ -2944,3 +2944,84 @@
   primaryClass = {cs.NI},
 }
 
+@article{RY_liquid_21,
+  author =       {Ren, Yili and Yang, Jie},
+  title =        {Liquid Sensing Using Wifi Signals},
+  journal =      {CoRR},
+  year =         2021,
+  url =          {http://arxiv.org/abs/2106.10356v1},
+  abstract =     {The popularity of Internet-of-Things (IoT) has provided us
+                  with unprecedented opportunities to enable a variety of
+                  emerging services in a smart home environment. Among those
+                  services, sensing the liquid level in a container is critical
+                  to building many smart home and mobile healthcare applications
+                  that improve the quality of life. This paper presents
+                  LiquidSense, a liquid-level sensing system that is low-cost,
+                  high accuracy, widely applicable to different daily liquids
+                  and containers, and can be easily integrated with existing
+                  smart home networks. LiquidSense uses an existing home WiFi
+                  network and a low-cost transducer that attached to the
+                  container to sense the resonance of the container for liquid
+                  level detection. In particular, our system mounts a low-cost
+                  transducer on the surface of the container and emits a
+                  well-designed chirp signal to make the container resonant,
+                  which introduces subtle changes to the home WiFi signals. By
+                  analyzing the subtle phase changes of the WiFi signals,
+                  LiquidSense extracts the resonance frequency as a feature for
+                  liquid level detection. Our system constructs prediction
+                  models for both continuous and discrete predictions using
+                  curve fitting and SVM respectively. We evaluate LiquidSense in
+                  home environments with containers of three different materials
+                  and six types of liquids. Results show that LiquidSense
+                  achieves an overall accuracy of 97 \% for continuous
+                  prediction and an overall F-score of 0.968 for discrete
+                  prediction. Results also show that our system has a large
+                  coverage in a home environment and works well under
+                  non-line-of-sight (NLOS) scenarios.},
+  archivePrefix ={arXiv},
+  eprint =       {2106.10356},
+  primaryClass = {eess.SP},
+}
+
+@article{RZ_wicluster_21,
+  author =       {Karmanov, Ilia and Zanjani, Farhad G. and Merlin, Simone and
+                  Kadampot, Ishaque and Dijkman, Daniel},
+  title =        {Wicluster: Passive Indoor 2d/3d Positioning Using Wifi Without
+                  Precise Labels},
+  journal =      {CoRR},
+  year =         2021,
+  url =          {http://arxiv.org/abs/2107.01002v2},
+  abstract =     {We introduce WiCluster, a new machine learning (ML) approach
+                  for passive indoor positioning using radio frequency (RF)
+                  channel state information (CSI). WiCluster can predict both a
+                  zone-level position and a precise 2D or 3D position, without
+                  using any precise position labels during training. Prior
+                  CSI-based indoor positioning work has relied on non-parametric
+                  approaches using digital signal-processing (DSP) and, more
+                  recently, parametric approaches (e.g., fully supervised ML
+                  methods). However these do not handle the complexity of
+                  real-world environments well and do not meet requirements for
+                  large-scale commercial deployments: the accuracy of DSP-based
+                  method deteriorates significantly in non-line-of-sight
+                  conditions, while supervised ML methods need large amounts of
+                  hard-to-acquire centimeter accuracy position labels. In
+                  contrast, WiCluster is precise, requires weaker
+                  label-information that can be easily collected, and works well
+                  in non-line-of-sight conditions. Our first contribution is a
+                  novel dimensionality reduction method for charting. It
+                  combines a triplet-loss with a multi-scale clustering-loss to
+                  map the high-dimensional CSI representation to a 2D/3D latent
+                  space. Our second contribution is two weakly supervised losses
+                  that map this latent space into a Cartesian map, resulting in
+                  meter-accuracy position results. These losses only require
+                  simple to acquire priors: a sketch of the floorplan,
+                  approximate access-point locations and a few CSI packets that
+                  are labelled with the corresponding zone in the floorplan.
+                  Thirdly, we report results and a robustness study for 2D
+                  positioning in two single-floor office buildings and 3D
+                  positioning in a two-story home.},
+  archivePrefix ={arXiv},
+  eprint =       {2107.01002},
+  primaryClass = {cs.NI},
+}
+
