@@ -5628,3 +5628,42 @@
   eprint =       {2005.00954},
   primaryClass = {eess.SP},
 }
+
+@article{NDC_gp_23,
+  author =       {Niu, Mu and Dai, Zhenwen and Cheung, Pokman and Wang, Yizhu},
+  title =        {Intrinsic Gaussian Process on Unknown Manifolds With
+                  Probabilistic Metrics},
+  journal =      {CoRR},
+  year =         2023,
+  url =          {http://arxiv.org/abs/2301.06533v1},
+  abstract =     {This article presents a novel approach to construct Intrinsic
+                  Gaussian Processes for regression on unknown manifolds with
+                  probabilistic metrics (GPUM) in point clouds. In many real
+                  world applications, one often encounters high dimensional data
+                  (e.g. point cloud data) centred around some lower dimensional
+                  unknown manifolds. The geometry of manifold is in general
+                  different from the usual Euclidean geometry. Naively applying
+                  traditional smoothing methods such as Euclidean Gaussian
+                  Processes (GPs) to manifold valued data and so ignoring the
+                  geometry of the space can potentially lead to highly
+                  misleading predictions and inferences. A manifold embedded in
+                  a high dimensional Euclidean space can be well described by a
+                  probabilistic mapping function and the corresponding latent
+                  space. We investigate the geometrical structure of the unknown
+                  manifolds using the Bayesian Gaussian Processes latent
+                  variable models(BGPLVM) and Riemannian geometry. The
+                  distribution of the metric tensor is learned using BGPLVM. The
+                  boundary of the resulting manifold is defined based on the
+                  uncertainty quantification of the mapping. We use the the
+                  probabilistic metric tensor to simulate Brownian Motion paths
+                  on the unknown manifold. The heat kernel is estimated as the
+                  transition density of Brownian Motion and used as the
+                  covariance functions of GPUM. The applications of GPUM are
+                  illustrated in the simulation studies on the Swiss roll, high
+                  dimensional real datasets of WiFi signals and image data
+                  examples. Its performance is compared with the Graph Laplacian
+                  GP, Graph Matern GP and Euclidean GP.},
+  archivePrefix ={arXiv},
+  eprint =       {2301.06533},
+  primaryClass = {stat.ML},
+}
