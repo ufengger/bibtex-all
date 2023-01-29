@@ -6054,3 +6054,41 @@
   publisher    = {IEEE}
 }
 
+@article{HBZ_dasecount_22,
+  author =       {Hou, Huawei and Bi, Suzhi and Zheng, Lili and Lin, Xiaohui and
+                  Wu, Yuan and Quan, Zhi},
+  title =        {Dasecount: Domain-Agnostic Sample-Efficient Wireless Indoor
+                  Crowd Counting Via Few-Shot Learning},
+  journal =      {CoRR},
+  year =         2022,
+  url =          {http://arxiv.org/abs/2211.10040v1},
+  abstract =     {Accurate indoor crowd counting (ICC) is a key enabler to many
+                  smart home/office applications. In this paper, we propose a
+                  Domain-Agnostic and Sample-Efficient wireless indoor crowd
+                  Counting (DASECount) framework that suffices to attain robust
+                  cross-domain detection accuracy given very limited data
+                  samples in new domains. DASECount leverages the wisdom of
+                  few-shot learning (FSL) paradigm consisting of two major
+                  stages: source domain meta training and target domain meta
+                  testing. Specifically, in the meta-training stage, we design
+                  and train two separate convolutional neural network (CNN)
+                  modules on the source domain dataset to fully capture the
+                  implicit amplitude and phase features of CSI measurements
+                  related to human activities. A subsequent knowledge
+                  distillation procedure is designed to iteratively update the
+                  CNN parameters for better generalization performance. In the
+                  meta-testing stage, we use the partial CNN modules to extract
+                  low-dimension features out of the high-dimension input target
+                  domain CSI data. With the obtained low-dimension CSI features,
+                  we can even use very few shots of target domain data samples
+                  (e.g., 5-shot samples) to train a lightweight logistic
+                  regression (LR) classifier, and attain very high cross-domain
+                  ICC accuracy. Experiment results show that the proposed
+                  DASECount method achieves over 92.68\%, and on average 96.37\%
+                  detection accuracy in a 0-8 people counting task under various
+                  domain setups, which significantly outperforms the other
+                  representative benchmark methods considered.},
+  archivePrefix ={arXiv},
+  eprint =       {2211.10040},
+  primaryClass = {eess.SP},
+}
