@@ -6584,3 +6584,47 @@
   eprint =       {2206.09867},
   primaryClass = {eess.SP},
 }
+
+@article{TLV_mdpose_22,
+  author =       {Tang, Chong and Li, Wenda and Vishwakarma, Shelly and Shi,
+                  Fangzhan and Julier, Simon and Chetty, Kevin},
+  title =        {Mdpose: Human Skeletal Motion Reconstruction Using Wifi
+                  Micro-Doppler Signatures},
+  journal =      {CoRR},
+  year =         2022,
+  url =          {http://arxiv.org/abs/2201.04212v1},
+  abstract =     {Motion tracking systems based on optical sensors typically
+                  often suffer from issues, such as poor lighting conditions,
+                  occlusion, limited coverage, and may raise privacy concerns.
+                  More recently, radio frequency (RF)-based approaches using
+                  commercial WiFi devices have emerged which offer low-cost
+                  ubiquitous sensing whilst preserving privacy. However, the
+                  output of an RF sensing system, such as Range-Doppler
+                  spectrograms, cannot represent human motion intuitively and
+                  usually requires further processing. In this study, MDPose, a
+                  novel framework for human skeletal motion reconstruction based
+                  on WiFi micro-Doppler signatures, is proposed. It provides an
+                  effective solution to track human activities by reconstructing
+                  a skeleton model with 17 key points, which can assist with the
+                  interpretation of conventional RF sensing outputs in a more
+                  understandable way. Specifically, MDPose has various
+                  incremental stages to gradually address a series of
+                  challenges: First, a denoising algorithm is implemented to
+                  remove any unwanted noise that may affect the feature
+                  extraction and enhance weak Doppler signatures. Secondly, the
+                  convolutional neural network (CNN)-recurrent neural network
+                  (RNN) architecture is applied to learn temporal-spatial
+                  dependency from clean micro-Doppler signatures and restore key
+                  points' velocity information. Finally, a pose optimising
+                  mechanism is employed to estimate the initial state of the
+                  skeleton and to limit the increase of error. We have conducted
+                  comprehensive tests in a variety of environments using
+                  numerous subjects with a single receiver radar system to
+                  demonstrate the performance of MDPose, and report 29.4mm mean
+                  absolute error over all key points positions, which
+                  outperforms state-of-the-art RF-based pose estimation
+                  systems.},
+  archivePrefix ={arXiv},
+  eprint =       {2201.04212},
+  primaryClass = {cs.CV},
+}
