@@ -6442,3 +6442,46 @@
   url =          {http://dx.doi.org/10.1145/3569489},
 }
 
+@article{MRY_row_22,
+  author =       {Mandal, Udayan and Regan, Amelia and Yarkony, Julian},
+  title =        {Local Area Subset Row Inequalities for Efficient Exact Vehicle
+                  Routing},
+  journal =      {CoRR},
+  year =         2022,
+  url =          {http://arxiv.org/abs/2209.12963v1},
+  abstract =     {In this research we consider an approach for improving the
+                  efficiency and tightness of column generation (CG) methods for
+                  solving vehicle routing problems. This work builds upon recent
+                  work on Local Area (LA) routes. LA routes rely on
+                  pre-computing (prior to any call to pricing during CG) the
+                  lowest cost elementary sub-route (called an LA arc) for each
+                  tuple consisting of the following: (1) a customer to begin the
+                  LA arc, (2) a customer to end the LA arc, which is far from
+                  the first customer, (3) a small set of intermediate customers
+                  nearby the first customer. LA routes are constructed by
+                  concatenating LA arcs where the final customer in a given LA
+                  arc is the first customer in the subsequent LA arc. A
+                  Decremental State Space Relaxation (DSSR) method is used to
+                  construct the lowest reduced cost elementary route during the
+                  pricing step of CG. We demonstrate that LA route based solvers
+                  can be used to efficiently tighten the standard set cover
+                  vehicle routing relaxation using a variant of subset row
+                  inequalities (SRI). However, SRI are difficult to use in
+                  practice as they alter the structure of the pricing problem in
+                  a manner that makes pricing difficult. SRI in their simplest
+                  form state that the number of routes servicing two or three
+                  members of a given set of three customers cannot exceed one.
+                  We introduce LA-SRI, which in their simplest form state that
+                  the number of LA arcs (in routes in the solution) including
+                  two or more members of a set of three customers (excluding the
+                  final customer of the arc) cannot exceed one. We exploit the
+                  structure of LA arcs inside a Graph Generation based
+                  formulation to accelerate convergence of CG. We apply our
+                  LA-SRI to CVRP and demonstrate that we tighten the LP
+                  relaxation, often making it equal to the optimal integer
+                  solution, and solve the LP efficiently without altering the
+                  structure of the pricing problem.},
+  archivePrefix ={arXiv},
+  eprint =       {2209.12963},
+  primaryClass = {math.OC},
+}
