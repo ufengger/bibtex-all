@@ -6,11 +6,11 @@ Notes on: 李天飞,  (2020): 号令群神
 .. code-block:: bibtex
 
    @book{李天飞_号令群神_2020,
-     author = {李天飞},
-     title = {号令群神},
-     year = {2020},
+     author    = {李天飞},
+     title     = {号令群神},
+     year      = {2020},
      publisher = {江苏凤凰文艺出版社},
-     url = {https://book.douban.com/subject/35241836/},
+     url       = {https://book.douban.com/subject/35241836/},
    }
 
 封神榜背后的中国民俗
