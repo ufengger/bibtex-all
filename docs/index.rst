@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   李天飞_号令群神_2020.rst
    Plokhy_Chernobyl_2020.rst
    梁羽生_名联观止_2008.rst
    杨奎松_毛泽东与莫斯科的恩恩怨怨_2005.rst
