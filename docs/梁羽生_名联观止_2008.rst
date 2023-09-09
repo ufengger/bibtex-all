@@ -6,11 +6,11 @@ Notes on: 梁羽生,  (2008): 名联观止
 .. code-block:: bibtex
 
    @book{梁羽生_名联观止_2008,
-     author = {梁羽生},
-     title = {名联观止},
-     year = {2008},
+     author    = {梁羽生},
+     title     = {名联观止},
+     year      = {2008},
      publisher = {广西师范大学出版社},
-     url = {https://book.douban.com/subject/3040512/},
+     url       = {https://book.douban.com/subject/3040512/},
    }
 
 一六
