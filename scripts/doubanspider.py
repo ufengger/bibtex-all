@@ -33,6 +33,16 @@ def get_pub(text, bib_dict):
     result = re.search(pattern, text)
     if result != None:
         bib_dict['publisher'] = re.sub('^\s*', '', result.group(1))
+    else:
+        w = text.split()
+        for item in w:
+            if 'href="https://book.douban.com/press/' in item:
+                break
+        try:
+            bib_dict['publisher'] = item.split('>')[1].split('<')[0]
+        except:
+            bib_dict['publisher'] = ''
+
 
 def get_translator(text, bib_dict):
     """Get the translators."""
