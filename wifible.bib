@@ -10770,3 +10770,43 @@
   primaryClass = {cs.CL},
 }
 
+@article{NL_urbankgent_24,
+  author =       {Ning, Yansong and Liu, Hao},
+  title =        {Urbankgent: a Unified Large Language Model Agent Framework for
+                  Urban Knowledge Graph Construction},
+  journal =      {CoRR},
+  year =         2024,
+  url =          {http://arxiv.org/abs/2402.06861v1},
+  abstract =     {Urban knowledge graph has recently worked as an emerging
+                  building block to distill critical knowledge from
+                  multi-sourced urban data for diverse urban application
+                  scenarios. Despite its promising benefits, urban knowledge
+                  graph construction (UrbanKGC) still heavily relies on manual
+                  effort, hindering its potential advancement. This paper
+                  presents UrbanKGent, a unified large language model agent
+                  framework, for urban knowledge graph construction.
+                  Specifically, we first construct the knowledgeable instruction
+                  set for UrbanKGC tasks (such as relational triplet extraction
+                  and knowledge graph completion) via heterogeneity-aware and
+                  geospatial-infused instruction generation. Moreover, we
+                  propose a tool-augmented iterative trajectory refinement
+                  module to enhance and refine the trajectories distilled from
+                  GPT-4. Through hybrid instruction fine-tuning with augmented
+                  trajectories on Llama-2-13B, we obtain the UrbanKGC agent,
+                  UrbanKGent-13B. We perform a comprehensive evaluation on two
+                  real-world datasets using both human and GPT-4
+                  self-evaluation. The experimental results demonstrate that
+                  UrbanKGent-13B not only can significantly outperform 21
+                  baselines in UrbanKGC tasks, but also surpass the
+                  state-of-the-art LLM, GPT-4, by more than 10\% with
+                  approximately 20 times lower cost. We deploy UrbanKGent-13B to
+                  provide online services, which can construct an UrbanKG with
+                  thousands of times richer relationships using only one-fifth
+                  of the data compared with the existing benchmark. Our data,
+                  code, and opensource UrbanKGC agent are available at
+                  https://github.com/usail-hkust/UrbanKGent.},
+  archivePrefix ={arXiv},
+  eprint =       {2402.06861},
+  primaryClass = {cs.AI},
+}
+
