@@ -11139,3 +11139,39 @@
   primaryClass = {cs.AI},
 }
 
+@article{BPB_ot_lie_24,
+  author =       {Bon, Daan and Pai, Gautam and Bellaard, Gijs and Mula, Olga
+                  and Duits, Remco},
+  title =        {Optimal Transport on the Lie Group of Roto-Translations},
+  journal =      {CoRR},
+  year =         2024,
+  url =          {http://arxiv.org/abs/2402.15322v2},
+  abstract =     {The roto-translation group SE2 has been of active interest in
+                  image analysis due to methods that lift the image data to
+                  multi-orientation representations defined on this Lie group.
+                  This has led to impactful applications of crossing-preserving
+                  flows for image de-noising, geodesic tracking, and
+                  roto-translation equivariant deep learning. In this paper, we
+                  develop a computational framework for optimal transportation
+                  over Lie groups, with a special focus on SE2. We make several
+                  theoretical contributions (generalizable to matrix Lie groups)
+                  such as the non-optimality of group actions as transport maps,
+                  invariance and equivariance of optimal transport, and the
+                  quality of the entropic-regularized optimal transport plan
+                  using geodesic distance approximations. We develop a Sinkhorn
+                  like algorithm that can be efficiently implemented using fast
+                  and accurate distance approximations of the Lie group and
+                  GPU-friendly group convolutions. We report valuable
+                  advancements in the experiments on 1) image barycentric
+                  interpolation, 2) interpolation of planar orientation fields,
+                  and 3) Wasserstein gradient flows on SE2. We observe that our
+                  framework of lifting images to SE2 and optimal transport with
+                  left-invariant anisotropic metrics leads to equivariant
+                  transport along dominant contours and salient line structures
+                  in the image. This yields sharper and more meaningful
+                  interpolations compared to their counterparts on R^2},
+  archivePrefix ={arXiv},
+  eprint =       {2402.15322},
+  primaryClass = {cs.CV},
+}
+
