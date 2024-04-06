@@ -20,6 +20,7 @@
    :caption: 目录
 
    笠井洁_再见天使_2013.rst
+   Dylan_Philosophy_of_Modern_Song_2022.rst
    吴德口述_十年风雨纪事_2004.rst
    韩金科_法门寺地宫_2023.rst
    邓云乡_北京四合院_2015.rst
