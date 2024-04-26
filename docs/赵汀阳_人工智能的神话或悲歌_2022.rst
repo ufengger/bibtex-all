@@ -1,7 +1,7 @@
 Notes on: 赵汀阳,  (2022): 人工智能的神话或悲歌
 ===============================================
 
-`View on DouBan <>`_
+`View on DouBan <https://book.douban.com/subject/36075893/>`_
 
 .. code-block:: bibtex
 
