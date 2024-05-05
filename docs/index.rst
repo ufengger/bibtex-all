@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   叶永烈_出没风波里_2023.rst
    赵汀阳_人工智能的神话或悲歌_2022.rst
    Dylan_Philosophy_of_Modern_Song_2022.rst
    笠井洁_再见天使_2013.rst
