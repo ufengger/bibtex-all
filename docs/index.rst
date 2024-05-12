@@ -20,6 +20,7 @@
    :caption: 目录
 
    吴官正_闲来笔潭_2013.rst
+   吴冠军_从元宇宙到量子现实_2023.rst
    叶永烈_出没风波里_2023.rst
    赵汀阳_人工智能的神话或悲歌_2022.rst
    Dylan_Philosophy_of_Modern_Song_2022.rst
