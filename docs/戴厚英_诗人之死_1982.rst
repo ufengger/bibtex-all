@@ -1,0 +1,19 @@
+Notes on: 戴厚英,  (1982): 诗人之死
+===================================
+
+`View on DouBan <>`_
+
+.. code-block:: bibtex
+
+   @Book{戴厚英_诗人之死_1982,
+     author    = {戴厚英},
+     title     = {诗人之死},
+     year      = 1982,
+     publisher = {福建人民出版社},
+     url       = {https://book.douban.com/subject/3202412/},
+   }
+
+第六章
+------
+
+两年前，我才十五岁。十五岁有十五岁的局限性，对吧？
