@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   郝在今_中国秘密战_2005.rst
    游国立_中国共产党隐蔽战线研究_2006.rst
    Fowl_concur_22.rst
    启功_启功口述历史_2022.rst
