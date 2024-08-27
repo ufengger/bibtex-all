@@ -19,8 +19,8 @@
    :hidden:
    :caption: 目录
 
-   王志军_1979.rst
    石磊_剑指苍穹_2024.rst
+   王志军_1979.rst
    郝在今_中国秘密战_2005.rst
    游国立_中国共产党隐蔽战线研究_2006.rst
    Fowl_concur_22.rst
