@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Sempe_一个画画的音乐家_2021.rst
    Ahava_这里无事发生_2021.rst
    赖慈芸_翻譯偵探事務所_2017.rst
    侯宝林自传上_1982.rst
