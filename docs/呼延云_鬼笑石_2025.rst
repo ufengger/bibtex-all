@@ -1,0 +1,14 @@
+Notes on: 呼延云. (2025): 鬼笑石
+================================
+
+`View on DouBan <https://book.douban.com/subject/37268610/>`_
+
+.. code-block:: bibtex
+
+   @Book{呼延云_鬼笑石_2025,
+     author =       {呼延云},
+     title =        {鬼笑石},
+     year =         2025,
+     publisher =    {新星出版社},
+     url =          {https://book.douban.com/subject/37268610/},
+   }
