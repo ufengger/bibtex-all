@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Shafarevich_与中学生谈谈代数_2023.rst
    李作鹏回忆录_2011.rst
    邱会作回忆录_2011.rst
    呼延云_鬼笑石_2025.rst
