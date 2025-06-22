@@ -158,3 +158,36 @@ Notes on: 高文谦 (2003): 晚年周恩来
 
 .. figure:: images/gaowq_znl_p18.png
    :align: center
+
+治病要服从大局
+~~~~~~~~~~~~~~
+
+.. _gaowq_znl_p19.png:
+
+.. figure:: images/gaowq_znl_p19.png
+   :align: center
+
+.. _gaowq_znl_p20.png:
+
+.. figure:: images/gaowq_znl_p20.png
+   :align: center
+
+.. _gaowq_znl_p21.png:
+
+.. figure:: images/gaowq_znl_p21.png
+   :align: center
+
+.. _gaowq_znl_p22.png:
+
+.. figure:: images/gaowq_znl_p22.png
+   :align: center
+
+.. _gaowq_znl_p23.png:
+
+.. figure:: images/gaowq_znl_p23.png
+   :align: center
+
+.. _gaowq_znl_p24.png:
+
+.. figure:: images/gaowq_znl_p24.png
+   :align: center
