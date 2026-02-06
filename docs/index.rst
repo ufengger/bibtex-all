@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Brockman_如何思考会思考的机器_2017.rst
    高文谦_晚年周恩来_2003.rst
    Shafarevich_与中学生谈谈代数_2023.rst
    李作鹏回忆录_2011.rst
