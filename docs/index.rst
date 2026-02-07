@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Kertzer_教宗与墨索里尼_2018.rst
    陈垣_史讳举例_2004.rst
    李文璟_漫话6G_2024.rst
    Brockman_如何思考会思考的机器_2017.rst
