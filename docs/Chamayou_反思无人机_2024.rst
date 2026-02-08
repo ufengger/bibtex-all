@@ -12,7 +12,6 @@ Notes on: Chamayou, G. (2024): 反思无人机
      publisher =    {商务印书馆},
      url =          {https://book.douban.com/subject/37068781/},
      note =         {焦静姝译},
-     tags =         {DONE},
    }
 
 Counterinsurgency from the Air
