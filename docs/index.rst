@@ -19,6 +19,7 @@
    :hidden:
    :caption: 目录
 
+   Aronson_认知操纵_2023.rst
    Chamayou_反思无人机_2024.rst
    Kertzer_教宗与墨索里尼_2018.rst
    陈垣_史讳举例_2004.rst
