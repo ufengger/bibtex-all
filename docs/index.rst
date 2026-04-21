@@ -19,6 +19,8 @@
    :hidden:
    :caption: 目录
 
+   Reynolds_作家水手士兵间谍_2018.rst
+   迟子建_额尔古纳河右岸_2019.rst
    北京日报特别报道部_北京三千年_2022.rst
    Aronson_认知操纵_2023.rst
    Chamayou_反思无人机_2024.rst
